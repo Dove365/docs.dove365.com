@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Management Guide — Dove365 CRM — Starter</title>
+  <meta name="description" content="Learn how to manage leads in Dove365 CRM — Starter. Understand the full lead lifecycle from New through Research, Engage, Qualify, and Convert with practical examples.">
+  <meta property="og:title" content="Lead Management Guide — Dove365 CRM — Starter">
+  <meta property="og:description" content="Track prospects from first contact through qualification and conversion. Understand how Dove365 CRM — Starter structures the lead process and how to use it effectively.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.dove365.com/assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css?v=59">
+  <style>.doc-figure{margin:2rem auto 0;max-width:1050px}.doc-figure img{display:block;width:100%;height:auto;border:1px solid rgba(9,31,55,.12);border-radius:12px;box-shadow:0 16px 36px rgba(9,31,55,.1)}</style>
+  <link rel="icon" type="image/png" href="../../../assets/images/logo/Logo.png">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="mouse-aura" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="https://www.dove365.com/index.html" aria-label="Dove365 home">
+    <img class="nav-logo-mark" src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true">
+    <span class="nav-logo-text">Dove365</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="https://www.dove365.com/index.html">Home</a></li>
+    <li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li>
+    <li class="has-dropdown">
+      <a href="https://www.dove365.com/services.html">Services</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Services</div>
+        <a href="https://www.dove365.com/business-solutions.html">Business Solutions</a>
+        <a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a>
+        <a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a>
+        <a href="https://www.dove365.com/managed-support.html">Managed Services</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Products</div>
+        <a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="../../../docs.html">Resources</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Resources</div>
+        <a href="../../../docs.html">Documentation Library</a>
+        <a href="https://www.dove365.com/case-studies.html">Case Studies</a>
+        <a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a>
+      </div>
+    </li>
+    <li><a href="https://www.dove365.com/about.html">About</a></li>
+    <li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-offset">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../crm-docs.html">Documentation</a>
+        <span>/</span>
+        Lead Management
+      </div>
+      <h1>Lead Management <em>Guide</em></h1>
+      <p>Track prospects from first contact through qualification and conversion. Understand how Dove365 CRM — Starter structures the lead process and how to use it effectively.</p>
+    </div>
+  </div>
+
+  <!-- What is a Lead -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">What is a Lead?</div>
+      <h2 class="display">Capturing early-stage <em>prospects</em></h2>
+      <p class="lead">A lead represents an unqualified prospect or enquiry — a new contact from a referral, a website enquiry, or someone your team met at an event. Leads are separate from accounts, contacts, and opportunities until they are qualified and converted.</p>
+      <figure class="doc-figure"><img src="../images/Dove365%20CRM%20Screenshots/Dove365%20CRM%20Leads%20View.png" alt="Dove365 CRM leads view" loading="lazy" decoding="async"></figure>
+      <div class="layout-2col">
+        <div class="service-features">
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Structured from first contact</h4><p>Leads capture the full details of a prospect before any relationship has been formally established — name, contact info, source, and initial notes.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Separate from your core data</h4><p>Leads live in their own area of CRM until they are ready to become a contact, account, or opportunity. This keeps your core customer database clean and uncluttered.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Temperature tracking</h4><p>Leads can be marked as Hot, Warm, Cold, or Dead, helping your team prioritise follow-up and focus effort where engagement is strongest.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Full activity history</h4><p>Every call, email, task, and note is logged on the lead timeline, giving your team a complete picture of the engagement before making any conversion decision.</p></div>
+          </div>
+        </div>
+        <div class="case-note">
+          <strong style="display:block;margin-bottom:0.5rem;color:var(--navy);font-size:0.92rem;">When to create a lead</strong>
+          Leads are the right starting point for any prospect that isn&rsquo;t yet ready to become a contact or opportunity. If someone has expressed interest but you haven&rsquo;t had a qualifying conversation, start with a lead. Convert once you have the information to create a meaningful CRM record.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Lifecycle -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">The Lead Lifecycle</div>
+      <h2 class="display">Five stages from <em>enquiry to conversion</em></h2>
+      <p class="lead">Every lead in Dove365 CRM — Starter moves through a guided process that ensures consistent handling across your team. The business process flow prompts each step and records what was done.</p>
+      <div class="process-steps process-steps-5">
+        <div class="process-line"></div>
+        <div class="process-step">
+          <div class="step-bubble">1</div>
+          <h3>New</h3>
+          <p>Create the lead record with name, contact details, source, and initial notes. This is the starting point for every new prospect or enquiry.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">2</div>
+          <h3>Research</h3>
+          <p>Check whether the prospect already exists as an account or contact in CRM. If they do, link the lead to the existing records to avoid duplication.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">3</div>
+          <h3>Engage</h3>
+          <p>Log calls, emails, and meetings on the timeline. Set the temperature to reflect how the conversation is progressing. Add notes for important context.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">4</div>
+          <h3>Qualify</h3>
+          <p>When there is enough evidence that the prospect is a genuine opportunity, mark the lead as qualified and record your rationale for the conversion decision.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">5</div>
+          <h3>Convert</h3>
+          <p>Create or link the account and contact. Optionally create an opportunity directly from the lead. All history is preserved and connected to the new records.</p>
+        </div>
+      </div>
+      <figure class="doc-figure"><img src="../images/Dove365%20CRM%20Screenshots/Dove365%20CRM%20Leads%20Form.png" alt="Dove365 CRM lead form" loading="lazy" decoding="async"></figure>
+      <div class="case-note" style="margin-top:2.5rem;">Leads that should not progress are closed rather than converted. Use the close process and record a close reason. This keeps your pipeline accurate and generates useful insight into why prospects don&rsquo;t move forward.</div>
+    </div>
+  </section>
+
+  <!-- Practical Examples -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Practical Examples</div>
+      <h2 class="display">Lead management <em>in practice</em></h2>
+      <p class="lead">How Dove365 CRM — Starter helps real sales teams manage leads consistently — regardless of how the prospect first made contact.</p>
+      <div class="case-point-list" style="margin-top:2.5rem;">
+        <div class="case-point">
+          <strong>Inbound website enquiry</strong>
+          <span>A prospect submits a contact form. Create a lead, note the source as Website, and log the initial conversation as a phone call or email activity. Set temperature to Warm. Schedule a follow-up task for the next working day.</span>
+        </div>
+        <div class="case-point">
+          <strong>Referral from a colleague or client</strong>
+          <span>A colleague refers a new contact. Create a lead and note the referral source. Use the Research stage to check whether they already exist as a contact. If yes, link the records. If no, engage fresh and build the relationship from scratch.</span>
+        </div>
+        <div class="case-point">
+          <strong>Event or networking contact</strong>
+          <span>You meet someone at a conference or industry event. Create a lead while the conversation is fresh — don&rsquo;t wait until you&rsquo;re back at your desk. Log a note with context from the meeting. Set a follow-up task for the next working day.</span>
+        </div>
+        <div class="case-point">
+          <strong>Unqualified or unsuitable enquiry</strong>
+          <span>A prospect enquires but is not a fit for your services. Progress through the lead process as normal and close the lead using the close process, recording a close reason such as &lsquo;Not a fit&rsquo; or &lsquo;Budget insufficient&rsquo;. This keeps reporting clean and accurate.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Practices -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Best Practices</div>
+      <h2 class="display">Getting the most from <em>lead management</em></h2>
+      <div class="service-features" style="margin-top:2.5rem;">
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Create leads early</h4><p>Add a lead record as soon as a new prospect is identified, even if you only have a name and an email address. A partial record is better than a lost prospect.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Always check for duplicates</h4><p>Use the Research stage to check for existing accounts and contacts before creating new ones. Duplicate data is one of the biggest causes of CRM quality problems over time.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Keep the timeline current</h4><p>Log calls and emails as activities on the lead timeline. Your colleagues will rely on this history if they need to cover your leads, and it prevents repeated conversations with the same prospect.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Use temperature to prioritise</h4><p>Hot leads should be at the front of your follow-up queue. Review Cold leads regularly — either re-engage or close them to keep your lead list focused and manageable.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Convert with intention</h4><p>Only convert a lead when you have enough information to create a meaningful account and contact record. A lead converted too early creates noise in your core customer data.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Close leads that don&rsquo;t progress</h4><p>Don&rsquo;t leave inactive leads sitting in your pipeline indefinitely. Close them with a clear reason. This improves reporting accuracy and reveals useful patterns about why prospects don&rsquo;t progress.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Guides -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Related Guides</div>
+      <h2 class="display">Continue <em>learning</em></h2>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>Opportunity Management</h3>
+          <p>Once a lead is converted, manage the resulting opportunity through your sales pipeline from qualification to close.</p>
+          <div style="margin-top:1.5rem;"><a href="opportunity-management.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>Activity Tracking</h3>
+          <p>Log calls, emails, and tasks against leads and other records. Understand how the timeline builds your customer engagement history.</p>
+          <div style="margin-top:1.5rem;"><a href="activity-tracking.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>CRM Overview</h3>
+          <p>Understand the full Dove365 CRM — Starter system — modules, workflow, and how everything connects together.</p>
+          <div style="margin-top:1.5rem;"><a href="crm-overview.html" class="btn btn-outline">Read Overview &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section-sm">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="display display-light">Ready to see Dove365 CRM — Starter <em>in action?</em></h2>
+        <p>Book a free demo and see how Dove365 CRM — Starter can work for your business inside Microsoft 365.</p>
+        <div class="cta-actions">
+          <a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Demo &rarr;</a>
+          <a href="https://www.dove365.com/contact.html" class="btn btn-ghost-light">Contact Dove365</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-top footer-5col">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Microsoft Partner</small></span></div>
+        <p>Microsoft-focused consultancy specialising in and delivering practical Power Platform, Dynamics 365, Dataverse, and AI Enablement.</p>
+        <div class="ms-partner-badge"><img src="../../../assets/images/icons/Microsoft Partner Logo.png" width="300" height="70" loading="lazy" decoding="async" alt="Microsoft Partner"></div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a></li>
+          <li><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a></li>
+          <li><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a></li>
+          <li><a href="https://www.dove365.com/managed-support.html">Managed Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li>
+          <li><a href="../../../docs.html">Product Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/case-studies.html">Case Studies</a></li>
+          <li><a href="https://www.dove365.com/about.html">About</a></li>
+          <li><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></li>
+          <li><a href="https://www.dove365.com/contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441618841812">+44 (0)161 884 1812</a></li>
+          <li><a href="mailto:hello@dove365.com">hello@dove365.com</a></li>
+          <li><a href="https://www.dove365.com">dove365.com</a></li>
+          <li><a href="https://www.linkedin.com/company/dove365/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dove365 Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>
+        <a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a>
+        <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script defer src="../../../assets/js/main.js?v=46"></script>
+<script defer src="../../../assets/js/lab.js?v=1"></script>
+<script defer src="screenshot-lightbox.js"></script>
+</body>
+</html>

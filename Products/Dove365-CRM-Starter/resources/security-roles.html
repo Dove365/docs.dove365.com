@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Roles Guide — Dove365 CRM — Starter</title>
+  <meta name="description" content="Understand the Dove365 CRM User and Dove365 CRM Admin security roles in Dove365 CRM — Starter. Learn what each role allows and how to assign roles to users and teams.">
+  <meta property="og:title" content="Security Roles Guide — Dove365 CRM — Starter">
+  <meta property="og:description" content="Understand what each CRM security role allows — and how role-based access control keeps your CRM data secure and appropriately visible.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.dove365.com/assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css?v=59">
+  <style>.doc-figure{margin:2rem 0 0}.doc-figure img{display:block;width:100%;height:auto;border:1px solid rgba(9,31,55,.12);border-radius:12px;box-shadow:0 16px 36px rgba(9,31,55,.1)}</style>
+  <link rel="icon" type="image/png" href="../../../assets/images/logo/Logo.png">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="mouse-aura" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="https://www.dove365.com/index.html" aria-label="Dove365 home">
+    <img class="nav-logo-mark" src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true">
+    <span class="nav-logo-text">Dove365</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="https://www.dove365.com/index.html">Home</a></li>
+    <li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li>
+    <li class="has-dropdown">
+      <a href="https://www.dove365.com/services.html">Services</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Services</div>
+        <a href="https://www.dove365.com/business-solutions.html">Business Solutions</a>
+        <a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a>
+        <a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a>
+        <a href="https://www.dove365.com/managed-support.html">Managed Services</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Products</div>
+        <a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="../../../docs.html">Resources</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Resources</div>
+        <a href="../../../docs.html">Documentation Library</a>
+        <a href="https://www.dove365.com/case-studies.html">Case Studies</a>
+        <a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a>
+      </div>
+    </li>
+    <li><a href="https://www.dove365.com/about.html">About</a></li>
+    <li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-offset">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../crm-docs.html">Documentation</a>
+        <span>/</span>
+        Security Roles
+      </div>
+      <h1>Security Roles <em>Guide</em></h1>
+      <p>Understand what each security role in Dove365 CRM — Starter allows users to do — and how roles are assigned to control access across your team.</p>
+    </div>
+  </div>
+
+  <!-- How Roles Work -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">How Security Roles Work</div>
+      <h2 class="display">Role-based access <em>control in CRM</em></h2>
+      <p class="lead">Security roles control what users can see and do inside Dove365 CRM — Starter. Every user must have at least one role assigned before they can access the system. Roles are additive — if a user has multiple roles, they have the combined permissions of all assigned roles.</p>
+      <figure class="doc-figure"><img src="../images/Dove365%20Admin%20Screenshots/Dove365%20Admin%20Team%20Form.png" alt="Dove365 Admin team form with Security Role Manager" loading="lazy" decoding="async"></figure>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">01</div>
+          <h3>Access at the right level</h3>
+          <p>Security roles control access to individual modules, forms, views, and actions within CRM. Users only see and interact with the parts of CRM that are relevant to their role and responsibilities.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">02</div>
+          <h3>Flexible role assignment</h3>
+          <p>Roles can be assigned directly to individual users, or to teams. Users in a team inherit the team&rsquo;s roles in addition to any roles assigned directly to them. Both apply simultaneously.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">03</div>
+          <h3>Purpose-built access roles</h3>
+          <p>Dove365 CRM User supports day-to-day work, Dove365 CRM Admin supports CRM data administration, Dove365 Global Admin unlocks the Admin app, and Dynamics 365 App for Outlook User enables the Outlook add-in where configured.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRM User Role -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Dove365 CRM User Role</div>
+      <h2 class="display">The standard CRM <em>user role</em></h2>
+      <p class="lead">The Dove365 CRM User role is the standard role for anyone using Dove365 CRM — Starter day to day — sales teams, account managers, support staff, and any user who works with CRM data without administrative responsibilities.</p>
+      <div class="service-features" style="margin-top:2.5rem;">
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Manage accounts and contacts</h4><p>Create, view, update, and search accounts and contacts. CRM Users maintain the core customer database and keep records current as relationships evolve.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Work the pipeline</h4><p>Create and manage leads and opportunities through the full sales process — logging activity, updating stages, and closing deals as Won or Lost.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Handle cases</h4><p>Create support cases, log investigation notes, manage escalations, and record resolutions. Full visibility of the cases relevant to their own work.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Log activities</h4><p>Create and complete emails, phone calls, tasks, appointments, and notes against any CRM record they have access to. Build the communication history that makes CRM valuable.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Access dashboards and views</h4><p>View dashboards showing pipeline, cases, and activity. Work with standard views across all CRM modules to find and manage records efficiently.</p></div>
+        </div>
+      </div>
+      <div class="case-note" style="margin-top:2.5rem;">CRM User is the right role for the majority of your team. It provides everything needed to do real work in CRM without the ability to make configuration or administrative changes that could affect other users.</div>
+    </div>
+  </section>
+
+  <!-- CRM Admin Role -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Dove365 CRM Admin Role</div>
+      <h2 class="display">CRM data <em>administration</em></h2>
+      <p class="lead">The Dove365 CRM Admin role is for those responsible for managing the CRM data and catalogue. It extends the Dove365 CRM User role with the ability to delete records and maintain the service offering catalogue — actions that standard users cannot perform.</p>
+      <div class="service-features" style="margin-top:2.5rem;">
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Delete CRM records</h4><p>Permanently delete accounts, contacts, leads, opportunities, and cases. Standard users can deactivate records but cannot delete them. Use this permission carefully — deletions are not reversible.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Manage the service catalogue</h4><p>Create, update, and deactivate service offerings. Maintain the shared catalogue that users attach to opportunities and cases when categorising pipeline and support activity.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>All Dove365 CRM User access</h4><p>Inherits the full Dove365 CRM User permission set — all standard CRM data entry, pipeline management, case handling, and activity logging capabilities are included.</p></div>
+        </div>
+      </div>
+      <div class="case-note" style="margin-top:2.5rem;">Dove365 CRM Admin is a data management role — not a system administration role. User management, team configuration, and environment settings are handled by the Dove365 Global Admin role in the Dove365 Admin app.</div>
+    </div>
+  </section>
+
+  <!-- Global Admin Role -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Dove365 Global Admin Role</div>
+      <h2 class="display">System and user <em>administration</em></h2>
+      <p class="lead">The Dove365 Global Admin role is assigned in the Dove365 Admin app and is responsible for user management, teams, data configuration, and environment administration. This role exists in the Common solution and applies across all Dove365 apps in the environment.</p>
+      <div class="service-features" style="margin-top:2.5rem;">
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>User management</h4><p>Add new users, assign and remove security roles, and deactivate leavers. Manage user profiles including business unit, manager, and position settings across the team.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Teams management</h4><p>Create and configure teams, assign roles to teams, and manage team memberships. Use teams to manage access at scale — roles applied to a team apply to all members automatically.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Mailbox configuration</h4><p>Approve and test user mailboxes for server-side synchronisation. Manage mailbox settings and resolve email tracking issues for individual users across the organisation.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Data configuration</h4><p>Manage environment-level data settings, views, and configuration options in the Dove365 Admin app. Includes managing SharePoint document location settings for CRM record integration.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Outlook add-in deployment</h4><p>Assign the Dynamics 365 for Outlook role to users and manage add-in deployment so users can access the CRM panel directly from their Outlook inbox.</p></div>
+        </div>
+      </div>
+      <div class="case-note" style="margin-top:2.5rem;">The Dove365 Global Admin role is managed through the <strong>Dove365 Admin app</strong> in your Power Platform environment — not through the Dove365 CRM — Starter app. Assign this role only to those responsible for environment and user administration.</div>
+    </div>
+  </section>
+
+  <!-- Assigning Roles -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Assigning Roles</div>
+      <h2 class="display">How roles are <em>assigned</em></h2>
+      <p class="lead">Roles are assigned through the Dove365 Admin app using a straightforward interface. CRM administrators can see all available Dove365 roles and assign or remove them without needing technical system administration expertise.</p>
+      <div class="case-point-list" style="margin-top:2.5rem;">
+        <div class="case-point">
+          <strong>Assigning roles to individual users</strong>
+          <span>Open the user&rsquo;s record in the Dove365 Admin app. The role assignment area displays available Dove365 roles as checkboxes. Check the appropriate role and it is applied immediately — no form save is required.</span>
+        </div>
+        <div class="case-point">
+          <strong>Assigning roles to teams</strong>
+          <span>Open the team record in the Dove365 Admin app. The same role assignment interface is available on the team form. Roles assigned to a team apply to all current and future members of that team automatically.</span>
+        </div>
+        <div class="case-point">
+          <strong>Reviewing current access</strong>
+          <span>Use the User Management area in the Dove365 Admin app to see all active users and their current role configuration. This makes it straightforward to audit who has which level of access across the whole team.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Guides -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Related Guides</div>
+      <h2 class="display">Continue <em>learning</em></h2>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>User Management</h3>
+          <p>Understand how to provision users, create teams, and keep access current as your team changes over time.</p>
+          <div style="margin-top:1.5rem;"><a href="user-management.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>Environment Setup</h3>
+          <p>Understand the prerequisites for deploying Dove365 CRM — Starter, including the licence and environment requirements for users.</p>
+          <div style="margin-top:1.5rem;"><a href="environment-setup.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>FAQ</h3>
+          <p>Common questions about Dove365 CRM — Starter — including licensing, customisation, and how Dove365 handles deployment.</p>
+          <div style="margin-top:1.5rem;"><a href="faq.html" class="btn btn-outline">Read FAQ &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section-sm">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="display display-light">Ready to see Dove365 CRM — Starter <em>in action?</em></h2>
+        <p>Book a free demo and see how Dove365 CRM — Starter can work for your business inside Microsoft 365.</p>
+        <div class="cta-actions">
+          <a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Demo &rarr;</a>
+          <a href="https://www.dove365.com/contact.html" class="btn btn-ghost-light">Contact Dove365</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-top footer-5col">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Microsoft Partner</small></span></div>
+        <p>Microsoft-focused consultancy specialising in and delivering practical Power Platform, Dynamics 365, Dataverse, and AI Enablement.</p>
+        <div class="ms-partner-badge"><img src="../../../assets/images/icons/Microsoft Partner Logo.png" width="300" height="70" loading="lazy" decoding="async" alt="Microsoft Partner"></div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a></li>
+          <li><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a></li>
+          <li><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a></li>
+          <li><a href="https://www.dove365.com/managed-support.html">Managed Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li>
+          <li><a href="../../../docs.html">Product Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/case-studies.html">Case Studies</a></li>
+          <li><a href="https://www.dove365.com/about.html">About</a></li>
+          <li><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></li>
+          <li><a href="https://www.dove365.com/contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441618841812">+44 (0)161 884 1812</a></li>
+          <li><a href="mailto:hello@dove365.com">hello@dove365.com</a></li>
+          <li><a href="https://www.dove365.com">dove365.com</a></li>
+          <li><a href="https://www.linkedin.com/company/dove365/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dove365 Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>
+        <a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a>
+        <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script defer src="../../../assets/js/main.js?v=46"></script>
+<script defer src="../../../assets/js/lab.js?v=1"></script>
+<script defer src="screenshot-lightbox.js"></script>
+</body>
+</html>

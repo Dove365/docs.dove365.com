@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunity Management Guide — Dove365 CRM — Starter</title>
+  <meta name="description" content="Learn how to manage sales opportunities in Dove365 CRM — Starter. Understand pipeline stages, deal tracking, win probability, and how to close opportunities as won or lost.">
+  <meta property="og:title" content="Opportunity Management Guide — Dove365 CRM — Starter">
+  <meta property="og:description" content="Track qualified sales deals from initial discovery through to close. Understand pipeline stages, deal tracking, and how to analyse wins and losses.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.dove365.com/assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css?v=59">
+  <style>.doc-figure{margin:2rem auto 0;max-width:1050px}.doc-figure img{display:block;width:100%;height:auto;border:1px solid rgba(9,31,55,.12);border-radius:12px;box-shadow:0 16px 36px rgba(9,31,55,.1)}</style>
+  <link rel="icon" type="image/png" href="../../../assets/images/logo/Logo.png">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="mouse-aura" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="https://www.dove365.com/index.html" aria-label="Dove365 home">
+    <img class="nav-logo-mark" src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true">
+    <span class="nav-logo-text">Dove365</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="https://www.dove365.com/index.html">Home</a></li>
+    <li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li>
+    <li class="has-dropdown">
+      <a href="https://www.dove365.com/services.html">Services</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Services</div>
+        <a href="https://www.dove365.com/business-solutions.html">Business Solutions</a>
+        <a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a>
+        <a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a>
+        <a href="https://www.dove365.com/managed-support.html">Managed Services</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Products</div>
+        <a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="../../../docs.html">Resources</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Resources</div>
+        <a href="../../../docs.html">Documentation Library</a>
+        <a href="https://www.dove365.com/case-studies.html">Case Studies</a>
+        <a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a>
+      </div>
+    </li>
+    <li><a href="https://www.dove365.com/about.html">About</a></li>
+    <li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-offset">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../crm-docs.html">Documentation</a>
+        <span>/</span>
+        Opportunity Management
+      </div>
+      <h1>Opportunity Management <em>Guide</em></h1>
+      <p>Track qualified sales deals from initial discovery through to close. Understand how to use the opportunity pipeline to manage revenue, priorities, and win rates.</p>
+    </div>
+  </div>
+
+  <!-- What is an Opportunity -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">What is an Opportunity?</div>
+      <h2 class="display">Managing your <em>sales pipeline</em></h2>
+      <p class="lead">An opportunity represents a qualified sales deal. Unlike a lead, which is an unqualified prospect, an opportunity has been assessed and is worth active pursuit. Opportunities link to accounts, contacts, decision makers, service offerings, and estimated values.</p>
+      <figure class="doc-figure"><img src="../images/Dove365%20CRM%20Screenshots/Dove365%20CRM%20Opportunities%20View.png" alt="Dove365 CRM opportunities view" loading="lazy" decoding="async"></figure>
+      <div class="layout-2col">
+        <div class="service-features">
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Linked to your customer data</h4><p>Every opportunity is connected to an account and a contact. You always know which organisation and person the deal relates to — and who the decision maker is.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Service offerings attached</h4><p>Add one or more service offerings to each opportunity. This structures your pipeline reporting by service type and gives management meaningful visibility into what you&rsquo;re selling.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Estimated and actual value</h4><p>Track estimated revenue before close and actual revenue on win. Pipeline value reporting draws from these fields across all open opportunities.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Win and loss tracking</h4><p>Every opportunity closes as Won or Lost, with the reason recorded. Over time this builds the foundation for pipeline analysis and sales process improvement.</p></div>
+          </div>
+        </div>
+        <div class="scope-box">
+          <h4>Key opportunity fields</h4>
+          <div class="scope-col">
+            <div class="scope-item scope-yes">Account and contact</div>
+            <div class="scope-item scope-yes">Decision maker</div>
+            <div class="scope-item scope-yes">Source and priority</div>
+            <div class="scope-item scope-yes">Opportunity estimate</div>
+            <div class="scope-item scope-yes">Service offerings</div>
+            <div class="scope-item scope-yes">Win probability</div>
+            <div class="scope-item scope-yes">Proposed and actual value</div>
+            <div class="scope-item scope-yes">Estimated close date</div>
+            <div class="scope-item scope-yes">Won/Lost outcome and reason</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pipeline Stages -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Pipeline Stages</div>
+      <h2 class="display">Five stages from <em>qualification to close</em></h2>
+      <p class="lead">Dove365 CRM — Starter uses a five-stage business process flow for opportunities. Each stage has specific fields to complete before progressing, ensuring your team captures consistent, reliable data.</p>
+      <div class="process-steps process-steps-5">
+        <div class="process-line"></div>
+        <div class="process-step">
+          <div class="step-bubble">1</div>
+          <h3>Qualify</h3>
+          <p>Confirm the opportunity is worth pursuing. Record account, contact, decision maker, estimated value, source, and priority.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">2</div>
+          <h3>Discovery</h3>
+          <p>Understand the customer&rsquo;s need. Confirm budget and timeline. Record what you&rsquo;ve learned about the business problem and what success looks like.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">3</div>
+          <h3>Proposal</h3>
+          <p>Document the proposed solution. Record proposed amount, win probability, proposal sent date, and any competitor context.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">4</div>
+          <h3>Negotiate</h3>
+          <p>Track final discussions. Note approval required, confirm close date, and keep opportunity status current as negotiations progress.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">5</div>
+          <h3>Close</h3>
+          <p>Mark the outcome as Won or Lost. Won: record actual revenue. Lost: record the reason. Closing updates reporting automatically.</p>
+        </div>
+      </div>
+      <figure class="doc-figure"><img src="../images/Dove365%20CRM%20Screenshots/Dove365%20CRM%20Opportunities%20Form.png" alt="Dove365 CRM opportunity form" loading="lazy" decoding="async"></figure>
+    </div>
+  </section>
+
+  <!-- Pipeline Management -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Pipeline Management</div>
+      <h2 class="display">Understanding your <em>pipeline</em></h2>
+      <p class="lead">Pipeline management is about maintaining an accurate, up-to-date view of all active deals so you can make informed decisions about priorities, resources, and revenue forecast.</p>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">01</div>
+          <h3>Keep opportunities current</h3>
+          <p>A pipeline is only useful if the data is accurate. Update stage, status, probability, and close date regularly. A stale pipeline leads to poor decisions and unreliable forecasting.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">02</div>
+          <h3>Use service offerings consistently</h3>
+          <p>Attaching service offerings to every opportunity means you can break down your pipeline by service type, revealing where your strongest revenue mix comes from and which services win most.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">03</div>
+          <h3>Track wins and losses equally</h3>
+          <p>Recording close reasons for every lost deal over time reveals patterns — whether you&rsquo;re losing on price, timing, competitor offering, or fit — so you can improve your approach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working with Opportunities -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Working with Opportunities</div>
+      <h2 class="display">Day-to-day <em>opportunity management</em></h2>
+      <div class="case-point-list" style="margin-top:2.5rem;">
+        <div class="case-point">
+          <strong>Converting from a lead</strong>
+          <span>The most common way to create an opportunity is by converting a qualified lead. This automatically links the new opportunity to the account and contact created or linked during the lead conversion process, preserving the full engagement history.</span>
+        </div>
+        <div class="case-point">
+          <strong>Adding service offerings</strong>
+          <span>Use the related Service Offerings area on the opportunity to attach the specific services relevant to the deal. This structures your pipeline by service type and gives your admin team the data needed for meaningful reporting on revenue mix.</span>
+        </div>
+        <div class="case-point">
+          <strong>Logging activity throughout the deal</strong>
+          <span>Use the timeline to record calls, emails, and meetings as the opportunity progresses through each stage. Before presenting a proposal, review the timeline to confirm you haven&rsquo;t missed any commitments or raised concerns.</span>
+        </div>
+        <div class="case-point">
+          <strong>Closing an opportunity decisively</strong>
+          <span>At stage 5, mark the outcome. Don&rsquo;t leave opportunities open after the deal is decided. Closed opportunities that should be marked Won or Lost distort your active pipeline view and make your forecast unreliable.</span>
+        </div>
+      </div>
+      <div class="case-note" style="margin-top:2rem;">Pipeline value, win rates, and deal velocity all improve as a reporting asset over time — but only if your team uses opportunities consistently and keeps the data current. The discipline you build now becomes the insight you rely on next quarter.</div>
+    </div>
+  </section>
+
+  <!-- Related Guides -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Related Guides</div>
+      <h2 class="display">Continue <em>learning</em></h2>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>Lead Management</h3>
+          <p>Understand how leads feed into your opportunity pipeline — from first contact through qualification and conversion.</p>
+          <div style="margin-top:1.5rem;"><a href="lead-management.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>Case Management</h3>
+          <p>Manage support requests and service enquiries after the deal is won, using Dove365 CRM — Starter&rsquo;s case management module.</p>
+          <div style="margin-top:1.5rem;"><a href="case-management.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>Activity Tracking</h3>
+          <p>Log calls, emails, and tasks against opportunities. Understand how the timeline builds your complete deal history.</p>
+          <div style="margin-top:1.5rem;"><a href="activity-tracking.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section-sm">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="display display-light">Ready to see Dove365 CRM — Starter <em>in action?</em></h2>
+        <p>Book a free demo and see how Dove365 CRM — Starter can work for your business inside Microsoft 365.</p>
+        <div class="cta-actions">
+          <a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Demo &rarr;</a>
+          <a href="https://www.dove365.com/contact.html" class="btn btn-ghost-light">Contact Dove365</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-top footer-5col">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Microsoft Partner</small></span></div>
+        <p>Microsoft-focused consultancy specialising in and delivering practical Power Platform, Dynamics 365, Dataverse, and AI Enablement.</p>
+        <div class="ms-partner-badge"><img src="../../../assets/images/icons/Microsoft Partner Logo.png" width="300" height="70" loading="lazy" decoding="async" alt="Microsoft Partner"></div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a></li>
+          <li><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a></li>
+          <li><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a></li>
+          <li><a href="https://www.dove365.com/managed-support.html">Managed Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li>
+          <li><a href="../../../docs.html">Product Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/case-studies.html">Case Studies</a></li>
+          <li><a href="https://www.dove365.com/about.html">About</a></li>
+          <li><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></li>
+          <li><a href="https://www.dove365.com/contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441618841812">+44 (0)161 884 1812</a></li>
+          <li><a href="mailto:hello@dove365.com">hello@dove365.com</a></li>
+          <li><a href="https://www.dove365.com">dove365.com</a></li>
+          <li><a href="https://www.linkedin.com/company/dove365/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dove365 Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>
+        <a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a>
+        <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script defer src="../../../assets/js/main.js?v=46"></script>
+<script defer src="../../../assets/js/lab.js?v=1"></script>
+<script defer src="screenshot-lightbox.js"></script>
+</body>
+</html>

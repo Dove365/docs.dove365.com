@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outlook Integration Guide — Dove365 CRM — Starter</title>
+  <meta name="description" content="Learn how Dove365 CRM — Starter integrates with Microsoft Outlook for email tracking, server-side sync, and the Dynamics 365 App for Outlook. Keep your inbox and CRM in sync.">
+  <meta property="og:title" content="Outlook Integration Guide — Dove365 CRM — Starter">
+  <meta property="og:description" content="Understand how email tracking, server-side synchronisation, and the Dynamics 365 App for Outlook connect your inbox to your CRM records.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.dove365.com/assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css?v=59">
+  <link rel="icon" type="image/png" href="../../../assets/images/logo/Logo.png">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="mouse-aura" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="https://www.dove365.com/index.html" aria-label="Dove365 home">
+    <img class="nav-logo-mark" src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true">
+    <span class="nav-logo-text">Dove365</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="https://www.dove365.com/index.html">Home</a></li>
+    <li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li>
+    <li class="has-dropdown">
+      <a href="https://www.dove365.com/services.html">Services</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Services</div>
+        <a href="https://www.dove365.com/business-solutions.html">Business Solutions</a>
+        <a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a>
+        <a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a>
+        <a href="https://www.dove365.com/managed-support.html">Managed Services</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Products</div>
+        <a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="../../../docs.html">Resources</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Resources</div>
+        <a href="../../../docs.html">Documentation Library</a>
+        <a href="https://www.dove365.com/case-studies.html">Case Studies</a>
+        <a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a>
+      </div>
+    </li>
+    <li><a href="https://www.dove365.com/about.html">About</a></li>
+    <li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-offset">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../crm-docs.html">Documentation</a>
+        <span>/</span>
+        Outlook Integration
+      </div>
+      <h1>Outlook Integration <em>Guide</em></h1>
+      <p>Keep your inbox and your CRM in sync. Understand how email tracking, server-side synchronisation, and the Dynamics 365 App for Outlook work together.</p>
+    </div>
+  </div>
+
+  <!-- Why it Matters -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Why Outlook Integration Matters</div>
+      <h2 class="display">Your inbox and CRM, <em>connected</em></h2>
+      <p class="lead">Most customer communication happens by email. Without Outlook integration, your CRM has an incomplete record of customer history and your team spends time manually copying context between systems. Dove365 CRM — Starter solves this.</p>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">01</div>
+          <h3>Full email history in CRM</h3>
+          <p>Emails between your team and customers appear on the CRM timeline. Anyone reviewing an account, contact, or opportunity can see the full email history without ever leaving CRM or accessing someone else&rsquo;s inbox.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">02</div>
+          <h3>Create CRM records from Outlook</h3>
+          <p>The Dynamics 365 App for Outlook lets users create leads, contacts, tasks, and phone call records directly from their inbox — no application switching, no copy-pasting.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">03</div>
+          <h3>No duplicate effort required</h3>
+          <p>Server-side synchronisation tracks emails automatically in the background. Users don&rsquo;t need to manually file emails — the integration handles it, keeping CRM current without adding to your team&rsquo;s workload.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Tracking -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Email Tracking</div>
+      <h2 class="display">Tracking emails against <em>CRM records</em></h2>
+      <p class="lead">Email tracking means a copy of relevant emails is stored in CRM and appears on the timeline of the related record — giving every team member access to the communication history they need.</p>
+      <div class="layout-2col">
+        <div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:1.5rem;">How email tracking works</h3>
+          <div class="service-features" style="margin-top:0;">
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Automatic tracking via server-side sync</h4><p>Once configured, server-side synchronisation automatically tracks emails to and from contacts in your CRM. No manual action needed for these emails to appear on the timeline.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Manual tracking via the Dynamics 365 App</h4><p>For emails not tracked automatically, use the Dynamics 365 pane in Outlook to manually track and link them to specific records at your discretion.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Set Regarding for precise linking</h4><p>When tracking an email manually, use Set Regarding to link it to a specific opportunity, case, or lead — not just the contact. This keeps pipeline and case timelines accurate and useful.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Untrack when needed</h4><p>If an email is tracked by mistake, you can untrack it to remove the CRM copy. The email remains in your Outlook inbox as normal.</p></div>
+          </div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:1.5rem;">Who benefits</h3>
+          <div class="case-point-list">
+            <div class="case-point">
+              <strong>Sales teams</strong>
+              <span>Tracked emails appear on the lead and opportunity timeline. Before a proposal, your team can see every email conversation to date — context they&rsquo;d otherwise need to search their inbox for.</span>
+            </div>
+            <div class="case-point">
+              <strong>Support teams</strong>
+              <span>Tracked customer emails appear on case records. When a case is escalated or handed over, the new owner has full email history immediately, without needing a briefing.</span>
+            </div>
+            <div class="case-point">
+              <strong>Management</strong>
+              <span>Management reviewing an account has visibility of recent customer communication without needing to ask individual team members for a status update.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Server-Side Sync -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Server-Side Sync</div>
+      <h2 class="display">Always-on email <em>synchronisation</em></h2>
+      <p class="lead">Server-side synchronisation runs in the background, keeping your Outlook and CRM in sync automatically. It handles incoming email, outgoing email, and appointments — without any ongoing manual effort from users.</p>
+      <div class="service-features" style="margin-top:2.5rem;">
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Runs automatically</h4><p>Once enabled for a mailbox, server-side sync processes emails in the background. Users experience the benefit without doing anything manually.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Covers email in both directions</h4><p>Inbound emails from CRM contacts and outbound emails to CRM contacts are both tracked, giving you a complete two-way communication picture on every record.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Syncs appointments</h4><p>Appointments created in Outlook or CRM can synchronise between both systems, so calendars stay aligned without duplication.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Mailbox-level configuration</h4><p>Each user&rsquo;s mailbox must be individually configured and enabled for server-side sync. Your CRM administrator handles this setup as part of the Dove365 CRM — Starter deployment.</p></div>
+        </div>
+      </div>
+      <div class="case-note" style="margin-top:2.5rem;">Mailbox configuration is handled by your CRM administrator. If tracked emails are not appearing on timelines, speak to your admin to confirm server-side sync is enabled and the mailbox has been approved and tested.</div>
+    </div>
+  </section>
+
+  <!-- Dynamics 365 App for Outlook -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Dynamics 365 App for Outlook</div>
+      <h2 class="display">CRM features inside <em>your inbox</em></h2>
+      <p class="lead">The Dynamics 365 App for Outlook adds a CRM panel to Microsoft Outlook on desktop and web. It gives you access to CRM data, email tracking controls, and quick record creation — without leaving your inbox.</p>
+      <div class="case-note" style="margin-bottom:2rem;">Administrators must assign the Dynamics 365 App for Outlook User role directly to each user, approve and test the mailbox, and deploy the integrated app. A role inherited only through a team does not complete Outlook add-in provisioning.</div>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">01</div>
+          <h3>View CRM data in Outlook</h3>
+          <p>When you open an email, the Dynamics 365 pane shows the sender and recipients&rsquo; CRM records — account details, contact info, and recent activity — so you have full context before you reply.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">02</div>
+          <h3>Track and link emails</h3>
+          <p>Track any email from the Dynamics 365 pane and link it to a specific record using Set Regarding. The email appears on the selected record&rsquo;s timeline immediately and remains there permanently.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">03</div>
+          <h3>Create records from emails</h3>
+          <p>Create contacts, leads, tasks, and phone call records directly from Outlook. New records are saved to CRM without leaving your inbox — faster and less error-prone than switching applications.</p>
+        </div>
+      </div>
+      <div class="case-note" style="margin-top:2.5rem;">The Dynamics 365 App for Outlook must be deployed by your CRM administrator before it will appear in your Outlook ribbon (desktop) or under More (web). Contact your admin if you cannot see it after your Dove365 CRM — Starter deployment.</div>
+    </div>
+  </section>
+
+  <!-- Related Guides -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Related Guides</div>
+      <h2 class="display">Continue <em>learning</em></h2>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>Activity Tracking</h3>
+          <p>Understand all activity types and how the timeline works — the foundation that email tracking sits within.</p>
+          <div style="margin-top:1.5rem;"><a href="activity-tracking.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>SharePoint Integration</h3>
+          <p>Connect your document management to CRM records — the complementary integration to Outlook email tracking.</p>
+          <div style="margin-top:1.5rem;"><a href="sharepoint-integration.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>User Management</h3>
+          <p>Understand how mailbox configuration and Outlook add-in deployment are managed through the Admin app.</p>
+          <div style="margin-top:1.5rem;"><a href="user-management.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section-sm">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="display display-light">Ready to see Dove365 CRM — Starter <em>in action?</em></h2>
+        <p>Book a free demo and see how Dove365 CRM — Starter can work for your business inside Microsoft 365.</p>
+        <div class="cta-actions">
+          <a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Demo &rarr;</a>
+          <a href="https://www.dove365.com/contact.html" class="btn btn-ghost-light">Contact Dove365</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-top footer-5col">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Microsoft Partner</small></span></div>
+        <p>Microsoft-focused consultancy specialising in and delivering practical Power Platform, Dynamics 365, Dataverse, and AI Enablement.</p>
+        <div class="ms-partner-badge"><img src="../../../assets/images/icons/Microsoft Partner Logo.png" width="300" height="70" loading="lazy" decoding="async" alt="Microsoft Partner"></div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a></li>
+          <li><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a></li>
+          <li><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a></li>
+          <li><a href="https://www.dove365.com/managed-support.html">Managed Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li>
+          <li><a href="../../../docs.html">Product Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/case-studies.html">Case Studies</a></li>
+          <li><a href="https://www.dove365.com/about.html">About</a></li>
+          <li><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></li>
+          <li><a href="https://www.dove365.com/contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441618841812">+44 (0)161 884 1812</a></li>
+          <li><a href="mailto:hello@dove365.com">hello@dove365.com</a></li>
+          <li><a href="https://www.dove365.com">dove365.com</a></li>
+          <li><a href="https://www.linkedin.com/company/dove365/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dove365 Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>
+        <a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a>
+        <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script defer src="../../../assets/js/main.js?v=46"></script>
+<script defer src="../../../assets/js/lab.js?v=1"></script>
+</body>
+</html>

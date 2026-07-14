@@ -1,0 +1,22 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/ai-enablement"
+  to = "/ai-enablement.html"
+  status = 200
+
+[[redirects]]
+  from = "/ai-toolkit"
+  to = "/ai-toolkit.html"
+  status = 200
+
+[[redirects]]
+  from = "/dove365-ai-toolkit.html"
+  to = "/ai-toolkit.html"
+  status = 301
+
+[[redirects]]
+  from = "/resources/dove365-AI-readiness-assessment.html"
+  to = "/resources/AI-readiness-assessment.html"
+  status = 301

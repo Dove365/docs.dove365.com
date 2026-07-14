@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Environment Setup Guide — Dove365 CRM — Starter</title>
+  <meta name="description" content="Understand the prerequisites and setup requirements for Dove365 CRM — Starter. Learn about Power Apps Premium licences, Dataverse environments, Outlook, and SharePoint requirements.">
+  <meta property="og:title" content="Environment Setup Guide — Dove365 CRM — Starter">
+  <meta property="og:description" content="A customer-friendly overview of what needs to be in place before Dove365 CRM — Starter can be deployed — covering licensing, Dataverse, Outlook, and SharePoint.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.dove365.com/assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css?v=59">
+  <style>.doc-figure{margin:2rem auto 0;max-width:1150px}.doc-figure img{display:block;width:100%;height:auto;border:1px solid rgba(9,31,55,.12);border-radius:12px;box-shadow:0 16px 36px rgba(9,31,55,.1)}</style>
+  <link rel="icon" type="image/png" href="../../../assets/images/logo/Logo.png">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="mouse-aura" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="https://www.dove365.com/index.html" aria-label="Dove365 home">
+    <img class="nav-logo-mark" src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true">
+    <span class="nav-logo-text">Dove365</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="https://www.dove365.com/index.html">Home</a></li>
+    <li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li>
+    <li class="has-dropdown">
+      <a href="https://www.dove365.com/services.html">Services</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Services</div>
+        <a href="https://www.dove365.com/business-solutions.html">Business Solutions</a>
+        <a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a>
+        <a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a>
+        <a href="https://www.dove365.com/managed-support.html">Managed Services</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Products</div>
+        <a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="../../../docs.html">Resources</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Resources</div>
+        <a href="../../../docs.html">Documentation Library</a>
+        <a href="https://www.dove365.com/case-studies.html">Case Studies</a>
+        <a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a>
+      </div>
+    </li>
+    <li><a href="https://www.dove365.com/about.html">About</a></li>
+    <li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-offset">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../crm-docs.html">Documentation</a>
+        <span>/</span>
+        Environment Setup
+      </div>
+      <h1>Environment Setup <em>Guide</em></h1>
+      <p>A customer-friendly overview of what needs to be in place before Dove365 CRM — Starter can be deployed — covering licensing, platform requirements, and integration prerequisites.</p>
+    </div>
+  </div>
+
+  <!-- Before You Deploy -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Before You Deploy</div>
+      <h2 class="display">What you need to get <em>started</em></h2>
+      <p class="lead">Dove365 CRM — Starter runs inside Microsoft Power Platform, which is part of Microsoft 365. Before deployment begins, your environment needs to meet a small number of prerequisites. Dove365 confirms all of these during the discovery call before any work begins.</p>
+      <div class="case-note" style="margin-top:2.5rem;">You don&rsquo;t need to set these up yourself. Dove365 guides you through every prerequisite as part of the engagement and handles all technical configuration during the Dove365 CRM — Starter deployment.</div>
+    </div>
+  </section>
+
+  <!-- Licensing -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Licensing</div>
+      <h2 class="display">Power Apps Premium <em>for every user</em></h2>
+      <p class="lead">Dove365 CRM — Starter uses Dataverse — Microsoft&rsquo;s enterprise data platform — which requires a Power Apps Premium licence for each user who will access the system.</p>
+      <div class="layout-2col">
+        <div class="service-features">
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Power Apps Premium</h4><p>Required for every user who will access Dove365 CRM — Starter. Power Apps Premium includes access to Dataverse-based applications — which is the platform Dove365 CRM — Starter is built on.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>Microsoft 365</h4><p>Your team should already be using Microsoft 365. Dove365 CRM — Starter integrates with Outlook, SharePoint, and Teams — all part of a standard Microsoft 365 subscription.</p></div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <div><h4>No Dynamics 365 required</h4><p>Dove365 CRM — Starter does not require Dynamics 365 licences. This is one of the key ways it delivers enterprise-quality CRM at a significantly lower total cost of ownership.</p></div>
+          </div>
+        </div>
+        <div class="scope-box">
+          <h4>Licensing summary</h4>
+          <div class="scope-cols">
+            <div class="scope-col">
+              <h5>Required</h5>
+              <div class="scope-item scope-yes">Power Apps Premium (per user)</div>
+              <div class="scope-item scope-yes">Microsoft 365</div>
+              <div class="scope-item scope-yes">Dataverse environment</div>
+            </div>
+            <div class="scope-col">
+              <h5>Not required</h5>
+              <div class="scope-item scope-no">Dynamics 365</div>
+              <div class="scope-item scope-no">Separate CRM software</div>
+              <div class="scope-item scope-no">Third-party database</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Requirements -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Platform Requirements</div>
+      <h2 class="display">Your Power Platform <em>environment</em></h2>
+      <p class="lead">Dove365 CRM — Starter requires a Dataverse environment in your Microsoft 365 tenant — Microsoft&rsquo;s managed data platform provided as part of Power Platform. Dove365 will help you confirm and configure the correct environment type.</p>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">01</div>
+          <h3>Dataverse environment</h3>
+          <p>A Dataverse environment is required to store CRM data. A Dynamics 365-enabled environment is recommended when the Dynamics 365 App for Outlook will be used. If you don&rsquo;t already have one, Dove365 will help configure the appropriate environment type.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">02</div>
+          <h3>Power Apps capabilities</h3>
+          <p>Power Apps Component Framework and Power Apps Code Apps must be enabled. Dove365 confirms these standard capability settings as part of deployment setup.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">03</div>
+          <h3>AI-ready infrastructure</h3>
+          <p>Dove365 CRM — Starter is built on Dataverse. Enable Dataverse Intelligence and Dataverse Model Context Protocol so the environment meets the required prerequisites and is ready for controlled future extensions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outlook and Email Setup -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Outlook and Email</div>
+      <h2 class="display">Connecting email <em>to your CRM</em></h2>
+      <p class="lead">For Outlook integration to work, your email environment needs to support server-side synchronisation. This is standard configuration for most Microsoft 365 organisations using Exchange Online.</p>
+      <div class="service-features" style="margin-top:2.5rem;">
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Microsoft 365 with Exchange Online</h4><p>Dove365 CRM — Starter&rsquo;s Outlook integration is designed for Microsoft 365 with Exchange Online. Most organisations using Microsoft 365 already meet this requirement.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Server-side synchronisation</h4><p>Server-side sync needs to be enabled for each user&rsquo;s mailbox. This allows CRM to automatically track emails and synchronise appointments with Outlook. Dove365 configures this as part of deployment.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Mailbox approval</h4><p>Each mailbox used with Dove365 CRM — Starter needs to be approved and tested within the Power Platform admin experience. Dove365 handles this configuration during the deployment process.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Dynamics 365 App for Outlook</h4><p>If users want the in-Outlook CRM panel, this app must be deployed to their Outlook by the CRM administrator. Dove365 sets this up as part of the Outlook integration configuration.</p></div>
+        </div>
+      </div>
+      <div class="case-note" style="margin-top:2.5rem;">If your organisation uses a non-Microsoft email provider or a hybrid Exchange setup, speak to Dove365 during the discovery call. Additional configuration considerations may apply.</div>
+    </div>
+  </section>
+
+  <!-- SharePoint Setup -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">SharePoint</div>
+      <h2 class="display">Document management <em>prerequisites</em></h2>
+      <p class="lead">Dove365 CRM — Starter&rsquo;s document management requires a SharePoint site in your Microsoft 365 tenant. Most organisations using Microsoft 365 already have this in place.</p>
+      <div class="service-features" style="margin-top:2.5rem;">
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>SharePoint Online site</h4><p>A SharePoint site is required for document management. Dove365 CRM — Starter creates linked document libraries within this site, connected directly to your CRM records.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>SharePoint integration enabled</h4><p>Server-based SharePoint integration between Power Platform and SharePoint needs to be enabled at the environment level. Dove365 configures this as part of the deployment.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Document management settings configured</h4><p>Specific record types — accounts, contacts, opportunities, cases — need to be enabled for document management. Dove365 sets this up based on your requirements during configuration.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deployment Process -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">How Dove365 Handles Setup</div>
+      <h2 class="display">The full deployment <em>process</em></h2>
+      <p class="lead">All of the above is handled by Dove365 as part of the Dove365 CRM — Starter deployment. You don&rsquo;t need to be a Microsoft expert — that&rsquo;s what Dove365 is for.</p>
+      <div class="process-steps" style="margin-top:3.5rem;">
+        <div class="process-line"></div>
+        <div class="process-step">
+          <div class="step-bubble">1</div>
+          <h3>Discovery Call</h3>
+          <p>Review your Microsoft 365 setup, confirm licences, identify the right environment type, and agree on integration requirements.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">2</div>
+          <h3>Environment Prep</h3>
+          <p>Dove365 confirms and configures the Dataverse environment, enables required capabilities, and prepares for Dove365 CRM — Starter installation.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">3</div>
+          <h3>Configuration</h3>
+          <p>Dove365 CRM — Starter is deployed and configured to your business — fields, views, service offerings, security roles, Outlook, and SharePoint.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">4</div>
+          <h3>Handover</h3>
+          <p>Testing confirms everything works. Your team receives a live training session and built-in documentation on go-live day.</p>
+        </div>
+      </div>
+      <figure class="doc-figure"><img src="../images/Dove365%20Admin%20Screenshots/Dove365%20Admin%20Health%20Dashboard.png" alt="Dove365 Admin Environment Health Dashboard used for post-deployment validation" loading="lazy" decoding="async"></figure>
+      <div class="case-outcome-box" style="margin-top:2.5rem;">Most Dove365 CRM — Starter deployments complete within 5 to 7 working days from the discovery call to go-live. Dove365 manages the full process so your team stays focused on your business — not on managing a technology project.</div>
+    </div>
+  </section>
+
+  <!-- Related Guides -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Related Guides</div>
+      <h2 class="display">Continue <em>learning</em></h2>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>CRM Overview</h3>
+          <p>Understand what Dove365 CRM — Starter is, who it&rsquo;s built for, and how all the modules work together in one system.</p>
+          <div style="margin-top:1.5rem;"><a href="crm-overview.html" class="btn btn-outline">Read Overview &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>User Management</h3>
+          <p>Once deployed, understand how to provision users, assign roles, and manage ongoing team access.</p>
+          <div style="margin-top:1.5rem;"><a href="user-management.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>FAQ</h3>
+          <p>Common questions about licensing, compatibility, customisation, and how Dove365 deploys Dove365 CRM — Starter.</p>
+          <div style="margin-top:1.5rem;"><a href="faq.html" class="btn btn-outline">Read FAQ &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section-sm">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="display display-light">Ready to see Dove365 CRM — Starter <em>in action?</em></h2>
+        <p>Book a free demo and see how Dove365 CRM — Starter can work for your business inside Microsoft 365.</p>
+        <div class="cta-actions">
+          <a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Demo &rarr;</a>
+          <a href="https://www.dove365.com/contact.html" class="btn btn-ghost-light">Contact Dove365</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-top footer-5col">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Microsoft Partner</small></span></div>
+        <p>Microsoft-focused consultancy specialising in and delivering practical Power Platform, Dynamics 365, Dataverse, and AI Enablement.</p>
+        <div class="ms-partner-badge"><img src="../../../assets/images/icons/Microsoft Partner Logo.png" width="300" height="70" loading="lazy" decoding="async" alt="Microsoft Partner"></div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a></li>
+          <li><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a></li>
+          <li><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a></li>
+          <li><a href="https://www.dove365.com/managed-support.html">Managed Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li>
+          <li><a href="../../../docs.html">Product Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/case-studies.html">Case Studies</a></li>
+          <li><a href="https://www.dove365.com/about.html">About</a></li>
+          <li><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></li>
+          <li><a href="https://www.dove365.com/contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441618841812">+44 (0)161 884 1812</a></li>
+          <li><a href="mailto:hello@dove365.com">hello@dove365.com</a></li>
+          <li><a href="https://www.dove365.com">dove365.com</a></li>
+          <li><a href="https://www.linkedin.com/company/dove365/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dove365 Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>
+        <a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a>
+        <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script defer src="../../../assets/js/main.js?v=46"></script>
+<script defer src="../../../assets/js/lab.js?v=1"></script>
+<script defer src="screenshot-lightbox.js"></script>
+</body>
+</html>

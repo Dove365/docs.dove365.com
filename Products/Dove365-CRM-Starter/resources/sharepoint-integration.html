@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SharePoint Integration Guide — Dove365 CRM — Starter</title>
+  <meta name="description" content="Learn how Dove365 CRM — Starter integrates with SharePoint for document management. Store customer files against CRM records, collaborate securely, and access documents from CRM.">
+  <meta property="og:title" content="SharePoint Integration Guide — Dove365 CRM — Starter">
+  <meta property="og:description" content="Store and manage documents against your CRM records. Understand how SharePoint integration brings structured document management to Dove365 CRM — Starter.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.dove365.com/assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css?v=59">
+  <link rel="icon" type="image/png" href="../../../assets/images/logo/Logo.png">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="mouse-aura" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="https://www.dove365.com/index.html" aria-label="Dove365 home">
+    <img class="nav-logo-mark" src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true">
+    <span class="nav-logo-text">Dove365</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="https://www.dove365.com/index.html">Home</a></li>
+    <li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li>
+    <li class="has-dropdown">
+      <a href="https://www.dove365.com/services.html">Services</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Services</div>
+        <a href="https://www.dove365.com/business-solutions.html">Business Solutions</a>
+        <a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a>
+        <a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a>
+        <a href="https://www.dove365.com/managed-support.html">Managed Services</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Products</div>
+        <a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="../../../docs.html">Resources</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Resources</div>
+        <a href="../../../docs.html">Documentation Library</a>
+        <a href="https://www.dove365.com/case-studies.html">Case Studies</a>
+        <a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a>
+      </div>
+    </li>
+    <li><a href="https://www.dove365.com/about.html">About</a></li>
+    <li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-offset">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../crm-docs.html">Documentation</a>
+        <span>/</span>
+        SharePoint Integration
+      </div>
+      <h1>SharePoint Integration <em>Guide</em></h1>
+      <p>Store and access documents against your CRM records. Understand how SharePoint document management works inside Dove365 CRM — Starter and the business benefits it delivers.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">The Document Problem</div>
+      <h2 class="display">Customer files where <em>you need them</em></h2>
+      <p class="lead">Without integrated document management, customer files live in email attachments, personal drives, and shared folders with no clear connection to the customer record. Dove365 CRM — Starter&rsquo;s SharePoint integration solves this directly.</p>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">01</div>
+          <h3>Files linked to CRM records</h3>
+          <p>Documents stored through Dove365 CRM — Starter are held in SharePoint and linked directly to the relevant account, contact, opportunity, or case. Open the record and the files are there.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">02</div>
+          <h3>No duplicate storage</h3>
+          <p>Files live in SharePoint — your existing Microsoft 365 document platform. CRM surfaces them in context. No synchronisation required, no separate document system to manage.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">03</div>
+          <h3>Access control via Microsoft 365</h3>
+          <p>File permissions are managed through SharePoint and Microsoft 365, using the same access controls your organisation already has. No separate document permission system to configure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">How It Works</div>
+      <h2 class="display">SharePoint folders, <em>linked to CRM</em></h2>
+      <p class="lead">When SharePoint integration is enabled, Dove365 CRM — Starter links SharePoint document folders to your CRM records. Files uploaded from within a CRM record are stored in SharePoint and remain permanently linked.</p>
+      <div class="case-note" style="margin-top:2rem;">Document access is supported for Contacts when the Contact table is selected in Document Management Settings, in addition to the other configured CRM record types.</div>
+      <div class="process-steps" style="margin-top:3.5rem;">
+        <div class="process-line"></div>
+        <div class="process-step">
+          <div class="step-bubble">1</div>
+          <h3>Record exists in CRM</h3>
+          <p>An account, contact, opportunity, or case is created in CRM. A corresponding SharePoint document folder is linked to that record.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">2</div>
+          <h3>Files uploaded in context</h3>
+          <p>Users upload files from within the CRM record — no need to navigate to SharePoint manually. The file appears in both CRM and SharePoint immediately.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">3</div>
+          <h3>Collaborate in SharePoint</h3>
+          <p>The underlying SharePoint document library supports co-authoring, version history, and standard Microsoft 365 collaboration features.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-bubble">4</div>
+          <h3>Access from CRM or SharePoint</h3>
+          <p>Files can be accessed from within the CRM record or directly in SharePoint, depending on the user&rsquo;s preference and workflow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Benefits -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Business Benefits</div>
+      <h2 class="display">What SharePoint integration <em>delivers</em></h2>
+      <p class="lead">The integration between Dove365 CRM — Starter and SharePoint removes the document management problem that most small businesses face — files scattered across inboxes, drives, and chat tools with no connection to the customer.</p>
+      <div class="service-features" style="margin-top:2.5rem;">
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Complete customer records</h4><p>A CRM account isn&rsquo;t just contact details. With SharePoint integration, it contains proposals, contracts, reports, and supporting documents — all in one place, against the right record.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Faster information retrieval</h4><p>Find a customer&rsquo;s files by opening their CRM record — not by searching email threads or asking colleagues where the document was saved last time.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Version history</h4><p>SharePoint maintains a version history for every document, so you can see how a proposal or contract evolved and restore previous versions when needed.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Collaboration without forwarding</h4><p>Multiple team members can work on the same document in SharePoint without emailing versions back and forth. The CRM record always shows the most current version.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Governance and audit trail</h4><p>Files stored in SharePoint via CRM are governed by your organisation&rsquo;s SharePoint permissions and retention policies, providing a consistent and auditable document trail.</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-check">✓</span>
+          <div><h4>Contact-level document storage</h4><p>SharePoint integration can be enabled for contacts specifically, so each contact record has its own associated document folder — useful for client-specific files and compliance-driven document management.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security and Control -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section-tag">Security and Control</div>
+      <h2 class="display">Your data stays <em>under your control</em></h2>
+      <p class="lead">SharePoint integration with Dove365 CRM — Starter uses your organisation&rsquo;s existing Microsoft 365 infrastructure. Dove365 does not store your documents. Everything stays in your Microsoft 365 tenant.</p>
+      <div class="layout-2col-equal">
+        <div class="case-point-list">
+          <div class="case-point">
+            <strong>Permissions managed in Microsoft 365</strong>
+            <span>File access is controlled through SharePoint and Entra ID — not the CRM. Your existing Microsoft 365 permission structure applies to all documents accessed through Dove365 CRM — Starter.</span>
+          </div>
+          <div class="case-point">
+            <strong>Data stays in your tenant</strong>
+            <span>All documents are stored in your organisation&rsquo;s SharePoint. There is no third-party storage involved. You retain full ownership and complete control over all files.</span>
+          </div>
+          <div class="case-point">
+            <strong>CRM access governed by security roles</strong>
+            <span>Users must have the appropriate CRM security role to access the Documents tab on a record. Dove365 CRM — Starter&rsquo;s role-based access controls what each user can see and interact with.</span>
+          </div>
+        </div>
+        <div class="case-note">
+          SharePoint integration is configured by your CRM administrator as part of the Dove365 deployment. If documents are not appearing on CRM records, or if you cannot upload files from within CRM, contact your admin to verify the integration settings are correctly configured for that record type.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Guides -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-tag">Related Guides</div>
+      <h2 class="display">Continue <em>learning</em></h2>
+      <div class="pain-grid" style="margin-top:3rem;">
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>Outlook Integration</h3>
+          <p>Understand how email tracking connects your inbox to CRM — the partner integration to SharePoint document management.</p>
+          <div style="margin-top:1.5rem;"><a href="outlook-integration.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>Document Management</h3>
+          <p>The admin guide to configuring and governing SharePoint document management for your CRM environment.</p>
+          <div style="margin-top:1.5rem;"><a href="document-management.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-number">&rarr;</div>
+          <h3>User Management</h3>
+          <p>Understand how users and permissions are managed — including access to documents stored against CRM records.</p>
+          <div style="margin-top:1.5rem;"><a href="user-management.html" class="btn btn-outline">Read Guide &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section-sm">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="display display-light">Ready to see Dove365 CRM — Starter <em>in action?</em></h2>
+        <p>Book a free demo and see how Dove365 CRM — Starter can work for your business inside Microsoft 365.</p>
+        <div class="cta-actions">
+          <a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Demo &rarr;</a>
+          <a href="https://www.dove365.com/contact.html" class="btn btn-ghost-light">Contact Dove365</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-top footer-5col">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Microsoft Partner</small></span></div>
+        <p>Microsoft-focused consultancy specialising in and delivering practical Power Platform, Dynamics 365, Dataverse, and AI Enablement.</p>
+        <div class="ms-partner-badge"><img src="../../../assets/images/icons/Microsoft Partner Logo.png" width="300" height="70" loading="lazy" decoding="async" alt="Microsoft Partner"></div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a></li>
+          <li><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a></li>
+          <li><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a></li>
+          <li><a href="https://www.dove365.com/managed-support.html">Managed Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li>
+          <li><a href="../../../docs.html">Product Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/case-studies.html">Case Studies</a></li>
+          <li><a href="https://www.dove365.com/about.html">About</a></li>
+          <li><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></li>
+          <li><a href="https://www.dove365.com/contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441618841812">+44 (0)161 884 1812</a></li>
+          <li><a href="mailto:hello@dove365.com">hello@dove365.com</a></li>
+          <li><a href="https://www.dove365.com">dove365.com</a></li>
+          <li><a href="https://www.linkedin.com/company/dove365/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dove365 Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>
+        <a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a>
+        <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script defer src="../../../assets/js/main.js?v=46"></script>
+<script defer src="../../../assets/js/lab.js?v=1"></script>
+</body>
+</html>

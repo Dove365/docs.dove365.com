@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dove365 CRM — Starter Documentation</title>
+  <meta name="description" content="Complete documentation for Dove365 CRM — Starter. User guides, administration guides, environment setup, and FAQ — everything you need to deploy and run your CRM.">
+  <meta property="og:title" content="Dove365 CRM — Starter — Documentation">
+  <meta property="og:description" content="User guides, administration guides, setup resources and FAQ for Dove365 CRM — Starter.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.dove365.com/assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=59">
+  <link rel="icon" type="image/png" href="../../assets/images/logo/Logo.png">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="mouse-aura" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="https://www.dove365.com/index.html" aria-label="Dove365 home">
+    <img class="nav-logo-mark" src="../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true">
+    <span class="nav-logo-text">Dove365</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="https://www.dove365.com/index.html">Home</a></li>
+    <li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li>
+    <li class="has-dropdown">
+      <a href="https://www.dove365.com/services.html">Services</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Services</div>
+        <a href="https://www.dove365.com/business-solutions.html">Business Solutions</a>
+        <a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a>
+        <a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a>
+        <a href="https://www.dove365.com/managed-support.html">Managed Services</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Products</div>
+        <a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="../../docs.html">Resources</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Resources</div>
+        <a href="../../docs.html">Documentation Library</a>
+        <a href="https://www.dove365.com/case-studies.html">Case Studies</a>
+        <a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a>
+      </div>
+    </li>
+    <li><a href="https://www.dove365.com/about.html">About</a></li>
+    <li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-offset">
+
+  <!-- Docs hero — compact -->
+  <div class="page-hero" style="padding-bottom:3rem;">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../../docs.html">Products</a>
+        <span>/</span>
+        <a href="../Dove365-CRM-Starter.html">Dove365 CRM — Starter</a>
+        <span>/</span>
+        Documentation
+      </div>
+      <h1>Dove365 CRM — Starter <em>Documentation</em></h1>
+      <p>Everything you need to deploy, configure, and get the most from Dove365 CRM — Starter — user guides, admin guides, and setup resources.</p>
+    </div>
+  </div>
+
+  <!-- Docs layout -->
+  <div class="docs-page">
+
+    <!-- Sidebar -->
+    <aside class="docs-sidebar" aria-label="Documentation navigation">
+      <details class="docs-toc" open>
+        <summary class="docs-toc-summary">
+          <span>Table of Contents</span>
+          <span class="docs-toc-icon" aria-hidden="true">&#9650;</span>
+        </summary>
+
+        <div class="docs-sidebar-product">
+          <div class="docs-sidebar-product-icon" aria-hidden="true">
+            <img src="../../assets/images/logo/Dove365Transparent.png" width="22" height="22" alt="" style="border-radius:0;object-fit:contain;">
+          </div>
+          <div>
+            <div class="docs-sidebar-product-name">Dove365 CRM &mdash; Starter</div>
+            <div class="docs-sidebar-product-sub">Documentation</div>
+          </div>
+        </div>
+
+        <div class="docs-sidebar-section">
+          <span class="docs-sidebar-section-label">Start here</span>
+          <a href="#getting-started" class="docs-sidebar-link">Getting Started</a>
+        </div>
+
+        <div class="docs-sidebar-divider"></div>
+
+        <div class="docs-sidebar-section">
+          <span class="docs-sidebar-section-label">User Guides</span>
+          <a href="#user-guides" class="docs-sidebar-link">Overview</a>
+          <a href="resources/dashboards.html" class="docs-sidebar-link">CRM Dashboards</a>
+          <a href="resources/accounts-contacts.html" class="docs-sidebar-link">Accounts &amp; Contacts</a>
+          <a href="resources/lead-management.html" class="docs-sidebar-link">Lead Management</a>
+          <a href="resources/opportunity-management.html" class="docs-sidebar-link">Opportunity Management</a>
+          <a href="resources/case-management.html" class="docs-sidebar-link">Case Management</a>
+          <a href="resources/activity-tracking.html" class="docs-sidebar-link">Activity Tracking</a>
+          <a href="resources/outlook-integration.html" class="docs-sidebar-link">Outlook Integration</a>
+          <a href="resources/sharepoint-integration.html" class="docs-sidebar-link">SharePoint Integration</a>
+        </div>
+
+        <div class="docs-sidebar-divider"></div>
+
+        <div class="docs-sidebar-section">
+          <span class="docs-sidebar-section-label">Admin Guides</span>
+          <a href="#admin-guides" class="docs-sidebar-link">Overview</a>
+          <a href="resources/admin-guide.html" class="docs-sidebar-link">Dove365 Admin</a>
+          <a href="resources/environment-health-dashboard.html" class="docs-sidebar-link">Environment Health</a>
+          <a href="resources/advanced-settings.html" class="docs-sidebar-link">Advanced Settings</a>
+          <a href="resources/environment-setup.html" class="docs-sidebar-link">Environment Setup</a>
+          <a href="resources/user-management.html" class="docs-sidebar-link">User Management</a>
+          <a href="resources/security-roles.html" class="docs-sidebar-link">Security Roles</a>
+          <a href="resources/document-management.html" class="docs-sidebar-link">Document Management</a>
+        </div>
+
+        <div class="docs-sidebar-divider"></div>
+
+        <div class="docs-sidebar-section">
+          <span class="docs-sidebar-section-label">Reference</span>
+          <a href="#faq" class="docs-sidebar-link">FAQ</a>
+          <a href="#release-notes" class="docs-sidebar-link">Release Notes</a>
+          <a href="../Dove365-CRM-Starter.html" class="docs-sidebar-link">Product Page</a>
+        </div>
+
+      </details>
+    </aside>
+
+    <!-- Main documentation content -->
+    <main class="docs-main">
+
+      <!-- Search bar (static/visual for now) -->
+      <div class="docs-search-bar" aria-hidden="true">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        Search documentation&hellip;
+      </div>
+
+      <!-- Getting Started -->
+      <section class="docs-section" id="getting-started">
+        <div class="docs-section-header">
+          <div class="docs-section-icon green" aria-hidden="true">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h2>Getting Started</h2>
+        </div>
+        <p class="docs-section-desc">New to Dove365 CRM — Starter? Start here. These three resources cover everything you need to understand the product, confirm your environment is ready, and begin using it on day one.</p>
+        <div class="docs-start-strip">
+          <a href="../Dove365-CRM-Starter.html" class="docs-start-card">
+            <span class="step-num">Step 1</span>
+            <h3>Product Overview</h3>
+            <p>What Dove365 CRM — Starter is, who it's for, key features, and pricing.</p>
+          </a>
+          <a href="resources/environment-setup.html" class="docs-start-card">
+            <span class="step-num">Step 2</span>
+            <h3>Environment Setup</h3>
+            <p>Licensing requirements and environment prerequisites before deployment.</p>
+          </a>
+          <a href="resources/user-management.html" class="docs-start-card">
+            <span class="step-num">Step 3</span>
+            <h3>User Management</h3>
+            <p>Add users, configure access, and get your team live on day one.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- User Guides -->
+      <section class="docs-section" id="user-guides">
+        <div class="docs-section-header">
+          <div class="docs-section-icon green" aria-hidden="true">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h2>User Guides</h2>
+        </div>
+        <p class="docs-section-desc">Practical guides for the CRM features your team uses every day. Covers the full customer lifecycle from lead capture through to support resolution.</p>
+        <div class="docs-guide-grid">
+
+          <a href="resources/dashboards.html" class="docs-guide-card">
+            <span class="docs-guide-card-type user">User Guide</span>
+            <div class="docs-guide-card-title">CRM &amp; My Work Dashboards</div>
+            <div class="docs-guide-card-desc">Review CRM-wide context and personal KPIs for owned Leads, Opportunities, Cases, upcoming work, and overdue activities.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/accounts-contacts.html" class="docs-guide-card">
+            <span class="docs-guide-card-type user">User Guide</span>
+            <div class="docs-guide-card-title">Accounts &amp; Contacts</div>
+            <div class="docs-guide-card-desc">Create and maintain organisation and person records, connect related work, avoid duplicates, and manage Contact documents.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/lead-management.html" class="docs-guide-card">
+            <span class="docs-guide-card-type user">User Guide</span>
+            <div class="docs-guide-card-title">Lead Management</div>
+            <div class="docs-guide-card-desc">Capture, research, qualify, and convert leads through the 5-stage lifecycle from initial enquiry to conversion.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/opportunity-management.html" class="docs-guide-card">
+            <span class="docs-guide-card-type user">User Guide</span>
+            <div class="docs-guide-card-title">Opportunity Management</div>
+            <div class="docs-guide-card-desc">Manage your sales pipeline from qualification through negotiation to close. Track pipeline value and win rates.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/case-management.html" class="docs-guide-card">
+            <span class="docs-guide-card-type user">User Guide</span>
+            <div class="docs-guide-card-title">Case Management</div>
+            <div class="docs-guide-card-desc">Handle support requests and service enquiries from creation to resolution with a structured workflow.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/activity-tracking.html" class="docs-guide-card">
+            <span class="docs-guide-card-type user">User Guide</span>
+            <div class="docs-guide-card-title">Activity Tracking</div>
+            <div class="docs-guide-card-desc">Log emails, calls, tasks, and appointments against CRM records. Build a complete communication history.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/outlook-integration.html" class="docs-guide-card">
+            <span class="docs-guide-card-type user">User Guide</span>
+            <div class="docs-guide-card-title">Outlook Integration</div>
+            <div class="docs-guide-card-desc">Track emails against CRM records from Outlook. Understand server-side sync and the Dynamics 365 App for Outlook.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/sharepoint-integration.html" class="docs-guide-card">
+            <span class="docs-guide-card-type user">User Guide</span>
+            <div class="docs-guide-card-title">SharePoint Integration</div>
+            <div class="docs-guide-card-desc">Store and access documents against CRM records. Understand how SharePoint document libraries link to customer records.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Admin Guides -->
+      <section class="docs-section" id="admin-guides">
+        <div class="docs-section-header">
+          <div class="docs-section-icon blue" aria-hidden="true">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          </div>
+          <h2>Administration Guides</h2>
+        </div>
+        <p class="docs-section-desc">Guides for CRM administrators. Covers environment prerequisites, user provisioning, security roles, and document management configuration.</p>
+        <div class="docs-guide-grid">
+
+          <a href="resources/admin-guide.html" class="docs-guide-card">
+            <span class="docs-guide-card-type admin">Admin Guide</span>
+            <div class="docs-guide-card-title">Dove365 Admin</div>
+            <div class="docs-guide-card-desc">Understand General Settings, operational administration, users, teams, mailboxes, documents, and data configuration.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/environment-health-dashboard.html" class="docs-guide-card">
+            <span class="docs-guide-card-type admin">Admin Guide</span>
+            <div class="docs-guide-card-title">Environment Health Dashboard</div>
+            <div class="docs-guide-card-desc">Validate environment metadata, users, roles, solutions, mailboxes, teams, and SharePoint document locations.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/advanced-settings.html" class="docs-guide-card">
+            <span class="docs-guide-card-type admin">Admin Guide</span>
+            <div class="docs-guide-card-title">Advanced Settings</div>
+            <div class="docs-guide-card-desc">Navigate administration, data management, templates, system jobs, security, email, Outlook, and auditing settings.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/environment-setup.html" class="docs-guide-card">
+            <span class="docs-guide-card-type admin">Admin Guide</span>
+            <div class="docs-guide-card-title">Environment Setup</div>
+            <div class="docs-guide-card-desc">Licensing requirements, Power Platform environment prerequisites, and integration configuration before deployment.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/user-management.html" class="docs-guide-card">
+            <span class="docs-guide-card-type admin">Admin Guide</span>
+            <div class="docs-guide-card-title">User Management</div>
+            <div class="docs-guide-card-desc">Add users, create teams, and manage who has access to your CRM. Covers provisioning and team-based access control.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/security-roles.html" class="docs-guide-card">
+            <span class="docs-guide-card-type admin">Admin Guide</span>
+            <div class="docs-guide-card-title">Security Roles</div>
+            <div class="docs-guide-card-desc">Dove365 CRM User and Dove365 CRM Admin roles — what each allows users to do and how roles are assigned to individuals and teams.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+          <a href="resources/document-management.html" class="docs-guide-card">
+            <span class="docs-guide-card-type admin">Admin Guide</span>
+            <div class="docs-guide-card-title">Document Management</div>
+            <div class="docs-guide-card-desc">Configure SharePoint document storage and understand how documents are organised and governed against CRM records.</div>
+            <span class="docs-guide-card-cta">Read guide →</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="docs-section" id="faq">
+        <div class="docs-section-header">
+          <div class="docs-section-icon amber" aria-hidden="true" style="font-size:1.1rem;font-weight:700;">?</div>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <p class="docs-section-desc">Answers to the most common questions about licensing, Outlook and SharePoint compatibility, customisation, AI extensions, training, and how Dove365 deploys Dove365 CRM — Starter.</p>
+        <div class="docs-guide-grid" style="grid-template-columns:1fr;">
+          <a href="resources/faq.html" class="docs-guide-card docs-guide-card-wide">
+            <div style="flex:1;">
+              <span class="docs-guide-card-type ref">Reference</span>
+              <div class="docs-guide-card-title">Dove365 CRM — Starter — Full FAQ</div>
+              <div class="docs-guide-card-desc" style="margin-bottom:0;">Licensing, Dynamics 365, Outlook, SharePoint, customisation, AI, training, and deployment. All questions answered in one place.</div>
+            </div>
+            <span class="docs-guide-card-cta" style="flex-shrink:0;">Read FAQ →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Release Notes -->
+      <section class="docs-section" id="release-notes">
+        <div class="docs-section-header">
+          <div class="docs-section-icon slate" aria-hidden="true" style="font-size:0.9rem;font-weight:700;">v1</div>
+          <h2>Release Notes</h2>
+        </div>
+        <p class="docs-section-desc">What&rsquo;s included in this release, known limitations, deployment instructions, and post-deployment verification checks.</p>
+        <div class="docs-guide-grid" style="grid-template-columns:1fr;">
+          <a href="resources/release-notes.html" class="docs-guide-card docs-guide-card-wide">
+            <div style="flex:1;">
+              <span class="docs-guide-card-type ref">Reference</span>
+              <div class="docs-guide-card-title">Dove365 CRM — Starter Release Notes</div>
+              <div class="docs-guide-card-desc" style="margin-bottom:0;">New features, deployment order, known limitations, and the full post-deployment checklist for the initial Dove365 CRM — Starter release.</div>
+            </div>
+            <span class="docs-guide-card-cta" style="flex-shrink:0;">Read notes &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Need help -->
+      <div style="margin-top:2rem;padding:2rem 2.5rem;background:var(--off-white,#f8f9fb);border:1px solid #e8ecf0;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#9ca3af;margin-bottom:0.4rem;">Need help?</div>
+          <div style="font-size:1rem;font-weight:600;color:#0f172a;margin-bottom:0.3rem;">Can&rsquo;t find what you&rsquo;re looking for?</div>
+          <div style="font-size:0.875rem;color:#6b7280;">Book a free call and get your questions answered directly by Dove365.</div>
+        </div>
+        <a href="https://www.dove365.com/contact.html" class="btn btn-primary" style="flex-shrink:0;">Book a Free Call →</a>
+      </div>
+
+    </main>
+  </div>
+  <footer>
+    <div class="footer-top footer-5col">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Microsoft Partner</small></span></div>
+        <p>Microsoft-focused consultancy specialising in and delivering practical Power Platform, Dynamics 365, Dataverse, and AI Enablement.</p>
+        <div class="ms-partner-badge"><img src="../../assets/images/icons/Microsoft Partner Logo.png" width="300" height="70" loading="lazy" decoding="async" alt="Microsoft Partner"></div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a></li>
+          <li><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a></li>
+          <li><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a></li>
+          <li><a href="https://www.dove365.com/managed-support.html">Managed Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li>
+          <li><a href="../../docs.html">Product Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.dove365.com/case-studies.html">Case Studies</a></li>
+          <li><a href="https://www.dove365.com/about.html">About</a></li>
+          <li><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></li>
+          <li><a href="https://www.dove365.com/contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441618841812">+44 (0)161 884 1812</a></li>
+          <li><a href="mailto:hello@dove365.com">hello@dove365.com</a></li>
+          <li><a href="https://www.dove365.com">dove365.com</a></li>
+          <li><a href="https://www.linkedin.com/company/dove365/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dove365 Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>
+        <a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a>
+        <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script defer src="../../assets/js/main.js?v=46"></script>
+<script defer src="../../assets/js/lab.js?v=1"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var searchBar = document.querySelector('.docs-search-bar');
+  if (!searchBar) return;
+
+  // Replace static placeholder with a live input
+  searchBar.removeAttribute('aria-hidden');
+  var icon = searchBar.querySelector('svg');
+  searchBar.innerHTML = '';
+  if (icon) searchBar.appendChild(icon);
+
+  var input = document.createElement('input');
+  input.type = 'search';
+  input.placeholder = 'Search documentation…';
+  input.setAttribute('aria-label', 'Search documentation');
+  input.style.cssText = 'background:none;border:none;outline:none;font:inherit;color:inherit;flex:1;min-width:0;width:100%;';
+  searchBar.appendChild(input);
+
+  var cards      = Array.from(document.querySelectorAll('.docs-guide-card'));
+  var sections   = Array.from(document.querySelectorAll('.docs-section'));
+  var startStrip = document.querySelector('.docs-start-strip');
+  var noResults  = document.createElement('p');
+  noResults.textContent = 'No guides match your search.';
+  noResults.style.cssText = 'color:var(--mid);font-size:0.9rem;margin:1rem 0 2rem;display:none;';
+  var docsMain = document.querySelector('.docs-main');
+  if (docsMain) docsMain.insertBefore(noResults, docsMain.querySelector('.docs-section'));
+
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase();
+
+    if (!q) {
+      cards.forEach(function (c) { c.style.display = ''; });
+      sections.forEach(function (s) { s.style.display = ''; });
+      if (startStrip) startStrip.style.display = '';
+      noResults.style.display = 'none';
+      return;
+    }
+
+    if (startStrip) startStrip.style.display = 'none';
+
+    var anyMatch = false;
+    cards.forEach(function (c) {
+      var text = c.textContent.toLowerCase();
+      var match = text.includes(q);
+      c.style.display = match ? '' : 'none';
+      if (match) anyMatch = true;
+    });
+
+    sections.forEach(function (s) {
+      var sCards = s.querySelectorAll('.docs-guide-card');
+      if (sCards.length === 0) {
+        var headingText = (s.querySelector('h2') || { textContent: '' }).textContent.toLowerCase();
+        s.style.display = headingText.includes(q) ? '' : 'none';
+      } else {
+        var visible = Array.from(sCards).some(function (c) { return c.style.display !== 'none'; });
+        s.style.display = visible ? '' : 'none';
+        if (visible) anyMatch = true;
+      }
+    });
+
+    noResults.style.display = anyMatch ? 'none' : '';
+  });
+});
+</script>
+</body>
+</html>
