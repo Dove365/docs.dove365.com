@@ -2,16 +2,11 @@
   publish = "."
 
 [[redirects]]
-  from = "https://www.docs.dove365.com/*"
-  to = "https://docs.dove365.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "http://www.docs.dove365.com/*"
   to = "https://docs.dove365.com/:splat"
   status = 301
   force = true
+
 
 [[redirects]]
   from = "/ai-enablement"
