@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report a Bug — Dove365</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/logo/Logo.png">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
+  <style>
+    :root {
+      --navy: #233644;
+      --navy-deep: #0f1e28;
+      --teal: #078396;
+      --teal-dark: #056281;
+      --teal-light: #53B1CD;
+      --teal-pale: #e4f2f5;
+      --off-white: #f4f7f6;
+      --near-black: #171B1B;
+      --mid: #5a6a72;
+      --border: #dde6e8;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      min-height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--near-black);
+    }
+
+    body {
+      background: var(--navy-deep);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Grid overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(83,177,205,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(83,177,205,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridDrift 18s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Radial glow */
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -45%;
+      right: -10%;
+      left: 35%;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(83,177,205,0.16), transparent 68%);
+      pointer-events: none;
+      animation: glowDrift 9s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes gridDrift {
+      from { background-position: 0 0, 0 0; }
+      to   { background-position: 40px 40px, 40px 40px; }
+    }
+    @keyframes glowDrift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%       { transform: translate(26px, -18px) scale(1.08); }
+    }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      position: relative;
+      z-index: 1;
+      background: var(--navy-deep);
+      border-radius: 16px;
+      padding: 0;
+      width: 100%;
+      max-width: 580px;
+      border: 1px solid rgba(83,177,205,0.12);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .card-body {
+      background: white;
+      padding: 2rem 2.5rem 2.5rem;
+      border-radius: 0 0 15px 15px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--navy-deep);
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(83,177,205,0.15);
+    }
+    .card-header img { display: block; flex-shrink: 0; }
+    .card-header span {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      color: var(--off-white);
+      letter-spacing: 0.01em;
+    }
+
+    .form-card h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .form-card h1 em { font-style: italic; color: var(--teal); }
+    .card-body > p {
+      font-size: 0.82rem;
+      color: var(--mid);
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--near-black);
+      background: white;
+      transition: border 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--teal);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* ── DRAG & DROP ── */
+    .upload-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .drop-zone {
+      border: 1.5px dashed rgba(83,177,205,0.55);
+      border-radius: 10px;
+      background: rgba(83,177,205,0.03);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+      margin-bottom: 1rem;
+      cursor: default;
+    }
+    .drop-zone.drag-over {
+      border-color: var(--teal);
+      background: rgba(83,177,205,0.07);
+    }
+    .drop-zone p {
+      font-size: 0.82rem;
+      color: var(--mid);
+      margin-bottom: 0.85rem;
+    }
+    .drop-zone-btn {
+      display: inline-block;
+      border: 1.5px solid var(--teal-light);
+      border-radius: 7px;
+      padding: 0.55rem 1.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      background: transparent;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .drop-zone-btn:hover {
+      border-color: var(--teal);
+      background: rgba(83,177,205,0.06);
+      color: var(--teal);
+    }
+    .upload-hint {
+      font-size: 0.73rem;
+      color: var(--mid);
+      margin-top: 0.75rem;
+    }
+    .file-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    .file-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--navy);
+      background: var(--teal-pale);
+      border-radius: 6px;
+      padding: 0.4rem 0.75rem;
+      gap: 0.5rem;
+    }
+    .file-list li span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-remove {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--mid);
+      font-size: 1rem;
+      line-height: 1;
+      padding: 0;
+      flex-shrink: 0;
+      transition: color 0.15s;
+    }
+    .file-remove:hover { color: #c0392b; }
+    .upload-error {
+      font-size: 0.75rem;
+      color: #c0392b;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    /* ── SUBMIT ── */
+    .btn-submit {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.9rem 1.5rem;
+      background: var(--teal);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 12px rgba(7,131,150,0.3);
+    }
+    .btn-submit:hover {
+      background: var(--teal-dark);
+      box-shadow: 0 6px 18px rgba(7,131,150,0.22);
+    }
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: progress;
+      transform: none;
+      box-shadow: none;
+    }
+    .form-status {
+      display: none;
+      margin-top: 0.85rem;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .form-success {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid rgba(7,131,150,0.2);
+      border-radius: 10px;
+      background: var(--teal-pale);
+      color: var(--navy);
+      line-height: 1.55;
+    }
+    .form-success h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.35rem;
+      color: var(--navy);
+    }
+    .form-success p {
+      font-size: 0.86rem;
+      color: var(--mid);
+      margin-bottom: 0.9rem;
+    }
+
+    /* ── COPYRIGHT ── */
+    .page-copyright {
+      position: relative;
+      z-index: 1;
+      margin-top: 1.75rem;
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.28);
+      text-align: center;
+    }
+    .page-copyright a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+    }
+    .page-copyright a:hover { color: rgba(255,255,255,0.7); }
+  </style>
+</head>
+<body>
+
+  <div class="form-card">
+    <div class="card-header">
+      <img src="assets/images/logo/LogoTransparent.svg" width="32" height="32" alt="Dove365 logo">
+      <span>Dove365</span>
+    </div>
+    <div class="card-body">
+    <h1>Report a <em>Bug</em></h1>
+    <p>All fields are required. Screenshots are optional but helpful — PNG, JPG, or JPEG, up to 1 file, 7 MB max.</p>
+
+    <form
+      id="bug-report-form"
+      name="bug-report"
+      method="POST"
+      enctype="multipart/form-data"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      data-netlify-honeypot="bot-field"
+      action="/"
+    >
+      <input type="hidden" name="form-name" value="bug-report">
+      <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <div class="form-group">
+        <label for="bug-email">Email</label>
+        <input id="bug-email" name="email" type="email" placeholder="you@yourbusiness.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="bug-app">App</label>
+        <select id="bug-app" name="app" required>
+          <option value="" disabled selected>Select an app</option>
+          <option value="Dove365 CRM - Starter">Dove365 CRM — Starter</option>
+          <option value="Dove365 Sales">Dove365 Church Connet</option>
+          <option value="Dove365 Marketing">Dove365 Raise</option>
+          <option value="Dove365 Admin">Dove365 Admin</option>
+          <option value="Dove365 Field Service">Other Dove365 Products</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="bug-version">Solution Version</label>
+        <input id="bug-version" name="solution-version" type="text" placeholder="e.g. 1.0.2" required>
+      </div>
+
+      <div class="form-group">
+        <label for="bug-description">Description</label>
+        <textarea id="bug-description" name="description" placeholder="Describe the bug, what you expected to happen, and the steps to reproduce it..." required></textarea>
+      </div>
+
+      <!-- Hidden real file input. Netlify supports one file per field, so no `multiple`. -->
+      <input type="file" id="file-input" name="screenshot" accept=".png,.jpg,.jpeg,image/png,image/jpeg" style="display:none">
+
+      <div>
+        <span class="upload-label">Screenshot <span style="color:var(--mid);font-weight:400;">(optional)</span></span>
+        <div class="drop-zone" id="drop-zone">
+          <p>Drag and drop your screenshot here</p>
+          <button type="button" class="drop-zone-btn" id="select-files-btn">Select File</button>
+          <ul class="file-list" id="file-list"></ul>
+          <p class="upload-hint">PNG, JPG or JPEG &nbsp;·&nbsp; Up to 1 file &nbsp;·&nbsp; Max 7 MB</p>
+          <p class="upload-error" id="upload-error"></p>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">Submit Bug Report →</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+    <div class="form-success" id="form-success" role="status" aria-live="polite" tabindex="-1">
+      <h2>Thank you</h2>
+      <p>Your bug report has been sent to Dove365. We will review it and follow up if we need any more detail.</p>
+    </div>
+    </div>
+  </div>
+
+  <p class="page-copyright">
+    © 2026 Dove365 Ltd. All rights reserved.&ensp;·&ensp;
+    <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>&ensp;·&ensp;
+    <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
+  </p>
+
+<script defer src="assets/js/main.js?v=46"></script>
+<script>
+(function () {
+  var MAX_FILES = 1;
+  var MAX_BYTES = 7 * 1024 * 1024;   // keep the whole request under Netlify's 8 MB limit
+  var ALLOWED_TYPES = ['image/png', 'image/jpeg'];
+  var ALLOWED_EXT = /\.(png|jpe?g)$/i;
+
+  var fileInput   = document.getElementById('file-input');
+  var dropZone    = document.getElementById('drop-zone');
+  var fileListEl  = document.getElementById('file-list');
+  var selectBtn   = document.getElementById('select-files-btn');
+  var errorEl     = document.getElementById('upload-error');
+  var form        = document.getElementById('bug-report-form');
+  var statusEl    = document.getElementById('form-status');
+  var successEl   = document.getElementById('form-success');
+
+  var selectedFiles = [];
+
+  function showError(msg) {
+    errorEl.textContent = msg;
+    errorEl.style.display = msg ? 'block' : 'none';
+  }
+
+  function renderList() {
+    fileListEl.innerHTML = '';
+    selectedFiles.forEach(function (f, i) {
+      var li = document.createElement('li');
+      var span = document.createElement('span');
+      span.textContent = f.name + ' (' + (f.size / 1024 / 1024).toFixed(1) + ' MB)';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'file-remove';
+      btn.setAttribute('aria-label', 'Remove ' + f.name);
+      btn.textContent = '×';
+      btn.addEventListener('click', function () {
+        selectedFiles.splice(i, 1);
+        renderList();
+        syncInput();
+        showError('');
+      });
+      li.appendChild(span);
+      li.appendChild(btn);
+      fileListEl.appendChild(li);
+    });
+  }
+
+  function syncInput() {
+    var dt = new DataTransfer();
+    selectedFiles.forEach(function (f) { dt.items.add(f); });
+    fileInput.files = dt.files;
+  }
+
+  selectBtn.addEventListener('click', function () { fileInput.click(); });
+
+  fileInput.addEventListener('change', function () {
+    addFiles(fileInput.files);
+    fileInput.value = '';
+  });
+
+  dropZone.addEventListener('dragover', function (e) {
+    e.preventDefault();
+    dropZone.classList.add('drag-over');
+  });
+  dropZone.addEventListener('dragleave', function () {
+    dropZone.classList.remove('drag-over');
+  });
+  dropZone.addEventListener('drop', function (e) {
+    e.preventDefault();
+    dropZone.classList.remove('drag-over');
+    addFiles(e.dataTransfer.files);
+  });
+
+  function addFiles(newFiles) {
+    showError('');
+    var rejected = [];
+    Array.from(newFiles).forEach(function (f) {
+      if (selectedFiles.length >= MAX_FILES) {
+        rejected.push(f.name + ' (max 1 file)');
+        return;
+      }
+      if (!ALLOWED_TYPES.includes(f.type) && !ALLOWED_EXT.test(f.name)) {
+        rejected.push(f.name + ' (must be PNG, JPG or JPEG)');
+        return;
+      }
+      if (f.size > MAX_BYTES) {
+        rejected.push(f.name + ' (exceeds 7 MB)');
+        return;
+      }
+      var dupe = selectedFiles.some(function (s) { return s.name === f.name && s.size === f.size; });
+      if (!dupe) selectedFiles.push(f);
+    });
+    if (rejected.length) showError('Not added: ' + rejected.join('; '));
+    renderList();
+    syncInput();
+  }
+
+  function setStatus(msg, isError) {
+    if (!statusEl) return;
+    statusEl.textContent = msg || '';
+    statusEl.style.display = msg ? 'block' : 'none';
+    statusEl.style.color = isError ? '#c0392b' : 'var(--mid)';
+  }
+
+  // Submit with AJAX (Netlify's recommended path for file uploads).
+  // We deliberately do NOT set a Content-Type header — the browser sets
+  // multipart/form-data with the correct boundary automatically.
+  form.addEventListener('submit', function (e) {
+    syncInput();
+    e.preventDefault();
+    if (!window.fetch || !window.FormData) {
+      setStatus('Sorry — this browser cannot submit the report here. Please try again with an up-to-date browser.', true);
+      return;
+    }
+    showError('');
+
+    var submitBtn = form.querySelector('.btn-submit');
+    var originalText = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Submitting…'; }
+    setStatus('Submitting your report…', false);
+
+    fetch('/', { method: 'POST', body: new FormData(form) })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        form.reset();
+        selectedFiles = [];
+        renderList();
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+        setStatus('', false);
+        form.style.display = 'none';
+        if (successEl) {
+          successEl.style.display = 'block';
+          successEl.focus();
+        }
+      })
+      .catch(function (err) {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+        setStatus('Sorry — your report couldn’t be sent (' + err.message + '). Please try again.', true);
+      });
+  });
+})();
+</script>
+</body>
+</html>

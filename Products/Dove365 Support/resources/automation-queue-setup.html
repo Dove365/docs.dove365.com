@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation and Queue Setup Guide — Dove365 Support</title>
+  <meta name="description" content="Configure support automation, queue routing, managed service usage alerts, and resolution rollups.">
+  <meta property="og:title" content="Automation and Queue Setup Guide — Dove365 Support">
+  <meta property="og:description" content="Configure support automation, queue routing, managed service usage alerts, and resolution rollups.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.dove365.com/assets/images/logo/Logo.png">
+  <link rel="canonical" href="https://www.docs.dove365.com/Products/Dove365%20Support/resources/automation-queue-setup.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css?v=59">
+  <style>
+.doc-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:2rem}.doc-figure{margin:2rem 0 0}.doc-gallery .doc-figure{margin:0}.doc-figure img,.screenshot-placeholder{display:flex;width:100%;min-height:260px;border:1px solid rgba(9,31,55,.12);border-radius:12px;box-shadow:0 16px 36px rgba(9,31,55,.1);background:linear-gradient(135deg,#f8fafc,#eef4f7);align-items:center;justify-content:center;text-align:center;color:#64748b;font-weight:600;padding:2rem}.doc-list{margin:1.25rem 0 0 1.25rem;color:var(--mid);line-height:1.75}.doc-list li{margin:.35rem 0}.doc-content h3{font-size:1.15rem;margin:1.6rem 0 .55rem;color:var(--dark)}.doc-content code{font-size:.92em;background:#eef6f6;color:#0f766e;border-radius:4px;padding:.1rem .35rem}.doc-note{margin-top:2rem;padding:1.25rem 1.5rem;border-left:4px solid var(--teal);background:#f7fbfb;color:var(--mid);border-radius:0 8px 8px 0}@media(max-width:720px){.doc-gallery{grid-template-columns:1fr}.screenshot-placeholder{min-height:180px}}
+</style>
+  <link rel="icon" type="image/png" href="../../../assets/images/logo/Logo.png">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body><div class="scroll-progress" aria-hidden="true"></div><div class="mouse-aura" aria-hidden="true"></div>
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="https://www.dove365.com" aria-label="Dove365 home">
+    <img class="nav-logo-mark" src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true">
+    <span class="nav-logo-text">Dove365</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="https://www.dove365.com">Home</a></li>
+    <li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li>
+    <li class="has-dropdown"><a href="https://www.dove365.com/services.html">Services</a><div class="dropdown"><div class="dropdown-label">Services</div><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a><a href="https://www.dove365.com/managed-support.html">Managed Services</a></div></li>
+    <li class="has-dropdown"><a href="#">Products</a><div class="dropdown"><div class="dropdown-label">Products</div><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a><a href="../support-docs.html">Dove365 Support</a></div></li>
+    <li class="has-dropdown"><a href="../../../docs.html">Resources</a><div class="dropdown"><div class="dropdown-label">Resources</div><a href="../../../docs.html">Documentation Library</a><a href="https://www.dove365.com/case-studies.html">Case Studies</a><a href="https://www.dove365.com/ai-toolkit.html">AI Toolkit</a><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></div></li>
+    <li><a href="https://www.dove365.com/about.html">About</a></li>
+    <li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+<div class="page-offset">
+<div class="page-hero"><div class="page-hero-inner"><div class="breadcrumb"><a href="../support-docs.html">Documentation</a><span>/</span>Automation and Queue Setup Guide</div><h1>Automation and Queue Setup <em>Guide</em></h1><p>Configure support automation, queue routing, managed service usage alerts, and resolution rollups.</p></div></div>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Scope / When this applies</div><h2 class="display">Scope / When this <em>applies</em></h2><div class="doc-content"><p>Use this guide to understand Dove365 Support automation, default queue setup, support mailbox intake, and Queue Item behaviour.</p></div>
+<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Automation and Queue Setup Guide — Scope / When this applies screenshot placeholder">Screenshot placeholder<br>Scope / When this applies</div></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Configure Default Queue</div><h2 class="display">Configure Default <em>Queue</em></h2><div class="doc-content"><p>Automation:</p>
+<ul class="doc-list">
+<li><code>Configure Default Queue</code></li>
+</ul>
+<p>When to run:</p>
+<ul class="doc-list">
+<li>Manually after solution import.</li>
+<li>Manually when changing the default queue.</li>
+</ul>
+<p>Required input:</p>
+<ul class="doc-list">
+<li>Default Queue GUID.</li>
+</ul>
+<p>Purpose:</p>
+<ul class="doc-list">
+<li>Maps the configured default queue so other support automations can place new work into the correct queue.</li>
+</ul>
+<p>Admin steps:</p>
+<ol class="doc-list ordered">
+<li>Create or identify the default support queue.</li>
+<li>Copy the Queue GUID.</li>
+<li>Set <code>dove365_DefaultQueueGUID</code>.</li>
+<li>Run <code>Configure Default Queue</code>.</li>
+<li>Confirm new email-created Cases are placed into that queue.</li>
+</ol></div>
+<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Automation and Queue Setup Guide — Configure Default Queue screenshot placeholder">Screenshot placeholder<br>Configure Default Queue</div></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Triage Support Emails to Queue</div><h2 class="display">Triage Support Emails to <em>Queue</em></h2><div class="doc-content"><p>Automation:</p>
+<ul class="doc-list">
+<li><code>Triage Support Emails to Queue</code></li>
+</ul>
+<p>Purpose:</p>
+<ul class="doc-list">
+<li>Reads the support mailbox.</li>
+<li>Creates Dove365 Support Cases from incoming support emails.</li>
+<li>Adds new Cases to the configured default queue.</li>
+</ul>
+<p>Admin checks:</p>
+<ul class="doc-list">
+<li>Support mailbox address is correct.</li>
+<li>Outlook connection is authenticated.</li>
+<li>Dataverse connection is authenticated.</li>
+<li>Default queue GUID is configured.</li>
+<li>The flow can create Case and Queue Item records.</li>
+</ul></div>
+<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Automation and Queue Setup Guide — Triage Support Emails to Queue screenshot placeholder">Screenshot placeholder<br>Triage Support Emails to Queue</div></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Daily Managed Service 80% Usage Threshold</div><h2 class="display">Daily Managed Service 80% Usage <em>Threshold</em></h2><div class="doc-content"><p>Automation:</p>
+<ul class="doc-list">
+<li><code>Daily Managed Service 80% Usage Threshold</code></li>
+</ul>
+<p>Purpose:</p>
+<ul class="doc-list">
+<li>Identifies Managed Services at or above 80 percent usage.</li>
+<li>Supports proactive review before allocation is exhausted.</li>
+</ul>
+<p>Interpretation:</p>
+<ul class="doc-list">
+<li>80 percent or above means the Managed Service is approaching allocation.</li>
+<li>100 percent means the allocation is fully used.</li>
+<li>More than 100 percent means over-allocation.</li>
+</ul></div>
+<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Automation and Queue Setup Guide — Daily Managed Service 80% Usage Threshold screenshot placeholder">Screenshot placeholder<br>Daily Managed Service 80% Usage Threshold</div></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Monthly Managed Services Allocation Reset</div><h2 class="display">Monthly Managed Services Allocation <em>Reset</em></h2><div class="doc-content"><p>Automation:</p>
+<ul class="doc-list">
+<li><code>Monthly Managed Services Allocation Reset</code></li>
+</ul>
+<p>Purpose:</p>
+<ul class="doc-list">
+<li>Clears or resets monthly allocation usage values for Managed Services.</li>
+</ul>
+<p>Admin guidance:</p>
+<ul class="doc-list">
+<li>Confirm reset timing aligns with commercial support periods.</li>
+<li>Confirm reporting expectations before changing schedule.</li>
+</ul></div>
+<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Automation and Queue Setup Guide — Monthly Managed Services Allocation Reset screenshot placeholder">Screenshot placeholder<br>Monthly Managed Services Allocation Reset</div></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Notify Case Escalation Manager</div><h2 class="display">Notify Case Escalation <em>Manager</em></h2><div class="doc-content"><p>Automation:</p>
+<ul class="doc-list">
+<li><code>Notify Case Escalation Manager</code></li>
+</ul>
+<p>Purpose:</p>
+<ul class="doc-list">
+<li>Notifies the escalation manager when a Case is escalated.</li>
+</ul>
+<p>Trigger condition:</p>
+<ul class="doc-list">
+<li>A Case is marked as escalated or enters the escalation path.</li>
+</ul>
+<p>User guidance:</p>
+<ul class="doc-list">
+<li>Escalate only when manager attention is required.</li>
+<li>Ensure the escalation manager field is populated where required.</li>
+</ul></div>
+<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Automation and Queue Setup Guide — Notify Case Escalation Manager screenshot placeholder">Screenshot placeholder<br>Notify Case Escalation Manager</div></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Support Case — Resolve</div><h2 class="display">Support Case — <em>Resolve</em></h2><div class="doc-content"><p>Automation:</p>
+<ul class="doc-list">
+<li><code>Support Case — Resolve</code></li>
+</ul>
+<p>Purpose:</p>
+<ul class="doc-list">
+<li>Closes a support Case.</li>
+<li>Notifies the customer when the Case is resolved.</li>
+</ul>
+<p>User guidance:</p>
+<ul class="doc-list">
+<li>Complete resolution notes before resolving.</li>
+<li>Confirm all Support Activities are entered.</li>
+<li>Confirm Managed Service hours are accurate.</li>
+</ul></div>
+<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Automation and Queue Setup Guide — Support Case - Resolve screenshot placeholder">Screenshot placeholder<br>Support Case - Resolve</div></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Aggregate Managed Service Hours</div><h2 class="display">Aggregate Managed Service <em>Hours</em></h2><div class="doc-content"><p>Automation / plugin-supported process:</p>
+<ul class="doc-list">
+<li><code>Aggregate Managed Service Hours</code></li>
+<li><code>Dove365.Support.Plugins.AggregateManagedServicesHours</code></li>
+</ul>
+<p>Purpose:</p>
+<ul class="doc-list">
+<li>Aggregates Support Activity hours for a Case against the related Managed Service.</li>
+<li>Keeps Managed Service usage, remaining hours, and usage percentage aligned with logged service work.</li>
+</ul></div>
+<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Automation and Queue Setup Guide — Aggregate Managed Service Hours screenshot placeholder">Screenshot placeholder<br>Aggregate Managed Service Hours</div></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Queue Item lifecycle</div><h2 class="display">Queue Item <em>lifecycle</em></h2><div class="doc-content"><ol class="doc-list ordered">
+<li>A Case is created manually or by email triage.</li>
+<li>The Case is added to a Queue as a Queue Item.</li>
+<li>If no user is working it, <code>Worked By</code> is blank.</li>
+<li>A user picks or works the Queue Item.</li>
+<li><code>Worked By</code> is populated.</li>
+<li>The Queue Item appears in that user&#x27;s My Queue Items.</li>
+<li>The Case is worked and eventually resolved.</li>
+</ol></div>
+<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Automation and Queue Setup Guide — Queue Item lifecycle screenshot placeholder">Screenshot placeholder<br>Queue Item lifecycle</div></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Related Guides</div><h2 class="display">Continue <em>learning</em></h2><div class="pain-grid" style="margin-top:3rem;">
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Admin and Configuration Guide</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="admin-configuration.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Queues and Queue Items</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="queues-queue-items.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Cases</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="cases.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+</div></div></section>
+<section class="cta-section section-sm"><div class="container"><div class="cta-inner"><h2 class="display display-light">Need help with Dove365 Support <em>configuration?</em></h2><p>Book a free call and get your questions answered directly by Dove365.</p><div class="cta-actions"><a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Call &rarr;</a><a href="../support-docs.html" class="btn btn-ghost-light">Back to Documentation</a></div></div></div></section>
+<!-- Footer -->
+<footer>
+  <div class="footer-top footer-5col">
+    <div class="footer-brand"><div class="footer-logo"><img src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Microsoft Partner</small></span></div><p>Microsoft-focused consultancy specialising in and delivering practical Power Platform, Dynamics 365, Dataverse, and AI Enablement.</p><div class="ms-partner-badge"><img src="../../../assets/images/icons/Microsoft Partner Logo.png" width="300" height="70" loading="lazy" decoding="async" alt="Microsoft Partner"></div></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li><li><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a></li><li><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a></li><li><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a></li><li><a href="https://www.dove365.com/managed-support.html">Managed Services</a></li></ul></div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li><li><a href="../support-docs.html">Dove365 Support</a></li><li><a href="../../../docs.html">Product Documentation</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="https://www.dove365.com/case-studies.html">Case Studies</a></li><li><a href="https://www.dove365.com/about.html">About</a></li><li><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></li><li><a href="https://www.dove365.com/contact.html">Book a Call</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+441618841812">+44 (0)161 884 1812</a></li><li><a href="mailto:hello@dove365.com">hello@dove365.com</a></li><li><a href="https://www.dove365.com">dove365.com</a></li><li><a href="https://www.linkedin.com/company/dove365/">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Dove365 Ltd. All rights reserved.</p><div class="footer-legal"><a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a><a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a><a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a></div></div>
+</footer>
+</div><script defer src="../../../assets/js/main.js?v=46"></script><script defer src="../../../assets/js/lab.js?v=1"></script><script defer src="screenshot-lightbox.js"></script></body></html>
