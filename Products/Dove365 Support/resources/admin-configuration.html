@@ -32,16 +32,19 @@
     <li><a href="https://www.dove365.com">Home</a></li>
     <li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li>
     <li class="has-dropdown"><a href="https://www.dove365.com/services.html">Services</a><div class="dropdown"><div class="dropdown-label">Services</div><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a><a href="https://www.dove365.com/managed-support.html">Managed Services</a></div></li>
-    <li class="has-dropdown"><a href="#">Products</a><div class="dropdown"><div class="dropdown-label">Products</div><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a><a href="../support-docs.html">Dove365 Support</a></div></li>
+    <li class="has-dropdown"><a href="#">Products</a><div class="dropdown"><div class="dropdown-label">Products</div><a href="https://www.dove365.com/products.html">All Products</a><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a><a href="https://www.dove365.com/Products/Dove365-Support.html">Dove365 Support</a></div></li>
     <li class="has-dropdown"><a href="../../../docs.html">Resources</a><div class="dropdown"><div class="dropdown-label">Resources</div><a href="../../../docs.html">Documentation Library</a><a href="https://www.dove365.com/case-studies.html">Case Studies</a><a href="https://www.dove365.com/ai-toolkit.html">AI Toolkit</a><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></div></li>
     <li><a href="https://www.dove365.com/about.html">About</a></li>
     <li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li>
   </ul>
 </nav>
 <div class="page-offset">
-<div class="page-hero"><div class="page-hero-inner"><div class="breadcrumb"><a href="../support-docs.html">Documentation</a><span>/</span>Admin and Configuration Guide</div><h1>Admin and Configuration <em>Guide</em></h1><p>Configure Dove365 Support after installation and maintain reference data, roles, queues, and environment settings.</p></div></div>
+<div class="page-hero"><div class="page-hero-inner"><div class="breadcrumb"><a href="../../../docs.html">Documentation</a>
+        <span>/</span>
+        <span>Dove365 Support</span>
+        <span>/</span>
+        Admin and Configuration Guide</div><h1>Admin and Configuration <em>Guide</em></h1><p>Configure Dove365 Support after installation and maintain reference data, roles, queues, and environment settings.</p></div></div>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Scope / When this applies</div><h2 class="display">Scope / When this <em>applies</em></h2><div class="doc-content"><p>Use this guide when configuring Dove365 Support after installation or when maintaining reference data and administration settings.</p></div>
-<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Admin and Configuration Guide — Scope / When this applies screenshot placeholder">Screenshot placeholder<br>Scope / When this applies</div></figure>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Required admin actions after import</div><h2 class="display">Required admin actions after <em>import</em></h2><div class="doc-content"><ol class="doc-list ordered">
 <li>Assign security roles.</li>
@@ -53,13 +56,12 @@
 <li>Confirm Service Offerings exist in Dove365 Common.</li>
 <li>Confirm dashboards are available in the app.</li>
 </ol></div>
-<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Admin and Configuration Guide — Required admin actions after import screenshot placeholder">Screenshot placeholder<br>Required admin actions after import</div></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Environment variables</div><h2 class="display">Environment <em>variables</em></h2><div class="doc-content"><h3>Default Queue GUID</h3>
 <p>Environment variable:</p>
 <ul class="doc-list">
 <li><code>dove365_DefaultQueueGUID</code></li>
-</ul>
+</ul>Products/Dove365 Support/images/Dove365 Support Admin Screenshots/Dove365 Support Configure Default Queue Flow.png
 <p>Purpose:</p>
 <ul class="doc-list">
 <li>Identifies the default queue used by support email triage and dashboard available-to-pick logic.</li>
@@ -92,6 +94,7 @@
 <li>Use subcategories only where they improve reporting or routing.</li>
 <li>Retire unused values by deactivating rather than deleting where historical records exist.</li>
 </ul></div>
+<div class="doc-gallery"><figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Categories%20View.png" alt="Dove365 Support categories view" loading="lazy" decoding="async"></figure><figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Sub%20Categories%20View.png" alt="Dove365 Support sub categories view" loading="lazy" decoding="async"></figure></div>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Service Offerings</div><h2 class="display">Service <em>Offerings</em></h2><div class="doc-content"><p>Service Offerings are managed in the main Dove365 Admin/Common guides.</p>
 <p>Support admins use Service Offerings in Dove365 Support for:</p>
@@ -99,7 +102,7 @@
 <li>Case classification.</li>
 <li>Managed Service setup.</li>
 <li>Support coverage context.</li>
-</ul>
+</ul>Products/Dove365 Support/images/Dove365 Support Screenshots/Dove365 Support Service Offering Form.png
 <p>Do not create duplicate Service Offerings in Support-specific workflows.</p></div>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Queues</div><h2 class="display">Queues</h2><div class="doc-content"><p>Queues are critical to Dove365 Support.</p>
@@ -111,14 +114,14 @@
 <li>Queue membership and ownership.</li>
 </ul>
 <p>The default queue is used by automation and dashboards. If it is incorrect, support email triage and available-to-pick reporting will be wrong.</p></div>
-<figure class="doc-figure"><div class="screenshot-placeholder" role="img" aria-label="Dove365 Support Admin and Configuration Guide — Queues screenshot placeholder">Screenshot placeholder<br>Queues</div></figure>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Admin%20Screenshots/Dove365%20Support%20Admin%20Queues%20View.png" alt="Dove365 Support admin queues view" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Security roles</div><h2 class="display">Security <em>roles</em></h2><div class="doc-content"><p>Assign roles based on the user&#x27;s support responsibility:</p>
 <ul class="doc-list">
 <li><code>Dove365 Support User</code></li>
 <li><code>Dove365 Support Account Manager</code></li>
 <li><code>Dove365 Support Admin</code></li>
-</ul>
+</ul>Products/Dove365 Support/images/Dove365 Support Admin Screenshots/Dove365 Support Admin Security Roles.png
 <p>Use the least privileged role that allows the user to do their job.</p></div>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Related Guides</div><h2 class="display">Continue <em>learning</em></h2><div class="pain-grid" style="margin-top:3rem;">
@@ -132,7 +135,7 @@
   <div class="footer-top footer-5col">
     <div class="footer-brand"><div class="footer-logo"><img src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Microsoft Partner</small></span></div><p>Microsoft-focused consultancy specialising in and delivering practical Power Platform, Dynamics 365, Dataverse, and AI Enablement.</p><div class="ms-partner-badge"><img src="../../../assets/images/icons/Microsoft Partner Logo.png" width="300" height="70" loading="lazy" decoding="async" alt="Microsoft Partner"></div></div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li><li><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a></li><li><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a></li><li><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a></li><li><a href="https://www.dove365.com/managed-support.html">Managed Services</a></li></ul></div>
-    <div class="footer-col"><h4>Products</h4><ul><li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li><li><a href="../support-docs.html">Dove365 Support</a></li><li><a href="../../../docs.html">Product Documentation</a></li></ul></div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="https://www.dove365.com/products.html">All Products</a></li><li><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a></li><li><a href="https://www.dove365.com/Products/Dove365-Support.html">Dove365 Support</a></li><li><a href="https://www.docs.dove365.com/docs.html">Product Documentation</a></li></ul></div>
     <div class="footer-col"><h4>Company</h4><ul><li><a href="https://www.dove365.com/case-studies.html">Case Studies</a></li><li><a href="https://www.dove365.com/about.html">About</a></li><li><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></li><li><a href="https://www.dove365.com/contact.html">Book a Call</a></li></ul></div>
     <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+441618841812">+44 (0)161 884 1812</a></li><li><a href="mailto:hello@dove365.com">hello@dove365.com</a></li><li><a href="https://www.dove365.com">dove365.com</a></li><li><a href="https://www.linkedin.com/company/dove365/">LinkedIn</a></li></ul></div>
   </div>
