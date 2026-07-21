@@ -56,6 +56,7 @@
 <li>Customer reminders.</li>
 </ul>
 <p>These activities appear in dashboards when they are open, owned by the user, and have a scheduled end date.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Activities.png" alt="Dove365 Support activities view" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">When to use Support Activities</div><h2 class="display">When to use Support <em>Activities</em></h2><div class="doc-content"><p>Use Support Activities when recording support work against a Case, especially where time should contribute to Managed Service usage.</p>
 <p>Examples:</p>
@@ -76,10 +77,23 @@
 <li>Enter hours or time spent.</li>
 <li>Enter start and end details where required.</li>
 <li>Save.</li>
-</ol></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Support%20Activity.png" alt="Dove365 Support case support activity" loading="lazy" decoding="async"></figure>
+</ol>
+<p>This is the manual route. In practice most users create Support Activities with the time tracker on the Case form instead, which fills in the subject, start, end, duration and hours for you.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Form%20-%20Support%20Activity.png" alt="Support Activities logged against a Dove365 Support Case" loading="lazy" decoding="async"></figure>
 </div></section>
-<section class="section" style="background:white;"><div class="container"><div class="section-tag">Rollup of hours</div><h2 class="display">Rollup of <em>hours</em></h2><div class="doc-content"><p>Support Activity hours are aggregated against the related Case and Managed Service.</p>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Time tracker</div><h2 class="display">Logging time with the <em>tracker</em></h2><div class="doc-content"><p>The <a href="time-tracker.html">Support Activity Time Tracker</a> sits on the Case form. Start the timer when you begin work, pause and resume as you move between tasks, then <code>Stop and save</code>.</p>
+<p>On stop, the tracker writes a <strong>completed</strong> Support Activity against the Case and refreshes two totals: how much you have logged today, and how much has been logged against the Case altogether.</p>
+<ul class="doc-list">
+<li>Time is rounded to the nearest 15 minutes by default, with exact halves rounded up.</li>
+<li>Any non-zero session is lifted to the minimum chargeable duration, so a three minute call saves as 15 minutes rather than zero.</li>
+<li>Paused time is never counted.</li>
+<li>The running timer survives a form reload or a closed tab, because it is held in browser storage keyed by user and Case.</li>
+<li>No standard Task, Appointment or Phone Call record is created &mdash; only a Support Activity.</li>
+</ul>
+<p>Where the Case is linked to a Managed Service, the tracker warns you before saving if the time would take the allocation past its warning threshold or over its limit. The warnings are advisory and never block the save.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Form%20-%20Timer.png" alt="Dove365 Support Activity Time Tracker on the Case form" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Rollup of hours</div><h2 class="display">Rollup of <em>hours</em></h2><div class="doc-content"><p>Support Activity hours are aggregated against the related Case and Managed Service.</p>
 <p>The plugin <code>Dove365.Support.Plugins.AggregateManagedServicesHours</code> runs on Support Activity create, update, and delete.</p>
 <p>Interpretation:</p>
 <ul class="doc-list">
@@ -89,7 +103,7 @@
 <li>Managed Service remaining hours and usage percentage depend on accurate Support Activity data.</li>
 </ul></div>
 </div></section>
-<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Working with timeline</div><h2 class="display">Working with <em>timeline</em></h2><div class="doc-content"><p>Use the timeline to understand communication history and recent actions.</p>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Working with timeline</div><h2 class="display">Working with <em>timeline</em></h2><div class="doc-content"><p>Use the timeline to understand communication history and recent actions.</p>
 <p>Best practice:</p>
 <ul class="doc-list">
 <li>Keep customer-facing communication clear.</li>
@@ -97,7 +111,7 @@
 <li>Use standard activities for reminders and scheduling.</li>
 </ul></div>
 </div></section>
-<section class="section" style="background:white;"><div class="container"><div class="section-tag">Best practice</div><h2 class="display">Best <em>practice</em></h2><div class="doc-content"><ul class="doc-list">
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Best practice</div><h2 class="display">Best <em>practice</em></h2><div class="doc-content"><ul class="doc-list">
 <li>Log work as soon as it is completed.</li>
 <li>Do not wait until Case closure to add all hours.</li>
 <li>Use clear notes so another user can understand the work performed.</li>

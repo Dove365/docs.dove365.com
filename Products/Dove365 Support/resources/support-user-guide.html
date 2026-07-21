@@ -55,7 +55,7 @@
 <li>Review overdue activities before starting new work.</li>
 <li>Open high-priority or overdue Cases first.</li>
 </ol></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20My%20Work%20Dashboard.png" alt="Dove365 Support My Work dashboard" loading="lazy" decoding="async"></figure>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20My%20Work.png" alt="Dove365 Support My Work dashboard" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Triage</div><h2 class="display">Pick or review queue <em>work</em></h2><div class="doc-content"><p>Use Queue Items to understand what work is available, what is already being worked, and what needs assignment.</p>
 <ol class="doc-list ordered">
@@ -63,8 +63,27 @@
 <li>Check whether the item is already being worked.</li>
 <li>Pick the item when you are taking ownership.</li>
 <li>Open the related Case before starting investigation.</li>
-</ol></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Available%20Queue%20Items.png" alt="Dove365 Support available queue items" loading="lazy" decoding="async"></figure>
+</ol>
+<p>Picking an item sets the Queue Item <code>Worked By</code> user to you and routes the item to your queue, so the work shows in <code>My Queue Items</code> and stops other users from duplicating it.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Queue%20Items%20View.png" alt="Dove365 Support queue items view" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Work boards</div><h2 class="display">Work the boards instead of the <em>list</em></h2><div class="doc-content"><p>Two boards make the same queue work easier to handle than a raw queue item list. Both are opened inside the Dove365 Support app.</p>
+<h3>Kanban Board</h3>
+<p>Use the <a href="kanban-board.html">Kanban Board</a> when you want to see queue work by support state &mdash; Awaiting Triage, Assigned, In Progress, and Escalated. From the board you can pick up a Case, assign it to another Dove365 user, drag it into In Progress, release it back to triage, or escalate it to an escalation manager.</p>
+<h3>Queue Workload Board</h3>
+<p>Use the <a href="queue-workload-board.html">Queue Workload Board</a> when you need to see who is carrying how much work. It groups the same queue work by user, team, or queue, scores each Case on priority and target resolution date, and shows each lane's capacity as Available, Healthy, Busy, or Overloaded. Use it to find spare capacity and rebalance before service is affected.</p>
+<p>Both boards need queue membership to work properly. You only see work in public queues, queues you are a member of, and the default queue &mdash; and work can only be routed to a user who has an active queue of their own.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Kanban%20Board.png" alt="Dove365 Support Kanban Board" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Rebalancing</div><h2 class="display">Rebalance when someone is <em>overloaded</em></h2><div class="doc-content"><p>On the Queue Workload Board, drag a card into another lane or use the buttons on the card:</p>
+<ul class="doc-list">
+<li><code>Assign</code> moves the Case to a selected user, routing the Queue Item into that user's queue.</li>
+<li><code>Pick Up</code> assigns unassigned work to you.</li>
+<li><code>Move to Queue</code> moves the Case to another queue without changing <code>Worked By</code>.</li>
+<li><code>Release</code> returns the Case to the default triage queue and clears <code>Worked By</code>.</li>
+</ul>
+<p>The confirmation warns you when a move will push the target above 100 per cent capacity. The warning does not block the move &mdash; it is there so overload is a decision rather than an accident.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Queue%20Workload.png" alt="Dove365 Support Queue Workload Board" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Case work</div><h2 class="display">Update the <em>Case</em></h2><div class="doc-content"><p>The Case is the main support work record. Before doing detailed work, make sure the Case has the correct customer, classification, service context, owner, and priority.</p>
 <ol class="doc-list ordered">
@@ -81,8 +100,9 @@
 <li>Record time against the correct Case.</li>
 <li>Use Support Activities for support delivery work, not just generic activity history.</li>
 <li>Check the related Managed Service when time should affect allocation usage.</li>
-</ul></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Support%20Activity.png" alt="Dove365 Support case support activity" loading="lazy" decoding="async"></figure>
+</ul>
+<p>The quickest way to log time is the <a href="time-tracker.html">Support Activity Time Tracker</a> on the Case form. Start the timer when you begin, pause and resume as you switch tasks, then <code>Stop and save</code>. The tracker writes a completed Support Activity rounded to the nearest 15 minutes and shows how much you have logged today and how much has been logged against the Case in total. It also warns you before the time lands if the Case is linked to a Managed Service that is close to, or over, its allocation.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Form%20-%20Timer.png" alt="Dove365 Support Activity Time Tracker on the Case form" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Service context</div><h2 class="display">Check managed service <em>context</em></h2><div class="doc-content"><p>When a Case is linked to a Managed Service, check the service allocation before committing more work. This gives users and account managers the context they need before hours increase.</p>
 <ul class="doc-list">
@@ -103,7 +123,8 @@
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Related Guides</div><h2 class="display">Continue <em>learning</em></h2><div class="pain-grid" style="margin-top:3rem;">
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Queues and Queue Items</h3><p>Go deeper on queue records, Queue Items, default queues, and picked work.</p><div style="margin-top:1.5rem;"><a href="queues-queue-items.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Cases</h3><p>Review the detailed Case lifecycle, classification, investigation, escalation, and resolution guidance.</p><div style="margin-top:1.5rem;"><a href="cases.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
-<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Managed Services</h3><p>Understand support allocation, usage, and account manager responsibilities.</p><div style="margin-top:1.5rem;"><a href="managed-services.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Kanban Board</h3><p>Pick up, assign, progress, release, and escalate queue work from a visual board.</p><div style="margin-top:1.5rem;"><a href="kanban-board.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Time Tracker</h3><p>Log support time straight from the Case form, with rounding and allocation warnings.</p><div style="margin-top:1.5rem;"><a href="time-tracker.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
 </div></div></section>
 <section class="cta-section section-sm"><div class="container"><div class="cta-inner"><h2 class="display display-light">Need help with Dove365 Support <em>configuration?</em></h2><p>Book a free call and get your questions answered directly by Dove365.</p><div class="cta-actions"><a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Call &rarr;</a><a href="../support-docs.html" class="btn btn-ghost-light">Back to Documentation</a></div></div></div></section>
 <!-- Footer -->

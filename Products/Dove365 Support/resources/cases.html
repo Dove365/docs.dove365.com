@@ -74,7 +74,7 @@
 </ul>
 <p>Missing links reduce reporting quality and may cause the Case to appear in attention dashboards.</p></div>
 </div></section>
-<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Business process flow</div><h2 class="display">Business process <em>flow</em></h2><div class="doc-content"><p>The Case resolution process guides the Case through completion.</p>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Business process flow</div><h2 class="display">Business process <em>flow</em></h2><div class="doc-content"><p>The <code>Support Case - Resolve</code> process guides the Case through to completion, and closes the Case and notifies the customer when resolution is confirmed.</p>
 <p>Users should complete required Case information before moving to resolution.</p>
 <p>Typical lifecycle:</p>
 <ol class="doc-list ordered">
@@ -85,7 +85,7 @@
 <li>Resolution details.</li>
 <li>Close Case.</li>
 </ol></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Case%20Process%20Flow.png" alt="Dove365 Support case process flow" loading="lazy" decoding="async"></figure>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Process.png" alt="Dove365 Support case process flow" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Investigation</div><h2 class="display">Investigation</h2><div class="doc-content"><p>During investigation:</p>
 <ul class="doc-list">
@@ -94,7 +94,28 @@
 <li>Review related activities.</li>
 <li>Add Support Activities for work performed.</li>
 <li>Update status and priority as needed.</li>
-</ul></div>
+</ul>
+<h3>Logging time as you work</h3>
+<p>The Case form carries the <a href="time-tracker.html">Support Activity Time Tracker</a>. Start the timer when you begin work, pause and resume as you move between tasks, then <code>Stop and save</code>. The tracker creates a completed Support Activity rounded to the nearest 15 minutes and refreshes the totals for today and for the Case.</p>
+<p>Because the time lands as a Support Activity, it feeds the Case <code>Hours Spent</code> rollup and the Managed Service usage figures automatically. There is no need to create the activity by hand.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Form%20-%20Timer.png" alt="Dove365 Support Activity Time Tracker on the Case form" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Managed service context</div><h2 class="display">Managed service <em>context</em></h2><div class="doc-content"><p>Where a Case consumes contracted support, flag it as managed-service related and select the correct Managed Service. The Case then shows the allocation context you need before committing further work.</p>
+<ul class="doc-list">
+<li>Confirm the Managed Service is right for the customer and service type.</li>
+<li>Review allocation, hours used, and hours remaining before starting significant work.</li>
+<li>Raise over-allocation with the account manager rather than absorbing it silently.</li>
+</ul>
+<p>A Case flagged as managed-service related but missing a Managed Service link appears in the <code>Cases Requiring Attention</code> list on the My Support Work dashboard.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Form%20-%20Managed%20Services.png" alt="Managed Service context on a Dove365 Support Case" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Working from a board</div><h2 class="display">Working Cases from a <em>board</em></h2><div class="doc-content"><p>Most Cases reach you through a queue rather than a Case list. Two boards let you act on them without opening each record first.</p>
+<ul class="doc-list">
+<li>The <a href="kanban-board.html">Kanban Board</a> groups Cases by support state and lets you pick up, assign, progress, release, and escalate them.</li>
+<li>The <a href="queue-workload-board.html">Queue Workload Board</a> groups the same Cases by who is carrying the load, and lets you reassign, move between queues, or release back to triage.</li>
+</ul>
+<p>Both boards act on the Queue Item behind the Case. <code>Worked By</code> on the Queue Item identifies who is working it, and is separate from the Case owner.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Kanban%20Board.png" alt="Worked By on a Dove365 Support Case queue item" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Escalation</div><h2 class="display">Escalation</h2><div class="doc-content"><p>Escalate a Case when manager or specialist attention is required.</p>
 <p>Before escalating:</p>
@@ -104,7 +125,9 @@
 <li>Confirm the escalation manager is populated.</li>
 <li>Add clear notes.</li>
 </ol>
-<p>The <code>Notify Case Escalation Manager</code> automation notifies the escalation manager when the Case is escalated.</p></div>
+<p>The <code>Notify Case Escalation Manager</code> automation notifies the escalation manager when the Case is escalated.</p>
+<p>You can also escalate from a board. On the Kanban Board, drag the card into the <strong>Escalated</strong> column and select the escalation manager. Dove365 Support then ensures the Queue Item has a <code>Worked By</code> user, routes it to that user's queue where needed, sets the Case as escalated, populates the escalation manager, and moves the Case into an active support status.</p>
+<p>Escalated Cases also carry extra weight on the Queue Workload Board, adding 2 to the Case workload score so the person carrying them is not treated as having spare capacity.</p></div>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Resolution</div><h2 class="display">Resolution</h2><div class="doc-content"><p>Before resolving:</p>
 <ol class="doc-list ordered">
@@ -122,7 +145,8 @@
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Related Guides</div><h2 class="display">Continue <em>learning</em></h2><div class="pain-grid" style="margin-top:3rem;">
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Daily Support Workflow</h3><p>Follow the practical sequence for dashboards, queues, cases, activities, and managed service checks.</p><div style="margin-top:1.5rem;"><a href="support-user-guide.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Admin and Configuration</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="admin-configuration.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
-<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Dashboards</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="dashboards.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Time Tracker</h3><p>Log support time straight from the Case form, with rounding, daily totals, and allocation warnings.</p><div style="margin-top:1.5rem;"><a href="time-tracker.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Kanban Board</h3><p>Pick up, assign, progress, release, and escalate Cases from a visual queue board.</p><div style="margin-top:1.5rem;"><a href="kanban-board.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
 </div></div></section>
 <section class="cta-section section-sm"><div class="container"><div class="cta-inner"><h2 class="display display-light">Need help with Dove365 Support <em>configuration?</em></h2><p>Book a free call and get your questions answered directly by Dove365.</p><div class="cta-actions"><a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Call &rarr;</a><a href="../support-docs.html" class="btn btn-ghost-light">Back to Documentation</a></div></div></div></section>
 <!-- Footer -->

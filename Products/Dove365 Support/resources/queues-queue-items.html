@@ -55,7 +55,7 @@
 <li>Specialist queues.</li>
 </ul>
 <p>Admins configure queues and queue access. Users work with Queue Items inside those queues.</p></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Queues%20View.png" alt="Dove365 Support queues view" loading="lazy" decoding="async"></figure>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Queue%20View.png" alt="Dove365 Support queues view" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">What is a Queue Item</div><h2 class="display">What is a Queue <em>Item</em></h2><div class="doc-content"><p>A Queue Item is the queue representation of a record, usually a support Case.</p>
 <p>Important fields:</p>
@@ -66,7 +66,7 @@
 <li>Worked By: the user currently working the item.</li>
 <li>Status: queue item state/status.</li>
 </ul></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Available%20Queue%20Items.png" alt="Dove365 Support available queue items" loading="lazy" decoding="async"></figure>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Queue%20Items%20View.png" alt="Dove365 Support available queue items" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Default queue</div><h2 class="display">Default <em>queue</em></h2><div class="doc-content"><p>The default queue is configured using <code>dove365_DefaultQueueGUID</code>.</p>
 <p>It is used by:</p>
@@ -98,7 +98,7 @@
 <li>Log Support Activities.</li>
 <li>Resolve or route the Case as needed.</li>
 </ol></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Route%20To%20Queue.png" alt="Dove365 Support route to queue" loading="lazy" decoding="async"></figure>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Route%20Queue%20Item.png" alt="Dove365 Support route to queue" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Worked By</div><h2 class="display">Worked <em>By</em></h2><div class="doc-content"><p><code>Worked By</code> identifies who is currently working a Queue Item.</p>
 <p>Dashboard behaviour:</p>
@@ -107,7 +107,7 @@
 <li>Populated <code>Worked By</code>: currently being worked.</li>
 <li><code>Worked By</code> equals signed-in user: appears in My Queue Items.</li>
 </ul></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Case%20Add%20Work%20By.png" alt="Dove365 Support case worked by" loading="lazy" decoding="async"></figure>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Worked%20By.png" alt="Dove365 Support case worked by" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Picked work across queues</div><h2 class="display">Picked work across <em>queues</em></h2><div class="doc-content"><p>A user can work Queue Items from queues other than their own.</p>
 <p>That means:</p>
@@ -116,7 +116,7 @@
 <li><code>My Open Cases</code> shows active Cases in the user&#x27;s own queue.</li>
 <li>These counts can be different.</li>
 </ul></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Add%20To%20Queue.png" alt="Dove365 Support add to queue" loading="lazy" decoding="async"></figure>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Pick%20Queue%20Item.png" alt="Dove365 Support add to queue" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Queue age</div><h2 class="display">Queue <em>age</em></h2><div class="doc-content"><p>Queue age is calculated from Queue Item <code>enteredon</code>.</p>
 <p>Use Queue Age to identify work that has waited too long.</p>
@@ -129,10 +129,27 @@
 <li>Escalate stuck queue items early.</li>
 </ul></div>
 </div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Queue membership</div><h2 class="display">Queue <em>membership</em></h2><div class="doc-content"><p>Queue membership decides what you can see and where work can be sent. Both work boards depend on it.</p>
+<ul class="doc-list">
+<li><strong>No queue for the target user means no routing.</strong> To route work to someone, that user must have an active queue of their own and be a member of it. Without one, <code>Worked By</code> is still set but the Case stays in its current queue.</li>
+<li><strong>No membership for you means no visibility.</strong> The boards only load work from public queues, queues you are a member of, and the configured default queue.</li>
+<li><strong>No visibility means no assignment.</strong> You cannot move work you cannot see.</li>
+</ul>
+<p>If assignment appears to succeed but the Case never reaches the person's queue, this is almost always the cause. Ask your support admin to confirm queue setup before reporting a fault.</p></div>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Work boards</div><h2 class="display">Working queue items from a <em>board</em></h2><div class="doc-content"><p>Queue items can be worked from a list view, but most users work them from one of the two boards.</p>
+<h3>Kanban Board</h3>
+<p>The <a href="kanban-board.html">Kanban Board</a> groups active Queue Items into Awaiting Triage, Assigned, In Progress, and Escalated, based on whether the Queue Item has a <code>Worked By</code> user and what state the Case is in. Use it to pick up work, assign it, drag it into progress, release it back to triage, or escalate it.</p>
+<h3>Queue Workload Board</h3>
+<p>The <a href="queue-workload-board.html">Queue Workload Board</a> groups the same Queue Items by who is carrying the load. Lanes can represent users, teams, or queues, and each lane reports its capacity as Available, Healthy, Busy, or Overloaded. Use it to rebalance work, move Cases between queues, or clear a backlog in the default triage queue.</p>
+<p>Both boards read active Queue Items rather than Cases directly. A Case with more than one active Queue Item shows one card per Queue Item.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Queue%20Workload%20Route%20Queue.png" alt="Routing a Dove365 Support queue item to another queue" loading="lazy" decoding="async"></figure>
+</div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Related Guides</div><h2 class="display">Continue <em>learning</em></h2><div class="pain-grid" style="margin-top:3rem;">
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Daily Support Workflow</h3><p>Follow the practical sequence for dashboards, queues, cases, activities, and managed service checks.</p><div style="margin-top:1.5rem;"><a href="support-user-guide.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Admin and Configuration</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="admin-configuration.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
-<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Dashboards</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="dashboards.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Kanban Board</h3><p>Work queue items by support state: triage, assigned, in progress, and escalated.</p><div style="margin-top:1.5rem;"><a href="kanban-board.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Queue Workload Board</h3><p>See who is carrying how much work and rebalance across users, teams, and queues.</p><div style="margin-top:1.5rem;"><a href="queue-workload-board.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
 </div></div></section>
 <section class="cta-section section-sm"><div class="container"><div class="cta-inner"><h2 class="display display-light">Need help with Dove365 Support <em>configuration?</em></h2><p>Book a free call and get your questions answered directly by Dove365.</p><div class="cta-actions"><a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Call &rarr;</a><a href="../support-docs.html" class="btn btn-ghost-light">Back to Documentation</a></div></div></div></section>
 <!-- Footer -->

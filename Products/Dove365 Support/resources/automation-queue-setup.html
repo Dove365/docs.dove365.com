@@ -140,7 +140,7 @@
 <li>Ensure the escalation manager field is populated where required.</li>
 </ul></div>
 </div></section>
-<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Aggregate Managed Service Hours</div><h2 class="display">Aggregate Managed Service <em>Hours</em></h2><div class="doc-content"><p>Automation / plugin-supported process:</p>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Aggregate Managed Service Hours</div><h2 class="display">Aggregate Managed Service <em>Hours</em></h2><div class="doc-content"><p>Automation / plugin-supported process:</p>
 <ul class="doc-list">
 <li><code>Aggregate Managed Service Hours</code></li>
 <li><code>Dove365.Support.Plugins.AggregateManagedServicesHours</code></li>
@@ -149,6 +149,24 @@
 <ul class="doc-list">
 <li>Aggregates Support Activity hours for a Case against the related Managed Service.</li>
 <li>Keeps Managed Service usage, remaining hours, and usage percentage aligned with logged service work.</li>
+</ul>
+<p>The plugin fires on Support Activity create, update, and delete. For each impacted Case flagged as managed-service related and holding a Managed Services lookup, it recalculates <code>Hours Used</code>, rounded to the nearest quarter hour. <code>Hours Remaining</code> and <code>Usage Percentage</code> then recalculate from that value.</p>
+<p>The plugin sums <strong>all</strong> Support Activity Total Hours for the Case, so every entry the time tracker creates draws down the allocation. No flow aggregates Support Activity time directly &mdash; the plugin owns that.</p></div>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Support Case - Resolve</div><h2 class="display">Support Case &mdash; <em>Resolve</em></h2><div class="doc-content"><p>Automation:</p>
+<ul class="doc-list">
+<li><code>Support Case - Resolve</code></li>
+</ul>
+<p>Purpose:</p>
+<ul class="doc-list">
+<li>Closes a support Case.</li>
+<li>Notifies the customer when the Case is resolved.</li>
+</ul>
+<p>User guidance:</p>
+<ul class="doc-list">
+<li>Complete resolution notes before resolving.</li>
+<li>Confirm all Support Activities are entered.</li>
+<li>Confirm Managed Service hours are accurate.</li>
 </ul></div>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Queue Item lifecycle</div><h2 class="display">Queue Item <em>lifecycle</em></h2><div class="doc-content"><ol class="doc-list ordered">
@@ -159,10 +177,17 @@
 <li><code>Worked By</code> is populated.</li>
 <li>The Queue Item appears in that user&#x27;s My Queue Items.</li>
 <li>The Case is worked and eventually resolved.</li>
-</ol></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Available%20Queue%20Items.png" alt="Dove365 Support available queue items" loading="lazy" decoding="async"></figure>
+</ol>
+<h3>Where users act on the lifecycle</h3>
+<p>Steps 3 to 6 are usually driven from a board rather than a list view.</p>
+<ul class="doc-list">
+<li>The <a href="kanban-board.html">Kanban Board</a> picks up, assigns, progresses, releases, and escalates Queue Items by support state.</li>
+<li>The <a href="queue-workload-board.html">Queue Workload Board</a> assigns, moves between queues, and releases Queue Items based on who is carrying the load.</li>
+</ul>
+<p>Both boards set <code>Worked By</code> and route the Queue Item into the target user&#x27;s queue. Releasing a Case returns the Queue Item to the configured default queue and clears <code>Worked By</code>, which is why <code>dove365_DefaultQueueGUID</code> must hold a current value.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Queue%20Items%20View.png" alt="Dove365 Support queue items view" loading="lazy" decoding="async"></figure>
 </div></section>
-<section class="section" style="background:white;"><div class="container"><div class="section-tag">Related Guides</div><h2 class="display">Continue <em>learning</em></h2><div class="pain-grid" style="margin-top:3rem;">
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Related Guides</div><h2 class="display">Continue <em>learning</em></h2><div class="pain-grid" style="margin-top:3rem;">
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Admin and Configuration Guide</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="admin-configuration.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Queues and Queue Items</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="queues-queue-items.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Cases</h3><p>Open the related Dove365 Support guide for the next part of this workflow.</p><div style="margin-top:1.5rem;"><a href="cases.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>

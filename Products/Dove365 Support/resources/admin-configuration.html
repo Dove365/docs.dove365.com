@@ -55,6 +55,10 @@
 <li>Confirm Categories and Subcategories exist.</li>
 <li>Confirm Service Offerings exist in Dove365 Common.</li>
 <li>Confirm dashboards are available in the app.</li>
+<li>Confirm the Kanban Board and Queue Workload Board web resources are available in the app.</li>
+<li>Confirm every support user has an active queue of their own and is a member of it.</li>
+<li>Confirm support users appear in the Dove365 Users view.</li>
+<li>Confirm the Support Activity Time Tracker is on the Case form.</li>
 </ol></div>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Environment variables</div><h2 class="display">Environment <em>variables</em></h2><div class="doc-content"><h3>Default Queue GUID</h3>
@@ -95,7 +99,7 @@
 <li>Use subcategories only where they improve reporting or routing.</li>
 <li>Retire unused values by deactivating rather than deleting where historical records exist.</li>
 </ul></div>
-<div class="doc-gallery"><figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Categories%20View.png" alt="Dove365 Support categories view" loading="lazy" decoding="async"></figure><figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Sub%20Categories%20View.png" alt="Dove365 Support sub categories view" loading="lazy" decoding="async"></figure></div>
+<div class="doc-gallery"><figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Categories%20View.png" alt="Dove365 Support categories view" loading="lazy" decoding="async"></figure><figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Subcategory%20View.png" alt="Dove365 Support sub categories view" loading="lazy" decoding="async"></figure></div>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Service Offerings</div><h2 class="display">Service <em>Offerings</em></h2><div class="doc-content"><p>Service Offerings are managed in the main Dove365 Admin/Common guides.</p>
 <p>Support admins use Service Offerings in Dove365 Support for:</p>
@@ -105,7 +109,7 @@
 <li>Support coverage context.</li>
 </ul>
 <p>Do not create duplicate Service Offerings in Support-specific workflows.</p></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Service%20Offering%20Form.png" alt="Dove365 Support service offering form" loading="lazy" decoding="async"></figure>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Service%20Offerings%20Form.png" alt="Dove365 Support service offering form" loading="lazy" decoding="async"></figure>
 
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Queues</div><h2 class="display">Queues</h2><div class="doc-content"><p>Queues are critical to Dove365 Support.</p>
@@ -116,8 +120,45 @@
 <li>Queue security access.</li>
 <li>Queue membership and ownership.</li>
 </ul>
-<p>The default queue is used by automation and dashboards. If it is incorrect, support email triage and available-to-pick reporting will be wrong.</p></div>
+<p>The default queue is used by automation and dashboards. If it is incorrect, support email triage and available-to-pick reporting will be wrong.</p>
+<h3>Queue membership drives the work boards</h3>
+<p>The Kanban Board and Queue Workload Board depend entirely on queue setup. Two rules matter:</p>
+<ul class="doc-list">
+<li><strong>Routing needs a target queue.</strong> Work can only be routed to a user who has an active queue of their own and is a member of it. Without one, <code>Worked By</code> is set but the Case stays where it is.</li>
+<li><strong>Visibility needs membership.</strong> The boards load work only from public queues, queues the signed-in user is a member of, and the configured default queue.</li>
+</ul>
+<p>Most reports of &ldquo;assignment does not work&rdquo; are queue membership problems, not board faults.</p></div>
 <figure class="doc-figure"><img src="../images/Dove365%20Support%20Admin%20Screenshots/Dove365%20Support%20Admin%20Queues%20View.png" alt="Dove365 Support admin queues view" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Work boards</div><h2 class="display">Work board <em>requirements</em></h2><div class="doc-content"><p>Both boards are web resources inside the Dove365 Support model-driven app. Confirm the following before rolling them out:</p>
+<ol class="doc-list ordered">
+<li><code>dove365_DefaultQueueGUID</code> holds a current value. Release depends on it &mdash; without it, releasing a Case back to triage fails.</li>
+<li>Every support user has an active queue of their own, and is a member of that queue.</li>
+<li>Support users are members of the shared queues they are expected to manage.</li>
+<li>Support users have active Dataverse user records and appear in the Dove365 Users view.</li>
+<li>Users have permission to read Cases, read Queue Items, update Queue Items, update Cases, and use the queue actions <code>AddToQueue</code> and <code>PickFromQueue</code>.</li>
+<li>Support teams are named so they can be identified, or own the queues they work. The Queue Workload Board picks up owner teams whose name contains <code>support</code>, <code>service</code>, <code>helpdesk</code>, or <code>queue</code>, plus any team that owns a visible queue.</li>
+<li>Cases carry a <code>Target Resolution Date</code>, so workload urgency scoring is meaningful.</li>
+<li>The Kanban Board and Queue Workload Board web resources are available in the app.</li>
+</ol>
+<p>See the <a href="kanban-board.html">Kanban Board</a> and <a href="queue-workload-board.html">Queue Workload Board</a> guides for the full behaviour and troubleshooting steps.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Queue%20Workload%20Capacity%20View.png" alt="Dove365 Support Queue Workload Board Capacity View" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Time tracker</div><h2 class="display">Support Activity Time <em>Tracker</em></h2><div class="doc-content"><p>The time tracker is a component bound to the Case form field <strong>Hours Spent</strong>. The binding gives the control a fallback total; the control never writes to that field.</p>
+<h3>Adding it to the Case form</h3>
+<ol class="doc-list ordered">
+<li>Open the Case main form in the modern designer.</li>
+<li>Add the <strong>Hours Spent</strong> field to the form.</li>
+<li>With the field selected, choose <strong>Components &rarr; Get more components &rarr; Dove365 Support Activity Time Tracker</strong>, and enable it for Web, Phone and Tablet.</li>
+<li>Hide the field label, and give the section enough height &mdash; about 420px &mdash; for the panels.</li>
+<li>Save and publish.</li>
+</ol>
+<h3>Configurable properties</h3>
+<p>Rounding increment (default 15 minutes), minimum chargeable minutes, require notes, subject prefix, today totals basis, managed service warning threshold (default 80 per cent), and idle warning minutes (default 240).</p>
+<h3>Required privileges</h3>
+<p>Users need Create, Read and Write on <strong>Support Activity</strong>, Read on <strong>Case</strong>, and Read on <strong>Managed Services</strong> to see the allocation panel. Without the Managed Services read privilege the tracker still works &mdash; the allocation panel is simply omitted.</p>
+<p>Full detail is in the <a href="time-tracker.html">Support Activity Time Tracker</a> guide.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Cases%20Form%20-%20Timer.png" alt="Dove365 Support Activity Time Tracker on the Case form" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Security roles</div><h2 class="display">Security <em>roles</em></h2><div class="doc-content"><p>Assign roles based on the user&#x27;s support responsibility:</p>
 <ul class="doc-list">

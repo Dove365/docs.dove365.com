@@ -308,7 +308,7 @@
           </div>
           <figure class="doc-figure">
             <img
-              src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Add%20To%20Queue.png"
+              src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Route%20Queue%20Item.png"
               alt="Dove365 Support add to queue"
               loading="lazy"
               decoding="async"
@@ -340,6 +340,25 @@
                 <td>
                   New support emails create Cases and Queue Items without manual
                   intervention.
+                </td>
+              </tr>
+              <tr>
+                <td>Release from the boards</td>
+                <td>
+                  Releasing a Case on the
+                  <a href="kanban-board.html">Kanban Board</a> or
+                  <a href="queue-workload-board.html">Queue Workload Board</a>
+                  returns the Queue Item to this queue and clears
+                  <code>Worked By</code>. Release fails outright if
+                  <code>dove365_DefaultQueueGUID</code> is missing or stale.
+                </td>
+              </tr>
+              <tr>
+                <td>Board visibility</td>
+                <td>
+                  The default queue is always loaded by both boards, so
+                  unassigned triage work is visible even to users who are not
+                  members of it.
                 </td>
               </tr>
               <tr>

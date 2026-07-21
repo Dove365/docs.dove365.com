@@ -47,12 +47,14 @@
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Purpose</div><h2 class="display">Purpose</h2><div class="doc-content"><p>Dove365 Support includes dashboards for personal work management and organisation-wide support operations.</p></div>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Dashboard area</div><h2 class="display">Dashboard <em>area</em></h2><div class="doc-content"><p>Dashboards are accessed inside the Dove365 Support model-driven app.</p>
-<p>The main dashboards are:</p>
+<p>The main dashboards and boards are:</p>
 <ul class="doc-list">
-<li>Dove365 Support Dashboard</li>
-<li>Dove365 My Support Work Dashboard</li>
-</ul></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Dashboard.png" alt="Dove365 Support dashboard" loading="lazy" decoding="async"></figure>
+<li><strong>Dove365 Support Dashboard</strong> &mdash; organisation-wide operational reporting.</li>
+<li><strong>Dove365 My Support Work Dashboard</strong> &mdash; a personal view for the signed-in user.</li>
+<li><strong>Dove365 Kanban Board</strong> &mdash; queue work grouped by support state.</li>
+<li><strong>Dove365 Queue Workload Board</strong> &mdash; queue work grouped by who is carrying the load.</li>
+</ul>
+<p>All four must be opened inside the Dove365 Support model-driven app so they can reach Dataverse and the current user context.</p></div>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">My Support Work Dashboard</div><h2 class="display">My Support Work <em>Dashboard</em></h2><div class="doc-content"><p>Use this dashboard for personal day-to-day work.</p>
 <p>It focuses on:</p>
@@ -63,8 +65,18 @@
 <li>Your upcoming activities.</li>
 <li>Your overdue activities.</li>
 <li>Your Cases requiring attention.</li>
-</ul></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20My%20Work%20Dashboard.png" alt="Dove365 Support My Work dashboard" loading="lazy" decoding="async"></figure>
+</ul>
+<h3>Reading the KPI tiles</h3>
+<p>Three of the tiles measure different things and are the most common source of confusion:</p>
+<ul class="doc-list">
+<li><code>My Open Cases</code> counts active Cases in your own queue. It is a Case count.</li>
+<li><code>My Queue Items</code> counts Queue Items where <code>Worked By</code> is you, across every queue. It is a Queue Item count.</li>
+<li><code>Cases Available to Pick</code> counts unassigned Queue Items in the configured default queue.</li>
+</ul>
+<p>Queue Item counts and Case counts can legitimately differ. A Case can have more than one Queue Item, and you can work items from queues other than your own.</p>
+<p><code>Upcoming Tasks</code> and <code>Overdue Tasks</code> follow the standard CRM My Work labels, but the underlying data is open dated activities you own, not only Task records.</p>
+<p>The My Support Work Dashboard has no filter bar. It scopes itself automatically to the signed-in user, their queues, worked queue items, and the default queue.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20My%20Work.png" alt="Dove365 Support My Work dashboard" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Dove365 Support Dashboard</div><h2 class="display">Dove365 Support <em>Dashboard</em></h2><div class="doc-content"><p>Use this dashboard for operational oversight.</p>
 <p>It focuses on:</p>
@@ -77,8 +89,46 @@
 <li>Queue age.</li>
 <li>Managed Service utilisation.</li>
 <li>Operational tables.</li>
-</ul></div>
+</ul>
+<h3>Filters</h3>
+<p>The Support Dashboard has a filter bar for date range, queue, case status, and priority. <code>Apply filters</code> reloads the dashboard with the current values, <code>Reset filters</code> returns to the default current-month range and clears the rest, and <code>Refresh dashboard</code> reloads using the values already set.</p>
+<p>The date range works on Case created date. Resolved-case trend data uses the resolved date against the same range, so a Case created before the range can still appear in resolved trends.</p>
+<p>Status and priority options are populated from the loaded Case data. If a value does not exist in the current result set, it may not appear as a selectable option.</p></div>
 <figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Dashboard.png" alt="Dove365 Support dashboard" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Case and queue visuals</div><h2 class="display">Case and queue <em>visuals</em></h2><div class="doc-content"><p>The Support Dashboard groups its visuals into queue overview, case distribution, and volume trends.</p>
+<h3>Queue overview</h3>
+<ul class="doc-list">
+<li><strong>Queue Items by Queue</strong>: current queue item volume by queue. The default queue is marked <code>(Default)</code> when <code>dove365_DefaultQueueGUID</code> is available.</li>
+<li><strong>Queue Age</strong>: active queue items bucketed by time in queue &mdash; under 4 hours, 4&ndash;8 hours, 8&ndash;24 hours, 1&ndash;3 days, and over 3 days. Review the over-3-days bucket first.</li>
+<li><strong>Queue Item Assignment</strong>: split between unassigned items and items that have a <code>Worked By</code> user.</li>
+</ul>
+<h3>Case distribution</h3>
+<p>Cases are grouped by status, priority, category, and source. Cases without a category appear as <code>Uncategorised</code>.</p>
+<h3>Case volume trends</h3>
+<p><strong>Cases Created by Month</strong> shows active Cases created in the selected range. <strong>Created vs Resolved by Month</strong> compares that against Cases resolved in the same range. If created volume is consistently higher than resolved volume, backlog is increasing.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Dashboard%20-%20Case%20Status.png" alt="Dove365 Support dashboard case status distribution" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Managed services</div><h2 class="display">Managed service <em>utilisation</em></h2><div class="doc-content"><p>The Support Dashboard groups active Managed Services into utilisation bands: under 50 per cent, 50&ndash;79 per cent, 80&ndash;99 per cent, exactly 100 per cent, and over 100 per cent.</p>
+<p><strong>Managed Services Requiring Attention</strong> counts active records at or above 80 per cent utilisation and breaks the total into 80&ndash;99 per cent, fully used, and over allocation. Review over-allocation first, fully used next, then use the 80&ndash;99 per cent band as an early warning list.</p>
+<p>Managed Service records are loaded as active records and are <em>not</em> filtered by the case created-date range. Their utilisation visuals represent current managed service state, not only services related to Cases created in the selected period.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Dashbord%20-%20Managed%20Services.png" alt="Dove365 Support dashboard managed services utilisation" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:white;"><div class="container"><div class="section-tag">Kanban Board</div><h2 class="display">Kanban <em>Board</em></h2><div class="doc-content"><p>The Kanban Board is an operational queue work page. It shows active Queue Items as Case cards grouped by work state:</p>
+<ul class="doc-list">
+<li>Awaiting Triage.</li>
+<li>Assigned.</li>
+<li>In Progress.</li>
+<li>Escalated.</li>
+</ul>
+<p>Filter by queue, priority, source, type, and search text. From the board you can open Cases, pick up work, assign work to Dove365 users, release work back to triage, and escalate Cases to an escalation manager.</p>
+<p>Read the <a href="kanban-board.html">Kanban Board guide</a> for the full column rules and troubleshooting.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Kanban%20Board.png" alt="Dove365 Support Kanban Board" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Queue Workload Board</div><h2 class="display">Queue Workload <em>Board</em></h2><div class="doc-content"><p>The Queue Workload Board shows the same queue work grouped by who is carrying the load rather than by work state. Use it to see how much each technician has, find spare capacity, and rebalance Cases across users, teams, and queues.</p>
+<p>Lanes can be grouped By User, By Team, By Queue, or in Capacity View, which is the default and shows every active user ordered by capacity used. Each lane is measured against a capacity of 28 workload score per user and reported as Available, Healthy, Busy, or Overloaded.</p>
+<p>Read the <a href="queue-workload-board.html">Queue Workload Board guide</a> for the workload scoring method, queue membership requirements, and troubleshooting.</p></div>
+<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Queue%20Workload%20Capacity%20View.png" alt="Dove365 Support Queue Workload Board Capacity View" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Using dashboards</div><h2 class="display">Using <em>dashboards</em></h2><div class="doc-content"><p>Recommended daily routine:</p>
 <ol class="doc-list ordered">
@@ -87,9 +137,10 @@
 <li>Review Queue Items worked by you.</li>
 <li>Pick available work if appropriate.</li>
 <li>Review Cases requiring attention.</li>
+<li>Use the Kanban Board to assign, progress, release, or escalate queue work.</li>
+<li>Use the Queue Workload Board to rebalance work when someone is overloaded.</li>
 <li>Use the Support Dashboard for wider team context.</li>
 </ol></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Dashboard%20Cases.png" alt="Dove365 Support dashboard cases" loading="lazy" decoding="async"></figure>
 </div></section>
 <section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Troubleshooting dashboard results</div><h2 class="display">Troubleshooting dashboard <em>results</em></h2><div class="doc-content"><p>If results do not match expectations:</p>
 <ol class="doc-list ordered">
@@ -100,13 +151,14 @@
 <li>Confirm the default queue GUID is configured.</li>
 <li>Confirm dashboard filters on the organisation-wide dashboard.</li>
 <li>Refresh the dashboard.</li>
-</ol></div>
-<figure class="doc-figure"><img src="../images/Dove365%20Support%20Screenshots/Dove365%20Support%20Dashboard%20Managed%20Services.png" alt="Dove365 Support dashboard managed services" loading="lazy" decoding="async"></figure>
+<li>Open the browser console and check the dashboard diagnostics.</li>
+</ol>
+<p>If a number looks lower than expected, check whether the missing records are inactive. Active case and managed service queries exclude inactive records.</p></div>
 </div></section>
 <section class="section" style="background:white;"><div class="container"><div class="section-tag">Related Guides</div><h2 class="display">Continue <em>learning</em></h2><div class="pain-grid" style="margin-top:3rem;">
 <div class="pain-card"><div class="pain-number">&rarr;</div><h3>Daily Support Workflow</h3><p>Use dashboards as the starting point for the day-to-day support flow.</p><div style="margin-top:1.5rem;"><a href="support-user-guide.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
-<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Queues and Queue Items</h3><p>Understand the queue data that appears in dashboard workload views.</p><div style="margin-top:1.5rem;"><a href="queues-queue-items.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
-<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Managed Services</h3><p>Review the service allocation data shown in managed service dashboard views.</p><div style="margin-top:1.5rem;"><a href="managed-services.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Kanban Board</h3><p>Pick up, assign, progress, release, and escalate queue work by support state.</p><div style="margin-top:1.5rem;"><a href="kanban-board.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
+<div class="pain-card"><div class="pain-number">&rarr;</div><h3>Queue Workload Board</h3><p>See who is carrying how much work and rebalance across users, teams, and queues.</p><div style="margin-top:1.5rem;"><a href="queue-workload-board.html" class="btn btn-outline">Read Guide &rarr;</a></div></div>
 </div></div></section>
 <section class="cta-section section-sm"><div class="container"><div class="cta-inner"><h2 class="display display-light">Need help with Dove365 Support <em>configuration?</em></h2><p>Book a free call and get your questions answered directly by Dove365.</p><div class="cta-actions"><a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Call &rarr;</a><a href="../support-docs.html" class="btn btn-ghost-light">Back to Documentation</a></div></div></div></section>
 <!-- Footer -->
