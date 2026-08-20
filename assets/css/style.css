@@ -459,8 +459,12 @@ footer {
 .footer-legal { display: flex; gap: 1.5rem; }
 .footer-legal a { font-size: 0.75rem; color: rgba(255,255,255,0.3); text-decoration: none; }
 .footer-legal a:hover { color: rgba(255,255,255,0.6); }
-.ms-partner-badge { margin-top: 1rem; }
 .ms-partner-badge img { height: 40px; width: auto; display: block; }
+.footer-credentials { display: flex; align-items: center; gap: 1.25rem; margin-top: 1.25rem; }
+.cred-badge { display: block; opacity: 0.92; transition: opacity 0.2s, transform 0.2s; }
+.cred-badge:hover { opacity: 1; transform: translateY(-2px); }
+.cred-badge img { display: block; width: auto; }
+.cred-horizontal img { height: 40px; }
 
 /* ══════════════════════════════════════════
    HOME PAGE
