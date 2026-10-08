@@ -1,0 +1,1822 @@
+:root {
+  --navy: #233644;
+  --navy-deep: #051926;
+  --teal: #078396;
+  --teal-dark: #056281;
+  --teal-light: #53B1CD;
+  --teal-pale: #e4f2f5;
+  --slate: #CAD9DD;
+  --near-black: #171B1B;
+  --off-white: #f4f7f6;
+  --white: #ffffff;
+  --mid: #5a6a72;
+  --border: #dde6e8;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --dove-pink: #ef529d;
+  --neon-green: #1cbc92;
+  --gradient-navy-gold: linear-gradient(135deg, var(--navy-deep), var(--gold-light));
+  --gradient-navy-teal: linear-gradient(135deg, var(--navy), var(--teal));
+  --gradient-teal-gold: linear-gradient(135deg, var(--teal-light), var(--teal), var(--gold-light));
+  --gradient-teal-green: linear-gradient(135deg, var(--teal-light), var(--neon-green));
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--near-black);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img { max-width: 100%; }
+footer, .page-offset, .section, .cta-section { max-width: 100%; overflow-x: clip; }
+.container, .footer-top { min-width: 0; }
+.footer-col a {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+body.nav-lock { overflow: hidden; }
+.scroll-progress {
+  position: fixed; top: 0; left: 0; z-index: 1100;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light), var(--gold-light));
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+  box-shadow: 0 0 18px rgba(83,177,205,0.35);
+  pointer-events: none;
+}
+.scroll-progress::after {
+  content: ''; position: absolute; right: -8px; top: 50%;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--gold-light);
+  transform: translateY(-50%) scale(calc(0.45 + var(--scroll-progress, 0) * 0.55));
+  box-shadow: 0 0 22px rgba(232,201,122,0.8), 0 0 36px rgba(83,177,205,0.4);
+}
+
+/* ── MOTION SYSTEM ── */
+@keyframes glowDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+  50% { transform: translate3d(26px, -18px, 0) scale(1.08); opacity: 1; }
+}
+
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 50px 50px, 50px 50px; }
+}
+
+@keyframes burstSpark {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
+  12% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--spark-x)), calc(-50% + var(--spark-y))) scale(0); }
+}
+
+.motion-burst {
+  position: absolute; left: 50%; top: 50%; z-index: 5;
+  width: 1px; height: 1px;
+  pointer-events: none;
+}
+
+.motion-burst span {
+  position: absolute; left: 0; top: 0;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-light), var(--gold-light));
+  box-shadow: 0 0 14px rgba(83,177,205,0.55);
+  animation: burstSpark 0.72s cubic-bezier(0.15, 0.9, 0.2, 1) var(--spark-delay, 0ms) both;
+}
+
+
+h2.display {
+  position: relative;
+}
+
+.mouse-aura {
+  position: fixed; left: 0; top: 0; z-index: 900;
+  width: 360px; height: 360px; border-radius: 50%;
+  transform: translate3d(calc(var(--aura-x, 50vw) - 50%), calc(var(--aura-y, 50vh) - 50%), 0);
+  background:
+    radial-gradient(circle, rgba(83,177,205,0.18), rgba(83,177,205,0.08) 34%, transparent 68%),
+    radial-gradient(circle at 64% 38%, rgba(232,201,122,0.16), transparent 30%);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  filter: blur(2px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, width 0.22s ease, height 0.22s ease, filter 0.22s ease;
+}
+
+.mouse-aura.is-active { opacity: 1; }
+.mouse-aura.is-over-target {
+  width: 460px; height: 460px;
+  filter: blur(0);
+}
+
+.scroll-fade {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  filter: blur(3px);
+  transition:
+    opacity 0.42s cubic-bezier(0.2, 0.75, 0.18, 1),
+    transform 0.42s cubic-bezier(0.2, 0.75, 0.18, 1),
+    filter 0.42s cubic-bezier(0.2, 0.75, 0.18, 1);
+  transition-delay: var(--fade-delay, 0ms);
+}
+
+.scroll-fade.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+body.no-scroll-animations .scroll-fade {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.001ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(5,25,38,0.97);
+  border-bottom: 1px solid rgba(83,177,205,0.12);
+  padding: 0 4rem;
+  display: flex; align-items: center; height: 72px;
+  max-width: 100%;
+  overflow: visible;
+  transition: background 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+nav.nav-scrolled {
+  background: rgba(5,25,38,0.9);
+  border-bottom-color: rgba(83,177,205,0.24);
+  box-shadow: 0 14px 40px rgba(5,25,38,0.22);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.7rem;
+  text-decoration: none; margin-right: auto;
+  min-width: 0;
+}
+.nav-logo-mark {
+  height: 46px; width: auto; flex-shrink: 0;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+.nav-logo:hover .nav-logo-mark { transform: rotate(-3deg) scale(1.04); filter: drop-shadow(0 0 12px rgba(83,177,205,0.35)); }
+.nav-logo-text {
+  font-family: 'DM Serif Display', serif;
+  color: var(--white);
+  font-size: 1.38rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+.nav-logo-text small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.64rem;
+  color: var(--teal-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 0.12rem;
+}
+.nav-toggle {
+  display: none;
+  width: 42px; height: 42px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  align-items: center; justify-content: center;
+  flex-direction: column; gap: 5px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  width: 19px; height: 2px;
+  background: white; border-radius: 100px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-links {
+  display: flex; align-items: center; gap: 0.25rem; list-style: none;
+}
+.nav-links a {
+  text-decoration: none; color: rgba(255,255,255,0.65);
+  font-size: 0.83rem; padding: 0.5rem 0.9rem; border-radius: 6px;
+  transition: all 0.2s; letter-spacing: 0.02em;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+.nav-links .has-dropdown { position: relative; }
+.nav-links .has-dropdown:hover .dropdown { display: block; }
+.dropdown {
+  display: none; position: absolute; top: 100%; left: 0;
+  background: var(--navy-deep); border: 1px solid rgba(83,177,205,0.15);
+  border-radius: 10px; padding: 0.5rem; min-width: 220px;
+  margin-top: 0.5rem; box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+}
+.dropdown a {
+  display: block; padding: 0.65rem 0.9rem; border-radius: 6px;
+  color: rgba(255,255,255,0.7) !important; font-size: 0.82rem;
+}
+.dropdown a:hover { background: rgba(83,177,205,0.1) !important; color: white !important; }
+.dropdown-label {
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--teal-light); padding: 0.5rem 0.9rem 0.25rem;
+  font-weight: 600;
+}
+.nav-cta {
+  background: var(--teal) !important; color: white !important;
+  padding: 0.55rem 1.3rem !important; border-radius: 6px !important;
+  font-weight: 600 !important; margin-left: 0.75rem;
+  box-shadow: 0 2px 12px rgba(7,131,150,0.35);
+  transition: all 0.2s !important;
+}
+.nav-cta:hover { background: var(--teal-dark) !important; }
+
+/* ── PAGE OFFSET ── */
+.page-offset { padding-top: 72px; min-height: 100vh; }
+
+/* ── SECTION PRIMITIVES ── */
+.section { padding: 6rem 4rem; }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; }
+h2.display {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.12; color: var(--navy);
+  margin-bottom: 1.2rem;
+}
+h2.display em { font-style: italic; color: var(--teal); }
+h2.display-light { color: var(--white); }
+h2.display-light em { color: var(--teal-light); }
+.lead {
+  font-size: 1rem; color: var(--mid); line-height: 1.75;
+  max-width: 580px;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  text-decoration: none; border-radius: 6px; font-size: 0.88rem;
+  font-weight: 600; transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s; letter-spacing: 0.02em;
+  font-family: 'DM Sans', sans-serif; cursor: pointer; border: none;
+  position: relative; overflow: hidden; isolation: isolate;
+}
+.btn-primary { background: var(--teal); color: white; padding: 0.85rem 1.8rem; box-shadow: 0 2px 12px rgba(7,131,150,0.3); }
+.btn-primary:hover { background: var(--teal-dark); box-shadow: 0 6px 18px rgba(7,131,150,0.22); }
+.btn-outline { border: 1.5px solid var(--border); color: var(--navy); padding: 0.8rem 1.8rem; background: white; }
+.btn-outline:hover { border-color: var(--teal); color: var(--teal); box-shadow: 0 6px 18px rgba(7,131,150,0.08); }
+.btn-ghost-light { border: 1px solid rgba(255,255,255,0.25); color: white; padding: 0.85rem 1.8rem; }
+.btn-ghost-light:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+
+/* ── PAGE HERO ── */
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background: linear-gradient(135deg, var(--teal-dark), var(--navy-deep));
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  animation: gridDrift 16s linear infinite;
+}
+.cta-section::after {
+  content: ''; position: absolute; inset: 10% auto auto 50%;
+  width: 520px; height: 520px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(83,177,205,0.14), transparent 66%);
+  translate: -50% 0;
+  animation: glowDrift 8s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+.cta-section h2 { color: white; margin-bottom: 1rem; }
+.cta-section p { color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.7; margin-bottom: 2.5rem; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy-deep);
+  padding: 4rem 4rem 2rem;
+}
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;
+  margin-bottom: 3rem; padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 1rem; max-width: 260px; }
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footer-logo img { height: 42px; width: auto; flex-shrink: 0; }
+.footer-logo-text {
+  font-family: 'DM Serif Display', serif;
+  color: var(--white);
+  font-size: 1.05rem;
+  line-height: 1.1;
+}
+.footer-logo-text small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--teal-light);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 0.12rem;
+}
+.footer-col h4 {
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 1.25rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.footer-col a {
+  font-size: 0.83rem; color: rgba(255,255,255,0.55); text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--teal-light); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: 0.75rem; color: rgba(255,255,255,0.3); text-decoration: none; }
+.footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+/* ══════════════════════════════════════════
+   HOME PAGE
+══════════════════════════════════════════ */
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+/* Services strip */
+
+/* What we build section */
+
+/* AI readiness preview */
+
+/* Pain section */
+
+/* Offer preview */
+
+/* Social proof */
+
+/* Process */
+
+/* ══════════════════════════════════════════
+   SERVICES PAGE
+══════════════════════════════════════════ */
+
+/* Pricing */
+
+/* ══════════════════════════════════════════
+   AI ENABLEMENT PAGE
+══════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════
+   WORKSHOP SIGNUP PAGE
+══════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════
+   CASE STUDIES PAGE
+══════════════════════════════════════════ */
+
+/* Case study detail pages */
+
+/* Legal pages */
+
+/* ══════════════════════════════════════════
+   ABOUT PAGE
+══════════════════════════════════════════ */
+.credentials { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 2rem; }
+
+/* Values */
+
+/* Microsoft stack */
+
+/* ══════════════════════════════════════════
+   CONTACT PAGE
+══════════════════════════════════════════ */
+
+/* ── AI READINESS ASSESSMENT ── */
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  nav { padding: 0 2rem; }
+  .nav-logo-mark { height: 40px; }
+  .nav-links a { padding: 0.5rem 0.65rem; }
+  .footer-top { grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 2rem; }
+  .scroll-fade {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 980px) {
+  nav { padding: 0 1.5rem; }
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0;
+    z-index: 1001;
+    display: flex; flex-direction: column; align-items: stretch;
+    gap: 0.4rem; padding: 0 1.5rem;
+    width: 100vw; max-width: 100vw;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(5,25,38,0.99);
+    border-bottom: 1px solid rgba(83,177,205,0.16);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.26);
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.24s ease, opacity 0.18s ease, padding 0.18s ease;
+  }
+  .nav-open .nav-links {
+    max-height: calc(100vh - 72px);
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+    padding: 1rem 1.5rem 1.5rem;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-links a {
+    width: 100%; justify-content: flex-start;
+    padding: 0.85rem 1rem; font-size: 0.95rem;
+  }
+  .nav-cta { margin-left: 0; justify-content: center !important; }
+}
+
+@media (max-width: 900px) {
+  .section { padding: 4rem 1.5rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  footer { padding: 3rem 1.5rem 2rem; }
+}
+
+@media (max-width: 640px) {
+  body > * { max-width: 100%; }
+  nav { height: 64px; padding: 0 1rem; }
+  .page-offset { padding-top: 64px; }
+  .nav-links {
+    top: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .nav-open .nav-links {
+    max-height: calc(100vh - 64px);
+    max-height: calc(100dvh - 64px);
+    padding-top: 0.8rem;
+    padding-bottom: 1.25rem;
+  }
+  .nav-logo { gap: 0.65rem; }
+  .nav-logo-mark { height: 36px; }
+  .nav-logo-text { font-size: 1.12rem; }
+  .nav-logo-text small { font-size: 0.54rem; letter-spacing: 0.08em; }
+  .nav-toggle { width: 40px; height: 40px; }
+  .hero-actions, .cta-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn, .cta-actions .btn { justify-content: center; width: 100%; }
+   .lead, .cta-section p { font-size: 0.94rem; }
+  .section { padding: 3rem 1rem; }
+  h2.display { font-size: clamp(1.85rem, 10vw, 2.35rem); }
+  
+  .credentials, .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { align-items: flex-start; flex-direction: column; }
+  .footer-legal { flex-wrap: wrap; gap: 1rem; }
+}
+
+@media (max-width: 420px) {
+  .nav-logo-mark { height: 32px; }
+  .nav-logo-text { font-size: 1rem; }
+  .nav-logo-text small { font-size: 0.48rem; }
+  .btn { padding-left: 1rem; padding-right: 1rem; }
+  .footer-logo img { height: 36px; }
+}
+
+
+/* ══════════════════════════════════════════
+   DROPDOWN NAV — hover gap fix
+   Replaces margin-top with padding-top so
+   the hover zone is unbroken on all pages
+   that use dropdowns.
+══════════════════════════════════════════ */
+
+.nav-links .has-dropdown .dropdown {
+  margin-top: 0 !important;
+  padding-top: 0.75rem;
+}
+
+
+/* ══════════════════════════════════════════
+   DOCS INDEX PAGE  (docs.html)
+══════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════
+   CRM PRODUCT PAGE  (Dove365-CRM-Starter.html)
+══════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════
+   CRM DOCUMENTATION HUB  (crm-docs.html)
+══════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════
+   RELEASE NOTES PAGE
+══════════════════════════════════════════ */
+.release-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.release-list li {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--near-black);
+}
+.release-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+  margin-top: 0.6rem;
+}
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVE LAYOUT UTILITIES
+   Replaces inline style grids so layouts
+   collapse correctly on mobile.
+══════════════════════════════════════════ */
+
+/* 1.1fr / 0.9fr two-column feature layout */
+
+/* equal two-column layout */
+
+/* 5-step process override */
+
+/* 5-column footer (docs.html) */
+
+
+/* ══════════════════════════════════════════
+   MOBILE NAV DROPDOWNS
+   Makes .has-dropdown work on touch devices
+   inside the collapsed mobile nav (≤980px).
+══════════════════════════════════════════ */
+
+@media (max-width: 980px) {
+  .nav-links .has-dropdown .dropdown {
+    position: static !important;
+    display: none;
+    background: rgba(255,255,255,0.05);
+    border: none;
+    border-radius: 6px;
+    box-shadow: none;
+    padding: 0.25rem 0 0.5rem 0.75rem;
+    margin: 0.25rem 0 0.25rem;
+    min-width: 0;
+  }
+  .nav-links .has-dropdown.open .dropdown { display: block; }
+  .nav-links .has-dropdown > a::after {
+    content: ' ▾';
+    font-size: 0.7em;
+    opacity: 0.5;
+  }
+  .nav-links .has-dropdown.open > a::after { content: ' ▴'; }
+}
+
+
+/* ══════════════════════════════════════════
+   CRM DOCS SIDEBAR — MOBILE
+   Collapses to a horizontal scrollable
+   pill-strip below 860px.
+══════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════
+   MOBILE — COLLAPSIBLE DOCS SIDEBAR (v2)
+   Replaces the horizontal scrollable strip
+   with a <details> collapsible TOC.
+══════════════════════════════════════════ */
+
+/* Desktop: hide the <details> toggle, always show */
+
+@media (max-width: 860px) {
+  /* Reset the scrollable strip entirely */
+
+  /* <details> wraps all sidebar content */
+
+  /* Sidebar items when open */
+}
+
+
+/* ══════════════════════════════════════════
+   MOBILE — NAV DROPDOWN FIX (v2)
+   Fixes visual overlap of parent + sub items,
+   and removes the annoying ▾/▴ pseudo-content
+   since JS controls open/close.
+══════════════════════════════════════════ */
+
+@media (max-width: 980px) {
+  /* Dropdown container: static, hidden by default */
+  .nav-links .has-dropdown .dropdown {
+    position: static !important;
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+    border-left: 2px solid rgba(83,177,205,0.22) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0.1rem 0 0.35rem !important;
+    margin: 0 0 0.35rem 1rem !important;
+    min-width: 0 !important;
+  }
+  .nav-links .has-dropdown.open .dropdown { display: block !important; }
+
+  /* Dropdown links: subordinate styling, no overlap with parent */
+  .nav-links .has-dropdown .dropdown a {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.83rem !important;
+    color: rgba(255,255,255,0.55) !important;
+    background: transparent !important;
+    border-radius: 4px !important;
+  }
+  .nav-links .has-dropdown .dropdown a:hover {
+    background: rgba(83,177,205,0.1) !important;
+    color: rgba(255,255,255,0.9) !important;
+  }
+  .nav-links .has-dropdown .dropdown .dropdown-label { display: none !important; }
+
+  /* Parent trigger: small arrow via CSS, no layout shift */
+  .nav-links .has-dropdown > a::after {
+    content: ' ▾';
+    font-size: 0.65em;
+    opacity: 0.45;
+    margin-left: 0.2em;
+  }
+  .nav-links .has-dropdown.open > a::after { content: ' ▴'; }
+}
+
+
+/* ══════════════════════════════════════════
+   MOBILE — MISC LAYOUT FIXES
+══════════════════════════════════════════ */
+
+/* Breadcrumb: prevent wrapping, allow horizontal scroll */
+
+/* Pricing featured badge: never wrap */
+
+/* KB box: reduce padding on mobile */
+
+/* Wide guide cards (FAQ, Release Notes): stack on mobile */
+
+/* Release notes mobile */
+@media (max-width: 640px) {
+  code { word-break: break-all; }
+}
+
+
+/* ══════════════════════════════════════════
+   RELEASE NOTES — MOBILE FIXES
+══════════════════════════════════════════ */
+
+.release-list li {
+  /* Ensure text doesn't escape the flex container */
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.release-list code {
+  display: inline;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  /* Hide logo image in kb-cta-box on mobile — it creates too much left indent */
+  /* Release notes */
+  .release-list li { font-size: 0.9rem; }
+}
+
+
+/* ══════════════════════════════════════════
+   RELEASE LIST — fix layout (v2)
+   Replaces display:flex with block + absolute
+   dot so text fills the full available width
+   and wraps naturally on mobile.
+══════════════════════════════════════════ */
+
+.release-list li {
+  display: block !important;
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--near-black);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  gap: unset;
+  min-width: unset;
+}
+.release-list li::before {
+  content: '';
+  position: absolute !important;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: unset;
+  margin-top: 0;
+}
+.release-list code {
+  font-size: 0.85em;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ✦ LAB — CUTTING-EDGE INTERACTION LAYER
+   Styles for the interactive neural-network hero, the live
+   "Dove365 Copilot" console, cursor spotlight, magnetic CTAs,
+   3D tilt and count-up. Paired with assets/js/lab.js.
+══════════════════════════════════════════════════════════════ */
+
+/* ── motion keyframes ── */
+
+/* ══ NEURAL HERO ══ */
+/* animated aurora wash */
+/* readability veil so left copy stays crisp over the canvas */
+
+/* ══ LIVE AI CONSOLE ══ */
+
+/* scroll cue for the neural hero */
+
+/* ══ CURSOR SPOTLIGHT (injected overlay) ══ */
+
+/* stable CTAs */
+.btn-primary, .nav-cta { transition: background 0.2s, box-shadow 0.2s; }
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 980px) {
+  /* Opaque console on mobile: the translucent bg + backdrop-filter let the
+     hero's two-tone wash show through, reading as a grey/blue seam. */
+  /* tilt is pointer-driven only; reset any inline transform on touch */
+}
+
+/* reduced-motion: kill aurora + cue drift, keep everything legible */
+
+
+/* ══════════════════════════════════════════════════════════════
+   ✦ HOMEPAGE SHOWCASE — device frame that switches between the
+   real CRM app screenshots and the live Copilot console.
+══════════════════════════════════════════════════════════════ */
+
+/* favour the showcase column slightly on the home hero */
+
+/* the showcase = a 3D deck where whole app windows tumble in and out,
+   a persistent progress bar, and the tab switcher below. */
+
+/* ── wild whole-window flip ── each window tumbles in from one side with a
+   3D spin + scale overshoot + motion blur, while the outgoing window whips
+   out the opposite side, so they collide across the deck. */
+
+/* window chrome (screenshot windows only — the AI window uses the console header) */
+
+/* AI window — console fills it edge to edge; its header is the chrome */
+
+/* auto-advance progress (persistent, below the deck) */
+
+/* ══════════════════════════════════════════
+   TESTIMONIAL (shared, placeholder-ready)
+   Used on cornerstone service pages.
+══════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════
+   SERVICE-PAGE REFINEMENTS (v51)
+══════════════════════════════════════════ */
+
+/* Sticky section heading — pins the title column while the
+   taller content column scrolls past (as on the AI Enablement page). */
+
+/* Opt-in top-alignment for individual images where a face would otherwise
+   be cropped (applied per image, not globally). */
+
+/* Sticky media column — pins an image while the taller column beside it scrolls.
+   On mobile revert to relative (not static) so the media's absolutely-positioned
+   caption stays anchored to it. */
+
+/* Page-hero variant that carries call-to-action buttons (service pages).
+   Matches services.html hero but grows to fit the actions. */
+
+/* AI Enablement — "What We Help With": image left, product icons right. */
+/* Image matches the Start Here card shape (16/9, full content visible) and
+   sticks alongside the taller icon grid. */
+
+/* AI Enablement — Start Here: keep the maturity card compact (natural height)
+   so there is no dead white space around the pyramid. */
+
+/* Start Here visual cards: pipeline funnel + maturity pyramid. */
+@media (min-width: 641px) {
+  /* Centre the levels + (slightly wider) pyramid within the full-width card. */
+}
+
+/* AI adoption pipeline (funnel) — the second visual, above the pyramid. */
+
+/* Wider spacing between Solution Design deliverable rows. */
+
+/* Reduced top padding for a section that follows straight on
+   from the previous one (tightens image break spacing). */
+
+/* On touch / small screens, reveal all content immediately — the staggered
+   scroll-fade could leave a card (e.g. mid-grid) briefly invisible and open
+   a gap between siblings. */
+@media (hover: none), (max-width: 640px) {
+  .scroll-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  /* iOS Safari can bleed backdrop-filter past a rounded/clipped box, making a
+     media caption appear to spill onto the card below — make it solid instead. */
+}
+
+/* Keep the What We Help With image in normal flow (never sticky) on stacked
+   mobile layouts so its caption cannot overlap the cards below. */
+@media (max-width: 900px) {
+  /* Solid caption (no backdrop-filter, which can bleed past the clip on some
+     mobile browsers) so it cannot visually spill onto the AI Readiness card
+     directly below when the layout stacks. */
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Managed Support page — reuses the shared components (page-hero,
+   ai-service-card, ai-flow-panel, feature-item, build/cta/faq).
+   Only additions: a 4-up support grid and in-card bullet lists.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════
+   Services overview (hub) page — reuses ai-service-card, service-tag,
+   ms-support-list, process-steps and buttons. Adds only a 2-up service
+   panel grid and a 6-step "How we work" row.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Six-step "How we work" process row */
+
+/* ══════════════════════════════════════════════════════════════
+   Site-wide gradient wash on plain content sections.
+   Targets ONLY <section class="section"> (exact class match), so any
+   section carrying its own variant class (cta-section, proof-section,
+   ai-intro-section, build-section, legal-section, etc.) keeps its own
+   background. The report-bug and assessment pages use no plain .section,
+   so they are naturally unaffected.
+   ══════════════════════════════════════════════════════════════ */
+section[class="section"] {
+  background:
+    radial-gradient(circle at 86% 8%, rgba(83,177,205,0.09), transparent 34%),
+    linear-gradient(150deg, rgba(232,201,122,0.06), transparent 48%),
+    var(--off-white);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Homepage: persona explorer, flow card, build-new/extend media,
+   stack visual, client results and testimonials.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Hero flow card */
+
+/* Persona explorer */
+
+/* Build-new / extend card media: icon panels (no photography) */
+
+/* Stack visual */
+
+/* Client results */
+
+/* Photography restored on the homepage */
+
+/* Homepage testimonials: three across on wide screens */
+
+/* Persona panels: tech line and delivered-proof footer */
+
+/* Hero: "what are you trying to fix" tiles */
+
+/* ══════════════════════════════════════════════════════════════
+   Homepage decision-maker layer: stack strip, before/after ledger,
+   FAQ, split CTA and mobile sticky CTA.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Before / after ledger */
+/* Interactive (JS) state: the two sentences share one cell and crossfade */
+/* No JS: show both sentences stacked, and hide the switch */
+
+/* FAQ */
+
+/* Mobile sticky CTA */
+
+/* Footer credentials: Microsoft Partner and Cyber Essentials badges */
+
+/* ══════════════════════════════════════════════════════════════
+   Homepage responsive pass (scoped to body.home)
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  /* Hero: stop forcing a full-screen block */
+  body.home .hero-actions { margin-bottom: 2rem; }
+}
+
+@media (max-width: 640px) {
+  body.home .section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+
+  /* Hero fix tiles: two compact columns, drop the sub-label */
+
+  /* Persona tabs: all ten visible as a two-column grid instead of a hidden scroll */
+
+  /* What we build pills sit inline and wrap */
+
+  /* Shorter photos so the page doesn't run on */
+
+  /* Sticky CTA: a smaller pill, not a full-width bar */
+  body.home footer { padding-bottom: 4.5rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Carousel (case studies and testimonials): scroll-snap track with
+   auto-advance and dots.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════
+   Homepage page backgrounds, per the Dove365 Brand Guidelines (June 2026).
+   White and Off White are the main canvases, Teal Pale is the quiet band,
+   Navy is the dark field, and gold stays a restrained accent. Sections
+   alternate so the page has a clear rhythm. Pink and neon green are not
+   brand colours, so they are replaced with palette equivalents.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Replace non-palette accents with Dove Teal / Gold equivalents */
+
+/* ══════════════════════════════════════════════════════════════
+   Brand-guideline compliance pass (homepage)
+   - DM Serif Display is regular weight only (the font ships no bold, so
+     inherited bold is synthesised and distorts the letterforms)
+   - Body copy line-height 145-160%
+   - Contrast fixes for small text
+   ══════════════════════════════════════════════════════════════ */
+body.home h1, body.home h2, body.home h3,
+body.home h2.display, body.home h2.display em { font-weight: 400; }
+body.home em { font-weight: inherit; }
+body.home h2.display em { font-style: italic; }
+
+ body.home .lead { line-height: 1.6; }
+
+/* Small labels on white: Dove Navy keeps contrast above 4.5:1 */
+
+/* Footer text: lift the dimmest greys so they pass contrast on Navy Deep */
+footer .footer-brand p, footer .footer-col h4 { color: rgba(255,255,255,0.72); }
+footer .footer-bottom p, footer .footer-legal a { color: rgba(255,255,255,0.68); }
+
+/* Partner marks stay visually separate from the Dove365 signature */
+
+/* Flat panels: no gradient on the persona "What we build" box (solid Teal Pale) */
+
+/* ══════════════════════════════════════════════════════════════
+   AI Enablement page (body.ai-page): brand colouring and compliance.
+   The neural hero keeps its design; only the colour is brought onto
+   the Dove365 palette (Navy Deep base, Teal, Teal Light, Gold).
+   ══════════════════════════════════════════════════════════════ */
+/* Headline accent: solid Teal Light italic (no mint, no gradient text) */
+
+/* DM Serif Display: regular weight only */
+
+/* Body copy at 145-160% line-height */
+
+/* Journey funnel and maturity levels: palette ramp with text that passes contrast */
+
+/* No pink or neon green: gold replaces them in section-tag rules */
+
+/* In-practice proof cards */
+
+/* Hero artwork: the four Dove365 brand layers (grid, circle, line, square) sit over a solid
+   Navy Deep base, so the base shows through at every edge and each layer scales and moves on its own. */
+.hero-art { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.hero-art img { position: absolute; display: block; max-width: none; user-select: none; }
+.hero-art-grid { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left center; }
+
+/* ══════════════════════════════════════════════════════════════
+   AI Enablement: sector band, quotes and page background rhythm
+   Sections alternate Off White / White / Teal Pale, with Navy Deep as the
+   one dark field mid-page and the neural hero at the top.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Sector band */
+
+/* AI in practice: lead example plus three supporting cards */
+
+/* Section labels on the AI page: Dove Navy text with the teal rule, for contrast on every background */
+
+/* Sector band: rows align across all four columns (icon, name, summary, list) */
+
+/* Closing section: Navy Deep with the brand artwork, copy left, what-happens-next right */
+.cta-section.ai-cta { background: var(--navy-deep); text-align: left; position: relative; overflow: hidden; border-top: 2px solid rgba(201,168,76,0.55); }
+.cta-section.ai-cta::before { display: none; }
+.ai-cta-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 4rem; align-items: center; }
+.ai-cta-copy p { color: rgba(255,255,255,0.8); line-height: 1.6; max-width: 48ch; margin-bottom: 2rem; }
+.ai-cta .cta-actions { justify-content: flex-start; }
+@media (max-width: 900px) {
+  .ai-cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+
+/* AI in practice: the three supporting cards share rows (icon, title, summary, list) so lists align */
+
+/* Closing-section list: markers sit exactly on the rule. The rule runs from marker to marker, and each
+   marker is centred on it and on the first line of its title. */
+
+/* Productised offers: 2x2 tiles on shared rows (head, title, summary, list, button) */
+
+/* ══════════════════════════════════════════════════════════════
+   Mobile type scale (phones, up to 640px) for body.home and body.ai-page.
+   Desktop sizes were carrying over: section titles 38px, stats 45px, hero 35-43px.
+   Serif scale on a phone: page titles about 32px, section titles 28px, card titles 20-23px.
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  body.home h2.display { font-size: 1.75rem; line-height: 1.18; margin-bottom: 0.9rem; }
+  body.home .lead { font-size: 0.97rem; }
+
+  /* Heroes */
+
+  /* Homepage */
+
+  /* AI Enablement */
+
+  /* Closing sections on both pages */
+  .ai-cta-copy p { font-size: 0.97rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Services hub (body.services-page)
+   Hero with a "where do you want to start?" router, four service cards on shared rows,
+   sector band, AI band, delivered-work carousel, six-step process, FAQ, closing section.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Hero */
+.svc-hero { position: relative; overflow: hidden; background: var(--navy-deep); border-bottom: 2px solid rgba(201,168,76,0.55); padding: 5rem 4rem 5.5rem; }
+.svc-hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 4rem; align-items: center; }
+.svc-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.3rem, 4.4vw, 3.7rem); line-height: 1.06; color: #fff; margin-bottom: 1.3rem; }
+.svc-hero h1 em { font-style: italic; color: var(--teal-light); }
+.svc-hero-copy > p { color: rgba(255,255,255,0.8); font-size: 1.05rem; line-height: 1.6; max-width: 52ch; margin-bottom: 2rem; }
+.svc-hero .hero-actions { margin-bottom: 0; }
+
+/* Services: four cards on shared rows (head, title, summary, list, button) */
+
+/* Sectors */
+
+/* AI band */
+
+/* Proof and process */
+@media (max-width: 900px) {
+  .svc-hero { padding: 3.5rem 1.5rem 3.5rem; }
+  .svc-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 640px) {
+  .svc-hero { padding: 2.75rem 1.1rem 3rem; }
+  .svc-hero h1 { font-size: clamp(1.95rem, 8.4vw, 2.3rem); }
+  .svc-hero-copy > p { font-size: 0.97rem; }
+}
+
+/* Services hero: compact banner. The router moves to its own strip under the hero. */
+.svc-hero { padding: 3.25rem 4rem 3.5rem; }
+.svc-hero-inner { grid-template-columns: 1fr; gap: 0; }
+.svc-hero h1 { font-size: clamp(2rem, 3.6vw, 2.9rem); max-width: 22ch; margin-bottom: 1rem; }
+.svc-hero-copy > p { font-size: 1rem; margin-bottom: 1.5rem; max-width: 58ch; }
+@media (max-width: 900px) {
+  .svc-hero { padding: 2.5rem 1.5rem 3rem; }
+}
+@media (max-width: 640px) {
+  .svc-hero { padding: 2.25rem 1.1rem 3rem; }
+}
+
+.svc-hero h1 { max-width: 26ch; }
+
+/* Services: carousel tags and card copy match the homepage compliance fixes */
+
+/* Services: delivered-by-service list (replaces the copied carousel) */
+
+/* Single-message closing section (no right-hand list), used where a list would only repeat other sections */
+.ai-cta-inner.ai-cta-single { grid-template-columns: 1fr; max-width: 760px; text-align: left; }
+.ai-cta-single .ai-cta-copy p { max-width: 56ch; }
+
+/* Services router strip: its own quiet band under the hero (no overlap, no clipped edge) */
+
+/* ══════════════════════════════════════════════════════════════
+   Closing section, all pages: a Navy Deep panel on a light band, so the navy footer
+   starts clearly after it (grid-on-navy running into the navy footer merged into one block).
+   ══════════════════════════════════════════════════════════════ */
+.cta-section.ai-cta { background: var(--white); border-top: 0; padding: 4.5rem 4rem; }
+.cta-section.ai-cta .ai-cta-inner {
+  position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto; padding: 3.5rem 3.75rem;
+  background: var(--navy-deep); border-radius: 20px; border-top: 3px solid var(--gold);
+  box-shadow: 0 24px 60px rgba(5,25,38,0.18);
+}
+.cta-section.ai-cta .hero-art { position: absolute; inset: 0; z-index: 0; }
+.cta-section.ai-cta .ai-cta-copy { position: relative; z-index: 1; }
+.cta-section.ai-cta .ai-cta-inner.ai-cta-single { max-width: 1200px; }
+.ai-cta-single .ai-cta-copy { max-width: 760px; }
+ body.home .cta-section.ai-cta { background: var(--white); border-top: 0; }
+@media (max-width: 900px) {
+  .cta-section.ai-cta { padding: 3rem 1.5rem; }
+  .cta-section.ai-cta .ai-cta-inner { padding: 2.25rem 1.75rem; border-radius: 16px; }
+}
+@media (max-width: 640px) {
+  .cta-section.ai-cta { padding: 2.25rem 1rem; }
+  .cta-section.ai-cta .ai-cta-inner { padding: 1.75rem 1.25rem; }
+}
+
+/* Services hero: oversized outlined "Build / Extend" over the gold disc. One bold move, still a compact banner. */
+.svc-hero { padding: 3.75rem 4rem 4rem; }
+.svc-hero-copy { max-width: 600px; }
+@media (max-width: 1000px) {
+  }
+@media (max-width: 640px) {
+  .svc-hero { padding: 2.25rem 1.1rem 3rem; }
+}
+
+/* Single-message closing panel: headline and line on the left, the two actions stacked on the right */
+.cta-section.ai-cta .ai-cta-single .ai-cta-copy { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 4rem; align-items: center; }
+.ai-cta-single .ai-cta-copy h2, .ai-cta-single .ai-cta-copy p { grid-column: 1; max-width: 40rem; }
+.ai-cta-single .ai-cta-copy .cta-actions { grid-column: 2; grid-row: 1 / span 2; flex-direction: column; align-items: stretch; margin: 0; }
+.ai-cta-single .ai-cta-copy .cta-actions .btn { justify-content: center; white-space: nowrap; }
+.ai-cta-single .ai-cta-copy p { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .cta-section.ai-cta .ai-cta-single .ai-cta-copy { grid-template-columns: 1fr; }
+  .ai-cta-single .ai-cta-copy .cta-actions { grid-column: 1; grid-row: auto; flex-direction: row; flex-wrap: wrap; margin-top: 1.75rem; }
+  .ai-cta-single .ai-cta-copy p { margin-bottom: 0; }
+}
+@media (max-width: 640px) { .ai-cta-single .ai-cta-copy .cta-actions { flex-direction: column; } }
+
+/* Services hero: photo bleeding off the right edge, fading into Navy Deep on its left. Compact banner kept. */
+.svc-hero-photo { position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; width: 48%; overflow: hidden; pointer-events: none; }
+.svc-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 55% 40%; display: block; filter: saturate(0.9); }
+.svc-hero-photo::before { content: ''; position: absolute; inset: 0; z-index: 1; background: rgba(5,25,38,0.28); }
+.svc-hero-photo { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 42%); mask-image: linear-gradient(90deg, transparent 0, #000 42%); }
+.svc-hero-copy { max-width: 560px; }
+@media (max-width: 900px) { .svc-hero-photo { display: none; } }
+.svc-hero-copy { max-width: 640px; }
+.svc-hero h1 { max-width: none; text-wrap: balance; }
+@media (max-width: 1200px) and (min-width: 901px) { .svc-hero-copy { max-width: 54%; } .svc-hero-photo { width: 44%; } }
+
+/* ══════════════════════════════════════════════════════════════
+   Mobile gutter: one consistent 22px side inset on phones for nav, heroes, sections,
+   closing panel and footer (was 16px sections, 17.6px/20px heroes, 24px footer).
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  body.home { --gutter-m: 1.375rem; }
+  body.home nav { padding-left: var(--gutter-m); padding-right: var(--gutter-m); }
+  body.home .section { padding-left: var(--gutter-m); padding-right: var(--gutter-m); }
+  body.home .cta-section.ai-cta { padding-left: var(--gutter-m); padding-right: var(--gutter-m); }
+  body.home footer { padding-left: var(--gutter-m); padding-right: var(--gutter-m); }
+  /* panels and cards get comfortable inner padding relative to the new gutter */
+  .cta-section.ai-cta .ai-cta-inner { padding: 2rem 1.5rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Business Solutions (body.business-page)
+   Compact photo hero, systems-we-have-built rows, built-in-as-standard band, handover,
+   FAQ and a single-message closing panel. Reuses .svc-hero, .faq-*, .ai-cta*, .svc-list.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Systems we have built */
+
+/* Built in as standard */
+
+/* Handover */
+
+/* ══════════════════════════════════════════════════════════════
+   Inner pages: visible background rhythm (Services, Business Solutions).
+   Alternating White / Off White / Teal Pale / Navy bands, each with a clear teal-light or
+   gold-light wash, so sections separate the way they do on the homepage.
+   ══════════════════════════════════════════════════════════════ */
+/* Services */
+
+/* Business Solutions */
+
+/* ══════════════════════════════════════════════════════════════
+   Business Solutions: "systems we have built" as a visual grid (replaces the three-column rows).
+   Each card shows a small illustration of what the system does. Flat fills, no gradients on cards.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Illustrations (decorative, built from plain boxes) */
+
+/* Business Solutions: the three-up row aligns on shared horizontal lines (panel, label, title, sentence, points, link) */
+
+/* ══════════════════════════════════════════════════════════════
+   Solution Architecture & Design (body.architecture-page)
+   Compact photo hero, three stages, layered-architecture stack, document package, risk row, FAQ.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Stages */
+
+/* Architecture stack (dark field, flat fills stepping through the palette) */
+
+/* Package */
+
+/* Risk */
+
+
+/* ══════════════════════════════════════════════════════════════
+   Photography in page content (inner pages): rounded photos, flat cards
+   ══════════════════════════════════════════════════════════════ */
+/* Business Solutions: solution examples with photos, shared rows (photo, title, sentence, outcome) */
+
+/* Architecture: photo under the architecture copy */
+
+/* Services: photo above the six steps */
+
+/* Outcome box: comfortable inner padding on all sides, full rounded shape */
+
+/* Document tiles: clean cards (the folded-corner square was removed) */
+
+/* Three stages on tablet and phone: a vertical timeline (numbers in a left rail, one continuous line between them) */
+
+/* ══════════════════════════════════════════════════════════════
+   Workflow Automation (body.workflow-page)
+   Compact photo hero, end-to-end approval flow with a Teams-style card, what gets automated,
+   older-systems band, AI list, case study links, FAQ, single-message closing.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Flow */
+
+/* Uses */
+
+/* Older systems */
+
+/* AI */
+
+/* Cases */
+
+/* ══════════════════════════════════════════════════════════════
+   Managed Services (body.managed-page)
+   Compact photo hero, support cycle with a loop-back marker, what support includes, "built by
+   someone else" band, product tiles, engagement options with photo, FAQ, single-message closing.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Cycle */
+
+/* Included */
+
+/* Elsewhere */
+
+/* Products */
+
+/* Engagement */
+
+/* Managed Services "take on" list: centre each marker on the rule and on the first title line */
+
+/* Managed Services loop: leaves from the centre of "Grow" and returns to the centre of "Review".
+   Geometry follows the six-column step grid (column c = (100% - 7.5rem) / 6, gap 1.5rem). */
+@media (min-width: 1101px) {
+  /* up-arrow head where the loop re-enters Review */
+  /* dot where the loop leaves Grow */
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Product icons in content: used only where a Microsoft product is named in the copy.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Product badges: rounded squares with real padding, so icon corners are never clipped */
+
+/* ══════════════════════════════════════════════════════════════
+   Contact (body.contact-page)
+   The Netlify form, success panel, booking iframe and their script are untouched; only the
+   surroundings are restyled. Do NOT rename form ids, names or classes used by that script.
+   ══════════════════════════════════════════════════════════════ */
+
+/* What happens next: a real sequence, so numbered, with one line through the markers */
+
+/* Booking */
+
+/* ══════════════════════════════════════════════════════════════
+   About (body.about-page)
+   Compact photo hero, founder portrait as the centrepiece, experience band, working principles,
+   speaking photos, Microsoft products, single-message closing.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Founder */
+
+/* Experience */
+
+/* Principles */
+
+/* Speaking */
+
+/* Expertise */
+
+/* About: re-sequenced (principles, speaking, experience, products, founder last), backgrounds re-alternated */
+
+/* About: "Giving back to the community" (copy and contributions left, photos right) */
+
+/* ══════════════════════════════════════════════════════════════
+   Legal pages (body.legal-page): Privacy, Cookie and Terms. Nav, footer and styling only; the
+   legal text and the Cookiebot declaration are untouched.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════
+   Products (body.products-page)
+   Compact photo hero, two live products as full cards, coming-soon products as quieter cards.
+   ══════════════════════════════════════════════════════════════ */
+body.products-page h1, body.products-page h2, body.products-page h3, body.products-page h2.display, body.products-page h2.display em { font-weight: 400; }
+body.products-page .lead, body.products-page .pf-desc, body.products-page .ai-cta-copy p { line-height: 1.6; }
+body.products-page .pf-available { background: radial-gradient(55% 45% at 100% 0%, rgba(83,177,205,0.26), transparent 72%), radial-gradient(40% 40% at 0% 100%, rgba(232,201,122,0.20), transparent 72%), var(--white); }
+body.products-page .pf-coming { background: var(--teal-pale); border-top: 1px solid rgba(7,131,150,0.14); border-bottom: 1px solid rgba(7,131,150,0.14); }
+body.products-page .cta-section.ai-cta { background: radial-gradient(60% 70% at 50% 0%, rgba(83,177,205,0.20), transparent 72%), var(--off-white); }
+
+.pf-head { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 1rem; align-items: center; margin-bottom: 1.1rem; }
+.pf-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--teal-pale); }
+.pf-icon svg { width: 26px; height: 26px; fill: none; stroke: var(--teal); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.pf-head h3 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.55rem; line-height: 1.2; color: var(--navy); }
+.pf-tag { display: block; margin-top: 0.2rem; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-dark); }
+.pf-badge { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.74rem; font-weight: 700; white-space: nowrap; }
+.pf-badge-live { background: var(--teal); color: #fff; }
+.pf-badge-soon { background: var(--gold-light); color: var(--navy-deep); }
+
+/* Live products */
+.pf-live-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.5rem; margin-top: 2.5rem; }
+.pf-live { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; padding: 2rem; border-radius: 16px; background: var(--off-white); border: 1px solid var(--border); border-top: 3px solid var(--teal); margin-bottom: 1.5rem; }
+.pf-live:nth-child(2) { border-top-color: var(--gold); }
+.pf-live .pf-head { grid-template-columns: 52px minmax(0, 1fr) auto; }
+.pf-desc { color: var(--mid); font-size: 0.95rem; margin-bottom: 1.25rem; max-width: 56ch; }
+.pf-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin: 0 0 1.5rem; }
+.pf-stats > div { padding: 0.85rem 1rem; border-radius: 12px; background: var(--white); border: 1px solid var(--border); }
+.pf-stats dt { order: 2; font-size: 0.78rem; color: var(--mid); }
+.pf-stats dd { margin: 0; font-family: 'DM Serif Display', serif; font-size: 1.7rem; line-height: 1.1; color: var(--navy); }
+.pf-stats > div { display: flex; flex-direction: column; }
+.pf-stats dd { order: 1; margin-bottom: 0.2rem; }
+.pf-actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; align-items: center; align-self: end; }
+.pf-link { color: var(--teal-dark); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+.pf-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Coming soon */
+.pf-soon-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+.pf-soon { display: flex; flex-direction: column; padding: 1.6rem; border-radius: 14px; background: var(--white); border: 1px dashed rgba(7,131,150,0.4); }
+.pf-soon .pf-head { grid-template-columns: 46px minmax(0, 1fr); margin-bottom: 0.9rem; }
+.pf-soon .pf-icon { width: 46px; height: 46px; border-radius: 12px; }
+.pf-soon .pf-icon svg { width: 23px; height: 23px; }
+.pf-soon .pf-head h3 { font-size: 1.3rem; }
+.pf-soon .pf-desc { font-size: 0.92rem; margin-bottom: 1rem; }
+.pf-covers { list-style: none; display: grid; gap: 0.45rem; margin: 0 0 1.25rem; padding: 0.9rem 0 0; border-top: 1px solid var(--border); }
+.pf-covers li { position: relative; padding-left: 1.45rem; font-size: 0.9rem; color: var(--near-black); }
+.pf-covers li::before { content: ''; position: absolute; left: 0; top: 0.42em; width: 11px; height: 6px; border-left: 2px solid var(--teal); border-bottom: 2px solid var(--teal); transform: rotate(-45deg); }
+.pf-soon .pf-badge { margin-top: auto; align-self: flex-start; }
+
+@media (max-width: 1000px) { .pf-soon-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .pf-live-grid { grid-template-columns: 1fr; gap: 1.25rem; } .pf-live { display: block; margin-bottom: 0; } .pf-live .pf-actions { margin-top: 0; } }
+@media (max-width: 640px) {
+  body.products-page { --gutter-m: 1.375rem; }
+  body.products-page nav, body.products-page .svc-hero, body.products-page .section, body.products-page .cta-section.ai-cta, body.products-page footer { padding-left: var(--gutter-m); padding-right: var(--gutter-m); }
+  body.products-page .section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  body.products-page h2.display { font-size: 1.75rem; line-height: 1.18; margin-bottom: 0.9rem; }
+  body.products-page .lead { font-size: 0.97rem; }
+  body.products-page .svc-hero { padding-top: 2.25rem; padding-bottom: 3rem; }
+  body.products-page .svc-hero h1 { font-size: clamp(1.95rem, 8.4vw, 2.3rem); }
+  body.products-page .svc-hero-copy > p { font-size: 0.97rem; }
+  .pf-live { padding: 1.4rem; }
+  .pf-live .pf-head { grid-template-columns: 46px minmax(0, 1fr); }
+  .pf-live .pf-badge { grid-column: 1 / -1; justify-self: start; }
+  .pf-head h3 { font-size: 1.3rem; }
+  .pf-stats dd { font-size: 1.45rem; }
+  .pf-soon-grid { grid-template-columns: 1fr; }
+  body.products-page .cta-section.ai-cta .ai-cta-inner { padding: 2rem 1.5rem; }
+}
+.pf-also { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.4rem; color: var(--navy); margin: 2.5rem 0 0; }
+.pf-soon-grid.pf-soon-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.1rem; }
+.pf-soon-grid.pf-soon-grid-2 .pf-soon { background: rgba(255,255,255,0.65); }
+@media (max-width: 640px) { .pf-soon-grid.pf-soon-grid-2 { grid-template-columns: 1fr; } .pf-also { font-size: 1.2rem; margin-top: 2rem; } }
+@media (min-width: 1001px) { .pf-soon-grid:not(.pf-soon-grid-2) .pf-head { min-height: 4.6rem; align-items: start; } }
+.pf-icon.pf-icon-logo img { width: 34px; height: 34px; object-fit: contain; display: block; }
+.pf-icon.pf-icon-logo { background: var(--navy-deep); }
+.pf-icon.pf-icon-logo img { width: 36px; height: 36px; }
+
+/* ══════════════════════════════════════════════════════════════
+   Dove365 CRM — Starter product page (body.crm-page)
+   Hero with the live dashboard screenshot, facts strip, features, included/not included,
+   screenshots, pricing card, deployment steps, FAQ, closing with documentation links.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Hero */
+
+/* Facts */
+
+/* What it is */
+
+/* Features */
+
+/* Included */
+
+/* Screens */
+
+/* Pricing */
+
+/* Deployment */
+
+/* Closing with documentation */
+
+/* ══════════════════════════════════════════════════════════════
+   CRM page refinements: hero facts row, feature list, screenshot viewer, grouped FAQ
+   ══════════════════════════════════════════════════════════════ */
+/* Facts live in the hero now (no separate band) */
+
+/* Features: two quiet columns of icon rows */
+
+/* Screenshot viewer */
+
+/* Grouped FAQ */
+
+/* ══════════════════════════════════════════════════════════════
+   Dove365 Support product page (body.support-page, also body.crm-page)
+   Reuses the CRM product blocks; adds the walkthrough video band.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Hero facts on phones: three even columns instead of a wrapping row */
+
+/* ══════════════════════════════════════════════════════════════
+   Documentation hub (body.docs-hub-page, also body.products-page)
+   Reuses the products blocks; adds the "what you will find inside" tiles.
+   ══════════════════════════════════════════════════════════════ */
+body.docs-hub-page .dc-inside { background: var(--white); }
+.dc-grid { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin: 2.5rem 0 0; padding: 0; }
+.dc-tile { padding: 1.6rem; border-radius: 14px; background: var(--off-white); border: 1px solid var(--border); border-top: 3px solid var(--teal); }
+.dc-tile:nth-child(2) { border-top-color: var(--gold); }
+.dc-tile:nth-child(3) { border-top-color: var(--teal-light); }
+.dc-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--teal-pale); margin-bottom: 0.9rem; }
+.dc-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--teal); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.dc-tile h3 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.35rem; line-height: 1.2; color: var(--navy); margin-bottom: 0.45rem; }
+.dc-tile p { font-size: 0.93rem; line-height: 1.6; color: var(--mid); max-width: 38ch; }
+@media (max-width: 900px) { .dc-grid { grid-template-columns: 1fr; } .dc-tile p { max-width: none; } }
+
+/* ══════════════════════════════════════════════════════════════
+   AI Toolkit (body.toolkit-page)
+   The request form, success panel and submit script are untouched, and so is the spider chart
+   (markup and the .toolkit-spider-card / .spider-* styles are shared with the docs site).
+   Only the surroundings are restyled.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Hero: three guide covers fanned on the right */
+/* Spread on hover or keyboard focus, as on the original hero */
+
+/* Guides: cover tile, kind, title, text on shared rows */
+
+/* Assessment band (chart card unchanged) */
+
+/* Why Dove365 */
+
+/* Request */
+
+/* Prompt framework band: the page's bold moment, on Navy Deep with the brand grid */
+
+/* ══════════════════════════════════════════════════════════════
+   AI Readiness Assessment (body.assessment-page)
+   The form, its steps, hidden fields, success panel, scoring script and the result charts are
+   untouched (automation depends on them). Only the surroundings and the colours of the existing
+   classes are restyled here. The radar chart styles (.radar*, .ai-card) are deliberately NOT touched.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Live score dashboard: Navy Deep, flat bar, gold fill */
+
+/* Panel and progress */
+
+/* Steps */
+
+/* Questions: the answer buttons carry their meaning in colour as well as text */
+
+/* Assessment layout: questions first. The live score becomes a sticky sidebar beside the form on
+   desktop, so the questions start right under the hero and the score stays in view while answering. */
+@media (max-width: 1024px) {
+  /* Phones and tablets: a slim score strip; the per-section bars are in the results step */
+}
+
+
+/* Assessment step headings: smaller, so the questions sit higher */
+
+/* Assessment hero: the eight areas it measures, on a flat translucent panel */
+
+/* ══════════════════════════════════════════════════════════════
+   Testimonials (body.testimonials-page)
+   Photo hero, one featured quote beside a photo, the other five as quote cards, single-message closing.
+   Quotes are the approved wording, attributed by role only.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Featured quote */
+
+/* The rest: quote cards on a six-column grid, three then two */
+
+/* ══════════════════════════════════════════════════════════════
+   Case studies landing page (body.cases-page)
+   Photo hero, product filters, an outcome-first bento grid (Maritime featured), a looping
+   testimonial carousel, closing. Case copy is unchanged from the original page (anonymised).
+   ══════════════════════════════════════════════════════════════ */
+
+/* "What are you trying to fix?" The visitor picks a problem in plain words and sees two to four short
+   before-and-after stories. No technology, sector or client detail on this page. */
+
+/* Testimonial carousel: one at a time, looping, dots only */
+
+/* ══════════════════════════════════════════════════════════════
+   Case study detail pages (body.casedetail-page)
+   Template for the individual case studies, first used on Maritime Incident & CRM Platform.
+   Photo hero with an at-a-glance strip, the problem as an icon list beside the story, the
+   solution as a platform map on Navy Deep, outcomes as icon cards, platform components as
+   icon pills, single-message closing. The copy is the original wording.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Challenge: the story with a photo on the left, the five problems as an icon list on the right */
+
+/* Solution: a platform map on Navy Deep */
+
+/* Outcomes */
+
+/* Platform components */
+
+/* Five cards: three across, then two wider cards, so there is no gap */
+/* Sections with four cards sit two by two */
+
+/* Business Solutions: links inside the dark service desk card stay legible */
+
+/* AI Enablement: the case-study link sits inside the card's list row, without a tick */
+
+/* AI Enablement lead card: the paragraph sits inside .ai-proof-lead-copy, so the direct-child rule missed it.
+   Give it the same colour, size and spacing as the other cards, so the divider has room above it. */
+
+/* ══════════════════════════════════════════════════════════════
+   AI Without the Hype workshop (body.workshop-page)
+   Light-touch rebuild: the page is still being worked on, so the content and section order are the
+   originals. The sign-up form, its success panel and its script are untouched (Netlify form).
+   ══════════════════════════════════════════════════════════════ */
+
+/* Intro */
+
+/* Event details */
+
+/* What you will learn: Navy Deep, three columns */
+
+/* Session overview: a real sequence, so numbered, on one line */
+
+/* Sign up */
+
+/* =====================================================================
+   Dove365 documentation site (body.docs-site)
+   Simplified nav and footer; guide hubs. Appended to the shared base above.
+   ===================================================================== */
+
+/* Footer: brand and two short columns */
+.footer-3col { grid-template-columns: 1.6fr 1fr 1fr; gap: 2.5rem; }
+@media (max-width: 760px) { .footer-3col { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-3col .footer-brand { grid-column: 1 / -1; } }
+@media (max-width: 460px) { .footer-3col { grid-template-columns: 1fr; } }
+
+/* Hero breadcrumb: the way back up one level */
+.dg-crumb { display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 1.1rem; font-size: 0.85rem; font-weight: 500; color: var(--teal-light); text-decoration: none; }
+.dg-crumb svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.dg-crumb:hover { color: var(--white); }
+
+/* Jump links under the hero */
+.dg-jump { display: flex; flex-wrap: wrap; gap: 0.6rem; padding: 1rem 4rem; background: var(--white); border-bottom: 1px solid var(--border); }
+.dg-jump a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid var(--border); background: var(--off-white); color: var(--navy); font-size: 0.88rem; font-weight: 500; text-decoration: none; }
+.dg-jump a span { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--teal-pale); color: var(--navy); font-size: 0.75rem; font-weight: 600; }
+.dg-jump a:hover { border-color: var(--teal); color: var(--teal); }
+.dg-jump a:focus-visible, .dg-card:focus-visible { outline: 3px solid var(--teal-light); outline-offset: 2px; }
+@media (max-width: 900px) { .dg-jump { padding: 0.9rem 22px; } }
+
+/* Start here: photo beside a real three-step sequence */
+body.docs-product-page .dg-start { background: var(--off-white); }
+.dg-start-inner { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 3.5rem; align-items: center; }
+.dg-start-photo { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 4 / 3; }
+.dg-start-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dg-steps { list-style: none; counter-reset: dgstep; display: grid; gap: 0.9rem; margin: 1.8rem 0 0; padding: 0; }
+.dg-steps li { counter-increment: dgstep; }
+.dg-steps a { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 1rem; padding: 1.1rem 1.25rem; border-radius: 14px; background: var(--white); border: 1px solid var(--border); text-decoration: none; color: var(--navy); }
+.dg-steps a::before { content: counter(dgstep); grid-row: span 2; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--navy-deep); color: var(--gold-light); font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.15rem; }
+.dg-steps strong { font-weight: 600; font-size: 1.02rem; }
+.dg-steps span { font-size: 0.92rem; line-height: 1.55; color: var(--mid); }
+.dg-steps a:hover { border-color: var(--teal); }
+.dg-steps a:focus-visible { outline: 3px solid var(--teal-light); outline-offset: 2px; }
+@media (max-width: 900px) { .dg-start-inner { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* Guide sections */
+.dg-section { background: var(--white); }
+.dg-section.dg-alt { background: var(--off-white); }
+.dg-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1.25rem; row-gap: 0; margin-top: 2.5rem; }
+.dg-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.dg-card, .dg-ref { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; margin-bottom: 1.25rem; padding: 1.6rem; border-radius: 14px; border: 1px solid var(--border); border-top: 3px solid var(--teal); background: var(--off-white); color: var(--navy); text-decoration: none; }
+.dg-alt .dg-card { background: var(--white); }
+.dg-ico { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 0.9rem; border-radius: 12px; background: var(--teal-pale); }
+.dg-ico svg { width: 22px; height: 22px; fill: none; stroke: var(--teal); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.dg-card h3 { margin-bottom: 0.45rem; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.3rem; line-height: 1.2; color: var(--navy); }
+.dg-card p { margin-bottom: 1rem; font-size: 0.93rem; line-height: 1.6; color: var(--mid); }
+.dg-go { align-self: end; font-size: 0.9rem; font-weight: 600; color: var(--teal); }
+.dg-card:hover { border-color: var(--teal); border-top-color: var(--gold); }
+.dg-card:hover .dg-go { text-decoration: underline; }
+@media (max-width: 1024px) { .dg-grid, .dg-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .dg-grid, .dg-grid-3 { grid-template-columns: 1fr; } }
+
+/* Eight user guides sit four across; the admin overview leads the admin guides full width */
+@media (min-width: 1200px) { .dg-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.dg-card-wide { grid-row: auto; grid-template-rows: none; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; column-gap: 1.25rem; margin-top: 2.5rem; margin-bottom: 1.25rem; background: var(--white); border-top-color: var(--gold); }
+.dg-card-wide .dg-ico { margin-bottom: 0; }
+.dg-card-wide h3 { margin-bottom: 0.3rem; }
+.dg-card-wide p { margin-bottom: 0; max-width: 62ch; }
+.dg-card-wide + .dg-grid { margin-top: 0; }
+@media (max-width: 720px) { .dg-card-wide { grid-template-columns: 44px minmax(0, 1fr); } .dg-card-wide .dg-go { grid-column: 1 / -1; margin-top: 0.8rem; } }
+
+/* ---- Sidebar docs layout (CRM Starter hub) ---- */
+.dx-hero { padding-top: 2.75rem; padding-bottom: 3rem; }
+.dx-wrap { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 3.5rem; max-width: 1280px; margin: 0 auto; padding: 3rem 4rem 5rem; align-items: start; }
+.dx-side { position: sticky; top: 96px; max-height: calc(100vh - 120px); overflow-y: auto; padding-right: 0.5rem; scrollbar-width: thin; }
+.dx-toc summary { display: none; }
+.dx-product { display: flex; align-items: center; gap: 0.8rem; padding: 0.9rem 1rem; margin-bottom: 1.4rem; border-radius: 14px; background: var(--navy-deep); }
+.dx-product img { width: 40px; height: 40px; flex-shrink: 0; }
+.dx-product strong { display: block; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.05rem; line-height: 1.15; color: var(--white); }
+.dx-product span { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-light); }
+.dx-group { display: grid; gap: 0.05rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+.dx-group:last-child { border-bottom: 0; margin-bottom: 0; }
+.dx-head { padding: 0.35rem 0.75rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--navy); text-decoration: none; border-left: 3px solid transparent; }
+.dx-head.is-current { color: var(--teal); border-left-color: var(--gold); }
+.dx-link { padding: 0.3rem 0.75rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.35; color: var(--mid); text-decoration: none; }
+.dx-link:hover { background: var(--teal-pale); color: var(--navy); }
+.dx-head:focus-visible, .dx-link:focus-visible, .dx-toc summary:focus-visible { outline: 3px solid var(--teal-light); outline-offset: 2px; }
+.dx-out .dx-link { color: var(--teal); font-weight: 500; }
+.dx-main { min-width: 0; max-width: 900px; }
+.dx-sec { scroll-margin-top: 96px; padding-bottom: 3.5rem; margin-bottom: 3.5rem; border-bottom: 1px solid var(--border); }
+.dx-sec:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.dx-h2 { margin-bottom: 0.6rem; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.15; color: var(--navy); }
+.dx-h2 em { font-style: italic; color: var(--teal); }
+.dx-lead { max-width: 58ch; font-size: 1rem; line-height: 1.6; color: var(--mid); }
+.dx-start { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 1.75rem; align-items: center; margin-top: 1.75rem; }
+.dx-start .dg-start-photo { aspect-ratio: 4 / 5; }
+.dx-start .dg-steps { margin-top: 0; }
+.dx-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.75rem; }
+.dx-sec .dg-card-wide { margin-top: 1.75rem; }
+.dx-sec .dg-card-wide + .dx-grid { margin-top: 0; }
+@media (max-width: 1000px) {
+  .dx-wrap { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem 22px 3.5rem; }
+  .dx-side { position: static; max-height: none; overflow: visible; padding-right: 0; }
+  .dx-toc { border: 1px solid var(--border); border-radius: 14px; background: var(--off-white); padding: 0 1rem; }
+  .dx-toc summary { display: flex; align-items: center; justify-content: space-between; padding: 0.95rem 0; cursor: pointer; list-style: none; font-weight: 600; color: var(--navy); }
+  .dx-toc summary::-webkit-details-marker { display: none; }
+  .dx-toc summary svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s ease; }
+  .dx-toc[open] summary svg { transform: rotate(180deg); }
+  .dx-toc[open] { padding-bottom: 1rem; }
+}
+@media (max-width: 640px) { .dx-grid { grid-template-columns: 1fr; } .dx-start { grid-template-columns: 1fr; } .dx-start .dg-start-photo { aspect-ratio: 16 / 10; } }
+@media (prefers-reduced-motion: reduce) { .dx-toc summary svg { transition: none; } }
+.dx-hero h1 { max-width: none; }
+.dx-rows { margin-top: 1.75rem; }
+.dx-rows .dg-card-wide { margin-top: 0; }
+
+/* ---- Guide pages (sidebar + article) ---- */
+.dx-hero-plain { padding-top: 2.5rem; padding-bottom: 2.75rem; }
+a.dx-product { text-decoration: none; }
+a.dx-product:hover { background: var(--navy); }
+.dx-link[aria-current="page"] { background: var(--teal-pale); color: var(--navy); font-weight: 600; }
+.dx-subs { display: grid; margin: 0.15rem 0 0.4rem 1.1rem; padding-left: 0.6rem; border-left: 1px solid var(--slate); }
+.dx-sub { padding: 0.25rem 0.6rem; font-size: 0.82rem; line-height: 1.35; color: var(--mid); text-decoration: none; border-left: 2px solid transparent; margin-left: -0.65rem; }
+.dx-sub:hover { color: var(--navy); }
+.dx-sub.is-current { color: var(--teal); font-weight: 600; border-left-color: var(--gold); }
+.dx-sub:focus-visible { outline: 3px solid var(--teal-light); outline-offset: 2px; }
+
+.dx-checks { list-style: none; display: grid; gap: 0.9rem; margin: 1.75rem 0 0; padding: 0; }
+.dx-checks li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 1rem; padding: 1.1rem 1.25rem; border-radius: 14px; border: 1px solid var(--border); background: var(--off-white); }
+.dx-checks svg { width: 24px; height: 24px; margin-top: 0.1rem; fill: none; stroke: var(--teal); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.dx-checks h3 { margin-bottom: 0.25rem; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 1rem; color: var(--navy); }
+.dx-checks p { font-size: 0.93rem; line-height: 1.6; color: var(--mid); max-width: 62ch; }
+.dx-callout { margin-top: 1.75rem; padding: 1.1rem 1.35rem; border-radius: 14px; border: 1px solid var(--slate); background: var(--teal-pale); font-size: 0.97rem; line-height: 1.6; color: var(--navy); max-width: 72ch; }
+.dx-callout-dark { background: var(--navy-deep); border-color: var(--navy-deep); border-top: 3px solid var(--gold); color: var(--white); }
+.dx-scope { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.25rem; padding: 1.4rem 1.5rem; border-radius: 14px; border: 1px solid var(--border); background: var(--white); }
+.dx-scope h3 { margin-bottom: 0.6rem; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.15rem; color: var(--navy); }
+.dx-scope ul { list-style: none; display: grid; gap: 0.45rem; margin: 0; padding: 0; }
+.dx-scope li { position: relative; padding-left: 1.5rem; font-size: 0.93rem; color: var(--navy); }
+.dx-scope li::before { content: ''; position: absolute; left: 0; top: 0.5em; width: 0.9rem; height: 0.55rem; border-left: 2px solid var(--teal); border-bottom: 2px solid var(--teal); transform: rotate(-45deg) translateY(-30%); }
+.dx-scope .dx-no li { color: var(--mid); }
+.dx-scope .dx-no li::before { width: 0.7rem; height: 2px; border: 0; background: var(--mid); transform: none; top: 0.7em; }
+.dx-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.dg-static { cursor: default; }
+.dg-static:hover { border-color: var(--border); border-top-color: var(--teal); }
+.dx-seq { list-style: none; counter-reset: dxs; margin: 1.75rem 0 0; padding: 0; position: relative; }
+.dx-seq li { counter-increment: dxs; position: relative; padding: 0 0 1.6rem 3.4rem; }
+.dx-seq li::before { content: counter(dxs); position: absolute; left: 0; top: 0; z-index: 1; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--navy-deep); color: var(--gold-light); font-family: 'DM Serif Display', serif; font-size: 1.1rem; }
+.dx-seq li::after { content: ''; position: absolute; left: 18px; top: 38px; bottom: 0; width: 2px; background: var(--slate); }
+.dx-seq li:last-child { padding-bottom: 0; }
+.dx-seq li:last-child::after { display: none; }
+.dx-seq h3 { margin-bottom: 0.25rem; padding-top: 0.4rem; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 1.02rem; color: var(--navy); }
+.dx-seq p { font-size: 0.95rem; line-height: 1.6; color: var(--mid); max-width: 62ch; }
+.dx-fig { margin: 2.25rem 0 0; }
+.dx-fig img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border); }
+.dx-fig figcaption { margin-top: 0.7rem; font-size: 0.86rem; line-height: 1.5; color: var(--mid); }
+@media (max-width: 760px) { .dx-grid-3 { grid-template-columns: 1fr; } .dx-scope { grid-template-columns: 1fr; } }
+body.docs-sidebar-layout { background: var(--white); }
+
+/* ---- Converted guide content: plain cards, prose, lists, tables, releases ---- */
+.dg-card.dx-plain { grid-row: span 3; grid-template-rows: subgrid; }
+.dg-card.dx-plain h3 { margin-top: 0; }
+.dx-card-body > p:last-child { margin-bottom: 1rem; }
+.dx-card-body p { margin-bottom: 0.7rem; font-size: 0.93rem; line-height: 1.6; color: var(--mid); }
+.dx-card-body ul, .dx-card-body ol { margin: 0 0 1rem 1.1rem; font-size: 0.93rem; line-height: 1.6; color: var(--mid); }
+
+.dx-main h3 { margin: 2rem 0 0.6rem; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.3rem; line-height: 1.2; color: var(--navy); }
+.dx-main h4 { margin: 1.4rem 0 0.4rem; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 1rem; color: var(--navy); }
+.dx-main h3:first-child, .dx-main .dx-h2 + h3 { margin-top: 1.25rem; }
+.dx-prose, .dx-main > section > p, .dx-main > section > ul, .dx-main > section > ol { font-size: 0.98rem; line-height: 1.65; color: var(--navy); max-width: 70ch; }
+.dx-sec > p:not([class]) { margin-top: 1rem; font-size: 0.98rem; line-height: 1.65; color: var(--navy); max-width: 70ch; }
+.dx-sec p:not([class]) { max-width: 70ch; }
+.dx-prose p { margin: 0 0 1rem; }
+.dx-sec ul:not([class]), .dx-sec ol:not([class]), .dx-sec ul.doc-list, .dx-sec ol.doc-list, .dx-prose ul, .dx-prose ol { margin: 0.9rem 0 1.1rem; padding-left: 1.4rem; max-width: 70ch; font-size: 0.98rem; line-height: 1.65; color: var(--navy); }
+.dx-sec li:not([class]) { margin-bottom: 0.4rem; }
+.dx-sec li::marker { color: var(--teal); }
+.dx-sec a:not([class]) { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.dx-sec a:not([class]):hover { color: var(--teal-dark); }
+.dx-sec code { padding: 0.1em 0.4em; border-radius: 6px; background: var(--teal-pale); font-size: 0.88em; color: var(--navy); }
+.dx-sec strong { font-weight: 600; }
+
+.dx-points { list-style: none; display: grid; gap: 0.9rem; margin: 1.75rem 0 0; padding: 0; }
+.dx-points li { display: grid; gap: 0.3rem; padding: 1.1rem 1.25rem; border-radius: 14px; border: 1px solid var(--border); background: var(--off-white); }
+.dx-points strong { font-size: 1rem; font-weight: 600; color: var(--navy); }
+.dx-points span { font-size: 0.93rem; line-height: 1.6; color: var(--mid); max-width: 66ch; }
+
+.dx-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1.75rem; }
+.dx-gallery .dx-fig { margin: 0; }
+@media (max-width: 640px) { .dx-gallery { grid-template-columns: 1fr; } }
+
+.dx-table { margin: 1.5rem 0 0; overflow-x: auto; border-radius: 14px; border: 1px solid var(--border); }
+.dx-table table { width: 100%; border-collapse: collapse; font-size: 0.93rem; line-height: 1.5; }
+.dx-table th { padding: 0.8rem 1rem; text-align: left; font-weight: 600; background: var(--navy-deep); color: var(--white); }
+.dx-table td { padding: 0.8rem 1rem; border-top: 1px solid var(--border); color: var(--navy); vertical-align: top; }
+.dx-table tbody tr:nth-child(even) td { background: var(--off-white); }
+
+.dx-badge { display: inline-block; margin: 0.8rem 0 0; padding: 0.35rem 0.8rem; border-radius: 999px; background: var(--teal-pale); color: var(--navy); font-size: 0.82rem; font-weight: 500; }
+.dx-rel { margin-top: 1.4rem; padding: 1.25rem 1.5rem; border-radius: 14px; border: 1px solid var(--border); background: var(--off-white); }
+.dx-rel h3 { margin: 0 0 0.6rem; font-size: 1.15rem; }
+.dx-rel ul { margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.6; color: var(--navy); }
+.dx-rel li { margin-bottom: 0.35rem; }
+.dx-checkgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+.dx-checkgrid > div { position: relative; padding: 0.65rem 0.9rem 0.65rem 2.2rem; border-radius: 10px; background: var(--white); border: 1px solid var(--border); font-size: 0.9rem; line-height: 1.45; color: var(--navy); }
+.dx-checkgrid > div::before { content: ''; position: absolute; left: 0.85rem; top: 0.95rem; width: 0.8rem; height: 0.45rem; border-left: 2px solid var(--teal); border-bottom: 2px solid var(--teal); transform: rotate(-45deg); }
+@media (max-width: 640px) { .dx-checkgrid { grid-template-columns: 1fr; } }
+
+/* Terms and conditions */
+.dx-meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.8rem; margin: 1.5rem 0 0; }
+.dx-meta > div { padding: 0.9rem 1rem; border-radius: 12px; border: 1px solid var(--border); background: var(--off-white); }
+.dx-meta dt { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); }
+.dx-meta dd { margin: 0.25rem 0 0; font-size: 0.95rem; font-weight: 600; color: var(--navy); }
+.dx-legal-toc { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.2rem 1.5rem; margin: 1.75rem 0 0; padding: 1.1rem 1.25rem; border-radius: 14px; border: 1px solid var(--border); background: var(--off-white); }
+.dx-legal-toc a { padding: 0.25rem 0; font-size: 0.92rem; color: var(--teal); text-decoration: none; }
+.dx-legal-toc a:hover { text-decoration: underline; }
+.dx-legal h3 { scroll-margin-top: 96px; }
+.dx-legal ol, .dx-legal ul { margin: 0.7rem 0 1rem; padding-left: 1.4rem; font-size: 0.97rem; line-height: 1.65; color: var(--navy); }
+.dx-legal p { font-size: 0.97rem; line-height: 1.65; }
+@media (max-width: 760px) { .dx-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); } .dx-legal-toc { grid-template-columns: 1fr; } }
+.dx-scope-title { grid-column: 1 / -1; margin: 0; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 1rem; color: var(--navy); }
+.dx-box { margin-top: 1.25rem; padding: 1.4rem 1.5rem; border-radius: 14px; border: 1px solid var(--border); background: var(--white); }
+.dx-box .dx-scope-title { margin-bottom: 0.9rem; }
+.dx-item { position: relative; padding: 0.55rem 0 0.55rem 1.7rem; font-size: 0.95rem; line-height: 1.55; color: var(--navy); }
+.dx-item::before { content: ''; position: absolute; left: 0.1rem; top: 0.85rem; width: 0.8rem; height: 0.45rem; border-left: 2px solid var(--teal); border-bottom: 2px solid var(--teal); transform: rotate(-45deg); }
+.dx-item-no::before { width: 0.7rem; height: 2px; border: 0; background: var(--mid); transform: none; top: 1.1rem; }
+.dx-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.dx-callout p, .dx-callout li { margin: 0; color: inherit; font-size: inherit; line-height: inherit; }
+.dx-callout p + p { margin-top: 0.6rem; }
+.dx-callout-dark a { color: var(--gold-light); }

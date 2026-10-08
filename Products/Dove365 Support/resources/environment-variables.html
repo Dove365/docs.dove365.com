@@ -7,29 +7,168 @@
   <meta name="description" content="Configure and validate Dove365 Support environment variables, including the default queue GUID and support mailbox settings.">
   <meta property="og:title" content="Environment Variables Guide — Dove365 Support">
   <meta property="og:description" content="Configure and validate Dove365 Support environment variables, including the default queue GUID and support mailbox settings.">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.dove365.com/assets/images/logo/Logo.png">
-  <link rel="canonical" href="https://www.docs.dove365.com/Products/Dove365%20Support/resources/environment-variables.html">
+  <link rel="canonical" href="https://docs.dove365.com/Products/Dove365%20Support/resources/environment-variables.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../assets/css/style.css?v=59">
-  <style>.doc-list{margin:1.25rem 0 0 1.25rem;color:var(--mid);line-height:1.75}.doc-list li{margin:.35rem 0}.doc-content code{font-size:.92em;background:#eef6f6;color:#0f766e;border-radius:4px;padding:.1rem .35rem}.doc-note{margin-top:2rem;padding:1.25rem 1.5rem;border-left:4px solid var(--teal);background:#f7fbfb;color:var(--mid);border-radius:0 8px 8px 0}</style>
+  <link rel="stylesheet" href="../../../assets/css/docs.css?v=1">
   <link rel="icon" type="image/png" href="../../../assets/images/logo/Logo.png">
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="046081a4-efdf-46a8-9738-ccee510ba588" data-blockingmode="auto" type="text/javascript"></script>
 </head>
-<body><div class="scroll-progress" aria-hidden="true"></div><div class="mouse-aura" aria-hidden="true"></div>
-<nav><a class="nav-logo" href="https://www.dove365.com" aria-label="Dove365 home"><img class="nav-logo-mark" src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="nav-logo-text">Dove365</span></a><button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button><ul class="nav-links" id="primary-navigation"><li><a href="https://www.dove365.com">Home</a></li><li><a href="https://www.dove365.com/ai-enablement.html">AI Enablement</a></li><li class="has-dropdown"><a href="https://www.dove365.com/services.html">Services</a><div class="dropdown"><div class="dropdown-label">Services</div><a href="https://www.dove365.com/business-solutions.html">Business Solutions</a><a href="https://www.dove365.com/solution-architecture.html">Solution Architecture &amp; Design</a><a href="https://www.dove365.com/workflow-automation.html">Workflow Automation</a><a href="https://www.dove365.com/managed-support.html">Managed Services</a></div></li><li class="has-dropdown"><a href="#">Products</a><div class="dropdown"><div class="dropdown-label">Products</div><a href="https://www.dove365.com/products.html">All Products</a><a href="https://www.dove365.com/Products/Dove365-CRM-Starter.html">Dove365 CRM &#8212; Starter</a><a href="https://www.dove365.com/Products/Dove365-Support.html">Dove365 Support</a></div></li><li class="has-dropdown"><a href="../../../docs.html">Resources</a><div class="dropdown"><div class="dropdown-label">Resources</div><a href="../../../docs.html">Documentation Library</a><a href="https://www.dove365.com/case-studies.html">Case Studies</a><a href="https://www.dove365.com/ai-toolkit.html">AI Toolkit</a><a href="https://www.nati-turtledove.com/" target="_blank" rel="noopener">Insights</a></div></li><li><a href="https://www.dove365.com/about.html">About</a></li><li><a href="https://www.dove365.com/contact.html" class="nav-cta">Book a Call</a></li></ul></nav>
+<body class="products-page docs-hub-page docs-site docs-sidebar-layout docs-guide-page">
+
+<nav>
+  <a class="nav-logo" href="https://www.dove365.com" aria-label="Dove365 main site">
+    <img class="nav-logo-mark" src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true">
+    <span class="nav-logo-text">Dove365</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="../../../docs.html">Home</a></li>
+    <li class="has-dropdown">
+      <a href="#">Product guides</a>
+      <div class="dropdown">
+        <div class="dropdown-label">Product guides</div>
+        <a href="../../../Products/Dove365-CRM-Starter/crm-docs.html">Dove365 CRM &#8212; Starter</a>
+        <a href="../../../Products/Dove365%20Support/support-docs.html">Dove365 Support</a>
+      </div>
+    </li>
+    <li><a href="https://www.dove365.com" class="nav-cta">Back to main site</a></li>
+  </ul>
+</nav>
+
 <div class="page-offset">
-<div class="page-hero"><div class="page-hero-inner"><div class="breadcrumb"><a href="../../../docs.html">Documentation</a>
-        <span>/</span>
-        <span>Dove365 Support</span>
-        <span>/</span>
-        Environment Variables</div><h1>Environment Variables <em>Guide</em></h1><p>Configure the values Dove365 Support uses for queue intake, mailbox triage, automation routing, and dashboard calculations.</p></div></div>
-<section class="section" style="background:white;"><div class="container"><div class="section-tag">Purpose</div><h2 class="display">Configuration values used by <em>automation</em></h2><p class="lead">Environment variables let administrators change deployment-specific values without editing flows or code. Dove365 Support uses them to identify the default support queue, support mailbox, and other tenant-specific configuration.</p><div class="case-note" style="margin-top:2rem;">Review these values after solution import, after environment copy, and whenever queue or mailbox ownership changes.</div></div></section>
-<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Default Queue GUID</div><h2 class="display">Set the default support <em>intake queue</em></h2><div class="layout-2col"><div class="doc-content"><p>The default queue is used by mailbox triage, available-to-pick dashboard logic, and queue-based intake reporting.</p><ol class="doc-list ordered"><li>Open the Queue record that should receive new support work.</li><li>Copy the Queue GUID from the record URL.</li><li>Set <code>dove365_DefaultQueueGUID</code> to that value.</li><li>Run <code>Configure Default Queue</code> manually.</li><li>Send a controlled test email and confirm the Case enters the expected queue.</li></ol></div><div class="scope-box"><h4>Validation checks</h4><div class="scope-item scope-yes">Queue exists and is active</div><div class="scope-item scope-yes">GUID has no extra spaces</div><div class="scope-item scope-yes">Users or teams can access the queue</div><div class="scope-item scope-yes">New Queue Items appear in dashboards</div></div></div></div></section>
-<section class="section" style="background:white;"><div class="container"><div class="section-tag">Support Mailbox</div><h2 class="display">Configure mailbox <em>triage</em></h2><p class="lead">The support mailbox value identifies the mailbox monitored by the intake automation. It should match the mailbox that receives customer support requests.</p><div class="service-features" style="margin-top:2rem;"><div class="feature-item"><span class="feature-check">✓</span><div><h4>Confirm the mailbox exists</h4><p>The mailbox should be active in Microsoft 365 and available to the connection used by the triage flow.</p></div></div><div class="feature-item"><span class="feature-check">✓</span><div><h4>Confirm connections are signed in</h4><p>Both Outlook and Dataverse connection references need to be authenticated before triage can create Cases.</p></div></div><div class="feature-item"><span class="feature-check">✓</span><div><h4>Test with a controlled email</h4><p>Use a known test message so you can confirm sender, subject, body, Case creation, and Queue Item placement.</p></div></div></div></div></section>
-<section class="section" style="background:var(--off-white);"><div class="container"><div class="section-tag">Troubleshooting</div><h2 class="display">Common configuration <em>issues</em></h2><div class="pain-grid" style="margin-top:2.5rem;"><div class="pain-card"><div class="pain-number">01</div><h3>Cases are not entering a queue</h3><p>Check the default queue GUID, confirm the Configure Default Queue flow has run, and verify the queue is active.</p></div><div class="pain-card"><div class="pain-number">02</div><h3>Email triage is not creating Cases</h3><p>Check the support mailbox address, Outlook connection, Dataverse connection, and flow run history.</p></div><div class="pain-card"><div class="pain-number">03</div><h3>Dashboard counts look wrong</h3><p>Confirm Queue Items point to active Dove365 Cases and that the default queue value matches the intended intake queue.</p></div></div></div></section>
-<section class="section" style="background:white;"><div class="container"><div class="section-tag">Related Guides</div><h2 class="display">Continue <em>learning</em></h2><div class="pain-grid" style="margin-top:3rem;"><div class="pain-card"><div class="pain-number">&rarr;</div><h3>Default Queue and Mailbox Intake</h3><p>Configure intake behaviour and validate email-created Cases.</p><div style="margin-top:1.5rem;"><a href="default-queue-mailbox.html" class="btn btn-outline">Read Guide &rarr;</a></div></div><div class="pain-card"><div class="pain-number">&rarr;</div><h3>Automation and Queue Setup</h3><p>Review the wider Support automation lifecycle.</p><div style="margin-top:1.5rem;"><a href="automation-queue-setup.html" class="btn btn-outline">Read Guide &rarr;</a></div></div><div class="pain-card"><div class="pain-number">&rarr;</div><h3>Admin Configuration</h3><p>Return to the overall administration guide.</p><div style="margin-top:1.5rem;"><a href="admin-configuration.html" class="btn btn-outline">Read Guide &rarr;</a></div></div></div></div></section>
-<section class="cta-section section-sm"><div class="container"><div class="cta-inner"><h2 class="display display-light">Need help with Dove365 Support <em>configuration?</em></h2><p>Book a free call and get your questions answered directly by Dove365.</p><div class="cta-actions"><a href="https://www.dove365.com/contact.html" class="btn btn-primary">Book a Call &rarr;</a><a href="../support-docs.html" class="btn btn-ghost-light">Back to Documentation</a></div></div></div></section>
-</div><script defer src="../../../assets/js/main.js?v=46"></script><script defer src="../../../assets/js/lab.js?v=1"></script></body></html>
+
+  <section class="svc-hero dx-hero dx-hero-plain" id="top">
+    <div class="hero-art" aria-hidden="true">
+      <img class="hero-art-grid" src="../../../assets/images/icons/Grid.svg" alt="" width="2169" height="725">
+    </div>
+    <div class="svc-hero-inner">
+      <div class="svc-hero-copy">
+        <a class="dg-crumb" href="../support-docs.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7" /> <path d="M19 12H5" /></svg> Dove365 Support documentation</a>
+        <h1>Environment Variables <em>Guide</em></h1>
+        <p>Configure the values Dove365 Support uses for queue intake, mailbox triage, automation routing, and dashboard calculations.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="dx-wrap">
+
+    <aside class="dx-side" aria-label="Documentation navigation">
+      <details class="dx-toc" open>
+        <summary><span>In this library</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <a class="dx-product" href="../support-docs.html"><img src="../../../assets/images/logo/Dove365Transparent.png" width="40" height="40" alt=""><div><strong>Dove365 Support</strong><span>All documentation</span></div></a>
+        <div class="dx-group"><a class="dx-head" href="../support-docs.html#start">Start here</a><a class="dx-link" href="training-material.html">Training material</a><a class="dx-link" href="support-dashboards-guide.html">Support dashboards guide</a></div><div class="dx-group"><a class="dx-head" href="../support-docs.html#user-guides">User guides</a><a class="dx-link" href="overview.html">Product Overview</a><a class="dx-link" href="support-user-guide.html">Daily Support Workflow</a><a class="dx-link" href="dashboards.html">Dashboards</a><a class="dx-link" href="kanban-board.html">Kanban Board</a><a class="dx-link" href="queue-workload-board.html">Queue Workload Board</a><a class="dx-link" href="accounts-contacts.html">Accounts and Contacts</a><a class="dx-link" href="managed-services.html">Managed Services</a><a class="dx-link" href="queues-queue-items.html">Queues and Queue Items</a><a class="dx-link" href="cases.html">Cases</a><a class="dx-link" href="activities-service-activities.html">Activities and Service Activities</a><a class="dx-link" href="time-tracker.html">Support Activity Time Tracker</a></div>
+        <div class="dx-group"><a class="dx-head" href="../support-docs.html#admin-guides">Admin guides</a><a class="dx-link" href="admin-configuration.html">Admin and Configuration Guide</a><a class="dx-link" href="automation-queue-setup.html">Automation and Queue Setup Guide</a><a class="dx-link" href="environment-variables.html" aria-current="page">Environment Variables</a><div class="dx-subs" aria-label="On this page"><a class="dx-sub" href="#configuration-values-used-by-automation">Configuration values used by automation</a><a class="dx-sub" href="#set-the-default-support-intake-queue">Set the default support intake queue</a><a class="dx-sub" href="#configure-mailbox-triage">Configure mailbox triage</a><a class="dx-sub" href="#common-configuration-issues">Common configuration issues</a></div><a class="dx-link" href="default-queue-mailbox.html">Default Queue and Mailbox Intake</a><a class="dx-link" href="security-roles.html">Security Roles</a><a class="dx-link" href="categories-subcategories.html">Categories and Subcategories</a><a class="dx-link" href="managed-service-automation.html">Managed Service Automation</a></div>
+        <div class="dx-group"><a class="dx-head" href="../support-docs.html#reference">Reference</a><a class="dx-link" href="faq.html">FAQ</a><a class="dx-link" href="release-notes.html">Release notes</a><a class="dx-link" href="../terms-and-conditions.html">Terms and conditions</a></div>
+      </details>
+    </aside>
+
+    <main class="dx-main">
+
+      <section class="dx-sec" id="configuration-values-used-by-automation">
+        <h2 class="dx-h2" id="configuration-values-used-by-automation-title">Configuration values used by <em>automation</em></h2>
+        <p class="dx-lead">Environment variables let administrators change deployment-specific values without editing flows or code. Dove365 Support uses them to identify the default support queue, support mailbox, and other tenant-specific configuration.</p>
+        <div class="dx-callout">Review these values after solution import, after environment copy, and whenever queue or mailbox ownership changes.</div>
+      </section>
+
+      <section class="dx-sec" id="set-the-default-support-intake-queue">
+        <h2 class="dx-h2" id="set-the-default-support-intake-queue-title">Set the default support <em>intake queue</em></h2>
+        <div class="dx-prose"><p>The default queue is used by mailbox triage, available-to-pick dashboard logic, and queue-based intake reporting.</p><ol class="doc-list ordered"><li>Open the Queue record that should receive new support work.</li><li>Copy the Queue GUID from the record URL.</li><li>Set <code>dove365_DefaultQueueGUID</code> to that value.</li><li>Run <code>Configure Default Queue</code> manually.</li><li>Send a controlled test email and confirm the Case enters the expected queue.</li></ol></div>
+        <div class="dx-box"><h3 class="dx-scope-title">Validation checks</h3><div class="dx-item">Queue exists and is active</div><div class="dx-item">GUID has no extra spaces</div><div class="dx-item">Users or teams can access the queue</div><div class="dx-item">New Queue Items appear in dashboards</div></div>
+      </section>
+
+      <section class="dx-sec" id="configure-mailbox-triage">
+        <h2 class="dx-h2" id="configure-mailbox-triage-title">Configure mailbox <em>triage</em></h2>
+        <p class="dx-lead">The support mailbox value identifies the mailbox monitored by the intake automation. It should match the mailbox that receives customer support requests.</p>
+        <ul class="dx-checks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /></svg><div><h3>Confirm the mailbox exists</h3><p>The mailbox should be active in Microsoft 365 and available to the connection used by the triage flow.</p></div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /></svg><div><h3>Confirm connections are signed in</h3><p>Both Outlook and Dataverse connection references need to be authenticated before triage can create Cases.</p></div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /></svg><div><h3>Test with a controlled email</h3><p>Use a known test message so you can confirm sender, subject, body, Case creation, and Queue Item placement.</p></div></li>
+        </ul>
+      </section>
+
+      <section class="dx-sec" id="common-configuration-issues">
+        <h2 class="dx-h2" id="common-configuration-issues-title">Common configuration <em>issues</em></h2>
+        <div class="dg-grid dx-grid dx-grid-3">
+          <div class="dg-card dx-plain dg-static"><h3>Cases are not entering a queue</h3><div class="dx-card-body"><p>Check the default queue GUID, confirm the Configure Default Queue flow has run, and verify the queue is active.</p></div><span></span></div>
+          <div class="dg-card dx-plain dg-static"><h3>Email triage is not creating Cases</h3><div class="dx-card-body"><p>Check the support mailbox address, Outlook connection, Dataverse connection, and flow run history.</p></div><span></span></div>
+          <div class="dg-card dx-plain dg-static"><h3>Dashboard counts look wrong</h3><div class="dx-card-body"><p>Confirm Queue Items point to active Dove365 Cases and that the default queue value matches the intended intake queue.</p></div><span></span></div>
+        </div>
+      </section>
+
+      <section class="dx-sec" id="continue-learning">
+        <h2 class="dx-h2" id="continue-learning-title">Continue <em>learning</em></h2>
+        <div class="dg-grid dx-grid dx-grid-3">
+          <a class="dg-card dx-plain" href="default-queue-mailbox.html"><h3>Default Queue and Mailbox Intake</h3><div class="dx-card-body"><p>Configure intake behaviour and validate email-created Cases.</p></div><span class="dg-go">Read Guide &rarr;</span></a>
+          <a class="dg-card dx-plain" href="automation-queue-setup.html"><h3>Automation and Queue Setup</h3><div class="dx-card-body"><p>Review the wider Support automation lifecycle.</p></div><span class="dg-go">Read Guide &rarr;</span></a>
+          <a class="dg-card dx-plain" href="admin-configuration.html"><h3>Admin Configuration</h3><div class="dx-card-body"><p>Return to the overall administration guide.</p></div><span class="dg-go">Read Guide &rarr;</span></a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <section class="cta-section ai-cta section" id="help">
+    <div class="ai-cta-inner ai-cta-single">
+      <div class="hero-art" aria-hidden="true">
+        <img class="hero-art-grid" src="../../../assets/images/icons/Grid.svg" alt="" width="2169" height="725">
+      </div>
+      <div class="ai-cta-copy">
+        <h2 class="display display-light">Cannot find <em>what you need?</em></h2>
+        <p>Tell us what you were trying to do and we will point you to the right guide, or help with the question itself.</p>
+        <div class="cta-actions">
+          <a href="https://www.dove365.com/contact.html" class="btn btn-primary">Talk to us →</a>
+          <a href="https://www.dove365.com" class="btn btn-ghost-light">Back to main site</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top footer-3col">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../../../assets/images/logo/LogoTransparent.svg" width="500" height="500" alt="" aria-hidden="true"><span class="footer-logo-text">Dove365<small>Documentation</small></span></div>
+        <p>Guides for the Dove365 products you run on Microsoft Power Platform.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="../../../docs.html">Documentation home</a></li>
+          <li><a href="../../../Products/Dove365-CRM-Starter/crm-docs.html">Dove365 CRM &#8212; Starter</a></li>
+          <li><a href="../../../Products/Dove365%20Support/support-docs.html">Dove365 Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dove365</h4>
+        <ul>
+          <li><a href="https://www.dove365.com">Back to main site</a></li>
+          <li><a href="https://www.dove365.com/contact.html">Talk to us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dove365 Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>
+        <a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a>
+        <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+<script>
+(function(){var t=document.querySelector('.dx-toc');if(t&&window.matchMedia('(max-width:1000px)').matches)t.removeAttribute('open');
+var subs=[].slice.call(document.querySelectorAll('.dx-sub'));if(!subs.length||!('IntersectionObserver' in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){subs.forEach(function(a){a.classList.toggle('is-current',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-20% 0px -70% 0px'});
+subs.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)io.observe(s)});})();
+</script>
+
+</div>
+
+<script defer src="../../../assets/js/docs.js?v=1"></script>
+</body>
+</html>
