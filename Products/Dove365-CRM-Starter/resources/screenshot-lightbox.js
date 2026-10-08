@@ -14,8 +14,8 @@
     '.screenshot-lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:4rem 1.25rem 1.25rem;background:rgba(4,15,28,.92)}' +
     '.screenshot-lightbox.is-open{display:flex}' +
     '.screenshot-lightbox img{display:block;max-width:min(96vw,1600px);max-height:calc(100vh - 5.5rem);width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.45)}' +
-    '.screenshot-lightbox-close{position:absolute;top:1rem;right:1rem;width:44px;height:44px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:#fff;color:#091f37;font:700 1.6rem/1 sans-serif;cursor:pointer}' +
-    '.screenshot-lightbox-close:focus-visible{outline:3px solid #42d3c7;outline-offset:3px}' +
+    '.screenshot-lightbox-close{position:absolute;top:1rem;right:1rem;width:44px;height:44px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:#fff;color:#051926;font:700 1.6rem/1 sans-serif;cursor:pointer}' +
+    '.screenshot-lightbox-close:focus-visible{outline:3px solid #53B1CD;outline-offset:3px}' +
     'body.screenshot-lightbox-open{overflow:hidden}';
   document.head.appendChild(style);
 

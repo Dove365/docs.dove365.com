@@ -12,7 +12,10 @@
   <style>
     :root {
       --navy: #233644;
-      --navy-deep: #0f1e28;
+      --navy-deep: #051926;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --slate: #CAD9DD;
       --teal: #078396;
       --teal-dark: #056281;
       --teal-light: #53B1CD;
@@ -81,6 +84,10 @@
       50%       { transform: translate(26px, -18px) scale(1.08); }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      body::before, body::after { animation: none; }
+    }
+
     /* ── FORM CARD ── */
     .form-card {
       position: relative;
@@ -90,7 +97,8 @@
       padding: 0;
       width: 100%;
       max-width: 580px;
-      border: 1px solid rgba(83,177,205,0.12);
+      border: 1px solid rgba(83,177,205,0.16);
+      border-top: 3px solid var(--gold);
       box-shadow: 0 24px 64px rgba(0,0,0,0.35);
       overflow: hidden;
     }
@@ -111,6 +119,7 @@
     .card-header img { display: block; flex-shrink: 0; }
     .card-header span {
       font-family: 'DM Serif Display', serif;
+      font-weight: 400;
       font-size: 1.05rem;
       color: var(--off-white);
       letter-spacing: 0.01em;
@@ -118,9 +127,11 @@
 
     .form-card h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
+      font-weight: 400;
+      font-size: 1.85rem;
+      line-height: 1.15;
       color: var(--navy);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
     .form-card h1 em { font-style: italic; color: var(--teal); }
     .card-body > p {
@@ -159,6 +170,11 @@
     .form-group textarea:focus,
     .form-group select:focus {
       border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(83,177,205,0.35);
+    }
+    .drop-zone-btn:focus-visible, .btn-submit:focus-visible, .file-remove:focus-visible, .page-copyright a:focus-visible {
+      outline: 3px solid var(--teal-light);
+      outline-offset: 2px;
     }
     .form-group textarea {
       resize: vertical;
@@ -288,7 +304,30 @@
       line-height: 1.5;
       text-align: center;
     }
-    .form-success {
+
+    @media (max-width: 520px) {
+      body { padding: 1.5rem 1rem; justify-content: flex-start; }
+      .card-body { padding: 1.5rem 1.25rem 1.75rem; }
+      .form-card h1 { font-size: 1.65rem; }
+    }
+
+    /* ── COPYRIGHT ── */
+    .page-copyright {
+      position: relative;
+      z-index: 1;
+      margin-top: 1.75rem;
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      line-height: 1.8;
+      max-width: 580px;
+    }
+    .page-copyright a {
+      color: var(--teal-light);
+      text-decoration: none;
+    }
+    .page-copyright a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+      .form-success {
       display: none;
       margin-top: 1.5rem;
       padding: 1.25rem;
@@ -309,21 +348,7 @@
       color: var(--mid);
       margin-bottom: 0.9rem;
     }
-
-    /* ── COPYRIGHT ── */
-    .page-copyright {
-      position: relative;
-      z-index: 1;
-      margin-top: 1.75rem;
-      font-size: 0.73rem;
-      color: rgba(255,255,255,0.28);
-      text-align: center;
-    }
-    .page-copyright a {
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-    }
-    .page-copyright a:hover { color: rgba(255,255,255,0.7); }
+    .form-success:focus-visible { outline: 3px solid var(--teal-light); outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -361,10 +386,13 @@
           <option value="" disabled selected>Select an app</option>
           <option value="Dove365 CRM - Starter">Dove365 CRM — Starter</option>
           <option value="Dove365 Support">Dove365 Support</option>
-          <option value="Dove365 Church Connect">Dove365 Church Connet</option>
+          <option value="Dove365 Sales">Dove365 Sales (coming soon)</option>
+          <option value="Dove365 ProjectFlow">Dove365 ProjectFlow (coming soon)</option>
+          <option value="Dove365 Not-for-Profit Accelerator">Dove365 Not-for-Profit Accelerator (coming soon)</option>
+          <option value="Dove365 Church Connect">Dove365 Church Connect</option>
           <option value="Dove365 Raise">Dove365 Raise</option>
           <option value="Dove365 Admin">Dove365 Admin</option>
-          <option value="Dove365 Other">Other Dove365 Products</option>
+          <option value="Other Dove365 Products">Other Dove365 Products</option>
         </select>
       </div>
 
@@ -405,10 +433,11 @@
   <p class="page-copyright">
     © 2026 Dove365 Ltd. All rights reserved.&ensp;·&ensp;
     <a href="https://www.dove365.com/privacy-policy.html">Privacy Policy</a>&ensp;·&ensp;
+    <a href="https://www.dove365.com/cookie-policy.html">Cookie Policy</a>&ensp;·&ensp;
     <a href="https://www.dove365.com/terms-and-conditions.html">Terms &amp; Conditions</a>
   </p>
 
-<script defer src="assets/js/main.js?v=46"></script>
+<script defer src="assets/js/docs.js?v=1"></script>
 <script>
 (function () {
   var MAX_FILES = 1;
